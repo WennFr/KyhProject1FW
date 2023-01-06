@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KyhProject1FW
+namespace KyhProject1FW.Menus
 {
     public class Menu
     {
+
+
+
     }
 }
