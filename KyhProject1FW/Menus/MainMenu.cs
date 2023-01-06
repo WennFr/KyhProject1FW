@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.Menus
 {
-    public class Menu
+    public class MainMenu
     {
+        public void PrintMenu()
+        {
 
+
+
+
+
+        }
 
 
     }
