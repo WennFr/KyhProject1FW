@@ -16,7 +16,6 @@ namespace KyhProject1FW.Menus
             Console.WriteLine("3) Rock,Paper,Scissors");
             Console.WriteLine("0) Quit");
         }
-
         public void ShapesMenu() 
         {
             Console.WriteLine($" Shapes {Environment.NewLine}");
@@ -27,7 +26,6 @@ namespace KyhProject1FW.Menus
             Console.WriteLine("0) Go back to main menu");
 
         }
-
         public void ChooseAShapeToCreateMenu()
         {
             Console.WriteLine("1) Rectangle");
@@ -37,7 +35,6 @@ namespace KyhProject1FW.Menus
             Console.WriteLine("0) Go back to previous menu");
 
         }
-
         public void CalculatorMenu() 
         {
             Console.WriteLine($" Calculator {Environment.NewLine}");
@@ -57,13 +54,11 @@ namespace KyhProject1FW.Menus
             Console.WriteLine("5) √");
             Console.WriteLine("6) %");
         }
-
         public void GameMenu()
         {
             Console.WriteLine($"Rock,Paper,Scissors {Environment.NewLine}");
             Console.WriteLine("1) Play Game");
             Console.WriteLine("2) View Highscore");
-
         }
 
     }
