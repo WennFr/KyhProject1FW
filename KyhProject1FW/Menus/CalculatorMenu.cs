@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.Menus
 {
-    public class CalculatorMenu
+    public class CalculatorMenu 
     {
 
-        public void ShowCalculatorMenu()
+        public void ShowMenu()
         {
-            Console.WriteLine($" Calculator {Environment.NewLine}");
-            Console.WriteLine("1) Create calculations");
-            Console.WriteLine("2) View calculations");
-            Console.WriteLine("3) Edit calculations");
-            Console.WriteLine("4) Delete calculations");
+            Console.Clear();
+            Console.WriteLine($"Calculator {Environment.NewLine}");
+            Console.WriteLine("1) Create");
+            Console.WriteLine("2) View");
+            Console.WriteLine("3) Edit");
+            Console.WriteLine("4) Delete");
             Console.WriteLine("0) Go back to main menu");
 
+            MenuSelection();
         }
-        public void ChooseAnOperatorMenu()
+        public void ChooseOperatorMenu()
         {
             Console.WriteLine("1) +");
             Console.WriteLine("2) -");
@@ -28,6 +30,31 @@ namespace KyhProject1FW.Menus
             Console.WriteLine("5) √");
             Console.WriteLine("6) %");
         }
+
+        public bool MenuSelection()
+        {
+            var selectionMenuMaxLimit = 4;
+            var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
+
+            switch (selection)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 0:
+                    return false;
+
+            }
+            return true;
+        }
+
+
+
 
 
     }

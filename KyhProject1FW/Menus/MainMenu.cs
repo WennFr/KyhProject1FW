@@ -8,17 +8,17 @@ namespace KyhProject1FW.Menus
 {
     public class MainMenu
     {
-        private ShapesMenu shapesMenu;
-        private CalculatorMenu calculatorMenu;
-        private GameMenu gameMenu;
-        public bool IsApplicationRunning  { get; set; }
+        private ShapeMenu _shapeMenu;
+        private CalculatorMenu _calculatorMenu;
+        private GameMenu _gameMenu;
+        public bool IsApplicationRunning { get; set; }
 
         public MainMenu()
         {
             IsApplicationRunning = true;
-            shapesMenu = new ShapesMenu();
-            calculatorMenu = new CalculatorMenu();
-            gameMenu = new GameMenu();
+            _shapeMenu = new ShapeMenu();
+            _calculatorMenu = new CalculatorMenu();
+            _gameMenu = new GameMenu();
         }
 
         public virtual void ShowMenu()
@@ -38,38 +38,28 @@ namespace KyhProject1FW.Menus
         public virtual bool MenuSelection()
         {
             var selectionMenuMaxLimit = 3;
-            var selection = ValidateMenuSelection(selectionMenuMaxLimit);
+            var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
 
             switch (selection)
             {
                 case 1:
-                    shapesMenu.ShowMenu();
+                    _shapeMenu.ShowMenu();
                     break;
                 case 2:
+                    _calculatorMenu.ShowMenu();
                     break;
                 case 3:
+                    _gameMenu.ShowMenu();
                     break;
                 case 4:
                     break;
                 case 0:
                     return false;
-                    
+
             }
             return true;
         }
-        public int ValidateMenuSelection(int selectionMenuMaxLimit)
-        {
-            int intSelection;
-            Console.WriteLine($"{Environment.NewLine}Välj i menyn:");
-            while (true)
-            {
-                Console.Write("> ");
-                if (int.TryParse(Console.ReadLine(), out intSelection) && intSelection >= 0 && intSelection <= selectionMenuMaxLimit)
-                    return intSelection;
-
-                Console.WriteLine("Choose between the available menu numbers");
-            }
-        }
+       
 
     }
 }

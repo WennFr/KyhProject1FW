@@ -6,27 +6,23 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.Menus
 {
-    public class ShapesMenu : MainMenu
+    public class ShapeMenu 
     {
 
-        public ShapesMenu()
-        {
-            
-        }
-        public override void ShowMenu()
+        public  void ShowMenu()
         {
             Console.Clear();
             Console.WriteLine($"Shapes {Environment.NewLine}");
-            Console.WriteLine("1) Create shapes");
-            Console.WriteLine("2) View shapes");
-            Console.WriteLine("3) Edit shapes");
-            Console.WriteLine("4) Delete shapes");
+            Console.WriteLine("1) Create");
+            Console.WriteLine("2) View");
+            Console.WriteLine("3) Edit");
+            Console.WriteLine("4) Delete");
             Console.WriteLine("0) Go back to main menu");
 
             MenuSelection();
 
         }
-        public void ChooseAShapeToCreateMenu()
+        public void CreateShapeMenu()
         {
             Console.WriteLine("1) Rectangle");
             Console.WriteLine("2) Parallelogram");
@@ -36,11 +32,11 @@ namespace KyhProject1FW.Menus
 
         }
 
-        public override bool MenuSelection()
+        public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 4;
 
-            var selection = ValidateMenuSelection(selectionMenuMaxLimit);
+            var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
 
             switch (selection)
             {
