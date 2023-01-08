@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KyhProject1FW.Menus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,8 @@ namespace KyhProject1FW
         public void Run()
         {
 
-
-
-
+            var mainMenu = new MainMenu();
+            mainMenu.ShowMenu();
 
         }
 
