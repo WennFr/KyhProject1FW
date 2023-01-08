@@ -11,7 +11,7 @@ namespace KyhProject1FW.Menus
         public static int ValidateSelection(int selectionMenuMaxLimit)
         {
             int intSelection;
-            Console.WriteLine($"{Environment.NewLine}Välj i menyn:");
+            Console.WriteLine($"{Environment.NewLine}Menu select:");
             while (true)
             {
                 Console.Write("> ");
