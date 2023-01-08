@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.Menus
 {
-    internal class GameMenu
+    public class GameMenu
     {
+
+        public void ShowGameMenu()
+        {
+            Console.WriteLine($"Rock,Paper,Scissors {Environment.NewLine}");
+            Console.WriteLine("1) Play Game");
+            Console.WriteLine("2) View Highscore");
+        }
+
+
     }
 }
