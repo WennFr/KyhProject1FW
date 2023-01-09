@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.Data
 {
-    internal class Builder
+    public class Builder
     {
+
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.Data
 {
-    internal class ApplicationDbContext
+    public class ApplicationDbContext
     {
     }
 }
