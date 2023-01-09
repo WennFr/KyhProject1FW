@@ -12,6 +12,8 @@ namespace KyhProject1FW.Data
         [Key] 
         public int Id { get; set; }
         [Required]
+        public Shape Shape { get; set; }
+        [Required]
         public int Height { get; set; }
         [Required]
         public int Width { get; set; }
