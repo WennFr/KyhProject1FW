@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KyhProject1FW.Interfaces;
 
 namespace KyhProject1FW.Menus
 {
-    public class ShapeMenu 
+    public class ShapeMenu : IMenu
     {
 
         public  void ShowMenu()

@@ -12,7 +12,7 @@ namespace KyhProject1FW
         public void Run()
         {
 
-            var mainMenu = new MainMenu();
+            var mainMenu = new MainMenu(new ShapeMenu(), new CalculatorMenu(), new GameMenu());
             mainMenu.ShowMenu();
 
         }

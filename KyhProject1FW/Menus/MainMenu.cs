@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KyhProject1FW.Interfaces;
 
 namespace KyhProject1FW.Menus
 {
-    public class MainMenu
+    public class MainMenu 
     {
-        private ShapeMenu _shapeMenu;
-        private CalculatorMenu _calculatorMenu;
-        private GameMenu _gameMenu;
+        private IMenu _shapeMenu;
+        private IMenu _calculatorMenu;
+        private IMenu _gameMenu;
         public bool IsApplicationRunning { get; set; }
 
-        public MainMenu()
+        public MainMenu(IMenu shapeMenu, IMenu calculatorMenu, IMenu gameMenu)
         {
             IsApplicationRunning = true;
-            _shapeMenu = new ShapeMenu();
-            _calculatorMenu = new CalculatorMenu();
-            _gameMenu = new GameMenu();
+            _shapeMenu = shapeMenu;
+            _calculatorMenu = calculatorMenu;
+            _gameMenu = gameMenu;
         }
 
-        public virtual void ShowMenu()
+        public void ShowMenu()
         {
             while (IsApplicationRunning)
             {
@@ -35,7 +36,7 @@ namespace KyhProject1FW.Menus
                 IsApplicationRunning = MenuSelection();
             }
         }
-        public virtual bool MenuSelection()
+        public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 3;
             var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
@@ -50,8 +51,6 @@ namespace KyhProject1FW.Menus
                     break;
                 case 3:
                     _gameMenu.ShowMenu();
-                    break;
-                case 4:
                     break;
                 case 0:
                     return false;

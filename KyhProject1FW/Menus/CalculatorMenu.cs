@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KyhProject1FW.Interfaces;
 
 namespace KyhProject1FW.Menus
 {
-    public class CalculatorMenu 
+    public class CalculatorMenu : IMenu
     {
 
         public void ShowMenu()
