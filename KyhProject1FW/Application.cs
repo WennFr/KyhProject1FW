@@ -15,6 +15,7 @@ namespace KyhProject1FW
             var mainMenu = new MainMenu(new ShapeMenu(), new CalculatorMenu(), new GameMenu());
             mainMenu.ShowMenu();
 
+
         }
 
     }
