@@ -9,12 +9,18 @@ namespace KyhProject1FW.Menus
 {
     public class ShapeMenu : IMenu
     {
-        private IDbContext _dbContext;
-        public ShapeMenu(IDbContext dbContext)
+        private ICreateResult _createResult;
+        private IReadResult _readResult;
+        private IUpdateResult _updateResult;
+        private IDeleteResult _deleteResult;
+        public ShapeMenu(ICreateResult createResult, IReadResult readResult, IUpdateResult updateResult, IDeleteResult deleteResult)
         {
-            _dbContext = dbContext;
+            _createResult = createResult;
+            _readResult = readResult;
+            _updateResult = updateResult;
+            _deleteResult = deleteResult;
         }
-        public  void ShowMenu()
+        public void ShowMenu()
         {
             Console.Clear();
             Console.WriteLine($"Shapes {Environment.NewLine}");
@@ -46,12 +52,16 @@ namespace KyhProject1FW.Menus
             switch (selection)
             {
                 case 1:
+                    _createResult.Create();
                     break;
                 case 2:
+                    _readResult.Read();
                     break;
                 case 3:
+                    _updateResult.Update();
                     break;
                 case 4:
+                    _deleteResult.Delete();
                     break;
                 case 0:
                     return false;

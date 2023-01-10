@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KyhProject1FW.Data;
 using KyhProject1FW.Interfaces;
+using KyhProject1FW.ShapeControllers;
 
 namespace KyhProject1FW
 {
@@ -15,11 +16,8 @@ namespace KyhProject1FW
         {
             Builder.BuildDatabase();
             IDbContext dbContext = Builder.InitializeData();
-            var mainMenu = new MainMenu(new ShapeMenu(dbContext), new CalculatorMenu(dbContext), new GameMenu(dbContext));
+            var mainMenu = MenuDependencyInjection.InitializeMainMenu(dbContext);
             mainMenu.ShowMenu();
-
-             
-
 
         }
 
