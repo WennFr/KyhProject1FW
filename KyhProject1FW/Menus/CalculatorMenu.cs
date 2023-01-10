@@ -9,6 +9,11 @@ namespace KyhProject1FW.Menus
 {
     public class CalculatorMenu : IMenu
     {
+        private IDbContext _dbContext;
+        public CalculatorMenu(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         public void ShowMenu()
         {
