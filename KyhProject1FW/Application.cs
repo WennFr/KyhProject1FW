@@ -19,6 +19,7 @@ namespace KyhProject1FW
             var mainMenu = MenuDependencyInjection.InitializeMainMenu(dbContext);
             mainMenu.ShowMenu();
 
+
         }
 
     }
