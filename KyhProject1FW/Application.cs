@@ -18,6 +18,7 @@ namespace KyhProject1FW
             var mainMenu = new MainMenu(new ShapeMenu(dbContext), new CalculatorMenu(dbContext), new GameMenu(dbContext));
             mainMenu.ShowMenu();
 
+             
 
         }
 
