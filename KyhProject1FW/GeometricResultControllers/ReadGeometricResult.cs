@@ -7,13 +7,23 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    public class ReadGeometricResult
+    public class ReadGeometricResult : IReadResult
     {
         private IDbContext _dbContext;
         public ReadGeometricResult(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
+        public void Read()
+        {
+
+
+
+
+
+        }
+
 
     }
 }

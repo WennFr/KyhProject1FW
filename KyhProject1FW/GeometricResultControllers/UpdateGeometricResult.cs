@@ -7,12 +7,21 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    public class UpdateGeometricResult
+    public class UpdateGeometricResult : IUpdateResult
     {
         private IDbContext _dbContext;
         public UpdateGeometricResult(IDbContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        public void Update()
+        {
+
+
+
+
+
         }
 
 

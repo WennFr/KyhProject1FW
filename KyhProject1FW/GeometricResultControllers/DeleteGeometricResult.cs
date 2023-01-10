@@ -7,12 +7,24 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    public class DeleteGeometricResult
+    public class DeleteGeometricResult : IDeleteResult
     {
         private IDbContext _dbContext;
         public DeleteGeometricResult(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
+        public void Delete()
+        {
+
+
+
+
+
+        }
+
+
+
     }
 }
