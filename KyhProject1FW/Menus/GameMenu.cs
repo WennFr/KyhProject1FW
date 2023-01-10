@@ -9,7 +9,11 @@ namespace KyhProject1FW.Menus
 {
     public class GameMenu : IMenu
     {
-      
+        private IDbContext _dbContext;
+        public GameMenu(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public void ShowMenu()
         {
             Console.Clear();
