@@ -20,6 +20,7 @@ namespace KyhProject1FW.Menus
             _shapeMenu = shapeMenu;
             _calculatorMenu = calculatorMenu;
             _gameMenu = gameMenu;
+
         }
 
         public void ShowMenu()
