@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KyhProject1FW.Interfaces;
 
 namespace KyhProject1FW.Data
 {
     public class DataInitializer
     {
-        public ApplicationDbContext dbContext { get; set; }
+        private ApplicationDbContext dbContext { get; set; }
 
         public DataInitializer(ApplicationDbContext context)
         {

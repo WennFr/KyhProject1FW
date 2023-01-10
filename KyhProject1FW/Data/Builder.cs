@@ -30,9 +30,7 @@ namespace KyhProject1FW.Data
                 dataInitializer.Migrate();
                 dataInitializer.Seed();
 
-
-                var dbContextReturned = new ApplicationDbContext(options.Options);
-                return dbContextReturned;
+                return dbContext;
             }
 
         }

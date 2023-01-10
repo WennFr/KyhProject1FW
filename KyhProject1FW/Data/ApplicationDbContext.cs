@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KyhProject1FW.Interfaces;
 
 namespace KyhProject1FW.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext,IDbContext
     {
+
         public DbSet<Shape> Shapes { get; set; }
         public DbSet<GeometricResult> GeometricResults { get; set; }
         public DbSet<CalculationResult> CalculationResults { get; set; }
