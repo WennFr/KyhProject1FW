@@ -9,7 +9,11 @@ namespace KyhProject1FW.Menus
 {
     public class ShapeMenu : IMenu
     {
-
+        private IDbContext _dbContext;
+        public ShapeMenu(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public  void ShowMenu()
         {
             Console.Clear();

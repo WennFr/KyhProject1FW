@@ -15,7 +15,7 @@ namespace KyhProject1FW
         {
             Builder.BuildDatabase();
             IDbContext dbContext = Builder.InitializeData();
-            var mainMenu = new MainMenu(new ShapeMenu(), new CalculatorMenu(), new GameMenu());
+            var mainMenu = new MainMenu(new ShapeMenu(dbContext), new CalculatorMenu(), new GameMenu());
             mainMenu.ShowMenu();
 
 
