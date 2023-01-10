@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    internal class GeometricResultController
+    public class GeometricResultController
     {
     }
 }

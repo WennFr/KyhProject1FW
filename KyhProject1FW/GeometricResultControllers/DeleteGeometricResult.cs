@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KyhProject1FW.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,10 @@ namespace KyhProject1FW.ShapeControllers
 {
     public class DeleteGeometricResult
     {
+        private IDbContext _dbContext;
+        public DeleteGeometricResult(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
     }
 }
