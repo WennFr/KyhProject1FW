@@ -12,8 +12,8 @@ namespace KyhProject1FW.ShapeControllers
     public class CreateGeometricResult : ICreateResult
     {
         private IDbContext _dbContext;
-        private IController _controller;
-        public CreateGeometricResult(IDbContext dbContext, IController controller)
+        private GeometricResultController _controller;
+        public CreateGeometricResult(IDbContext dbContext, GeometricResultController controller)
         {
             _dbContext = dbContext;
             _controller = controller;
@@ -22,37 +22,17 @@ namespace KyhProject1FW.ShapeControllers
         public void Create()
         {
             Console.Clear();
-            var isRunning = true;
-            while (isRunning)
+            while (true)
             {
-                ChooseShapeToCreate();
+                _controller.DisplayShapeToCreate();
                 var userSelection = ValidateMenuSelection.ValidateSelection(4);
-                Shape shapeToUseForGeometricResult;
-                switch (userSelection)
-                {
-                    case 1:
-                         shapeToUseForGeometricResult = _dbContext.Shapes.FirstOrDefault(s =>
-                            s.TypeOfShape == Convert.ToString(Shape.shape.Rectangle));
-                        break;
-                    case 2:
-                        shapeToUseForGeometricResult = _dbContext.Shapes.FirstOrDefault(s =>
-                            s.TypeOfShape == Convert.ToString(Shape.shape.Paralellogram));
-                        break;
-                    case 3:
-                        shapeToUseForGeometricResult = _dbContext.Shapes.FirstOrDefault(s =>
-                            s.TypeOfShape == Convert.ToString(Shape.shape.Triangle));
-                        break;
-                    case 4:
-                        shapeToUseForGeometricResult = _dbContext.Shapes.FirstOrDefault(s =>
-                            s.TypeOfShape == Convert.ToString(Shape.shape.Rhombus));
-                        break;
-                    case 0:
-                        isRunning = false;
-                        break;
-                }
 
+                if (userSelection == 0)
+                    break;
 
+                var shapeToUseForGeometricResult = _controller.InitiateShapeToCreate(userSelection);
 
+                Console.WriteLine("Write ");
 
 
 
@@ -62,16 +42,6 @@ namespace KyhProject1FW.ShapeControllers
 
         }
 
-        public void ChooseShapeToCreate()
-        {
-            Console.WriteLine($"Choose a shape to create: {Environment.NewLine}");
-
-            Console.WriteLine("1) Rectangle");
-            Console.WriteLine("2) Parallelogram");
-            Console.WriteLine("3) Triangle");
-            Console.WriteLine("4) Rhombus");
-            Console.WriteLine("0) Go back to previous menu");
-        }
 
     }
 }
