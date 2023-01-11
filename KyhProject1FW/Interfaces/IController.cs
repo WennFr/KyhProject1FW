@@ -9,8 +9,5 @@ namespace KyhProject1FW.Interfaces
     public interface IController
     {
 
-
-
-
     }
 }

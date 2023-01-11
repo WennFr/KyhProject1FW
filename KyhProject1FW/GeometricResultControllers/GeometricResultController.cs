@@ -10,7 +10,7 @@ namespace KyhProject1FW.ShapeControllers
     public class GeometricResultController : IController
     {
 
-
+    
 
 
 
