@@ -10,9 +10,11 @@ namespace KyhProject1FW.ShapeControllers
     public class CreateGeometricResult : ICreateResult
     {
         private IDbContext _dbContext;
-        public CreateGeometricResult(IDbContext dbContext)
+        private IController _controller;
+        public CreateGeometricResult(IDbContext dbContext, IController controller)
         {
             _dbContext = dbContext;
+            _controller = controller;
         }
 
         public void Create()

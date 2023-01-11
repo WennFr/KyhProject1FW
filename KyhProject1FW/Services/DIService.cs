@@ -15,11 +15,10 @@ namespace KyhProject1FW.Services
     {
         public static MainMenu InitializeMainMenuDI(IDbContext dbContext)
         {
-
             var geometricResultController = new GeometricResultController();
 
             return new MainMenu(
-                new ShapeMenu(new CreateGeometricResult(dbContext), new ReadGeometricResult(dbContext),
+                new ShapeMenu(new CreateGeometricResult(dbContext,geometricResultController), new ReadGeometricResult(dbContext),
                     new UpdateGeometricResult(dbContext), new DeleteGeometricResult(dbContext)),
                 new CalculatorMenu(), new GameMenu());
         }
