@@ -15,5 +15,14 @@ namespace KyhProject1FW.Data
         public string TypeOfShape { get; set; }
         public DateTime CreatedDate { get; set; }
 
+
+        public enum shape
+        {
+            Rectangle,
+            Paralellogram,
+            Triangle,
+            Rhombus
+        }
+
     }
 }
