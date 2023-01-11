@@ -32,7 +32,11 @@ namespace KyhProject1FW.ShapeControllers
 
                 var shapeToUseForGeometricResult = _controller.InitiateShapeToCreate(userSelection);
 
-                Console.WriteLine("Write ");
+                Console.WriteLine("Base: ");
+                var baseInput = ValidateUserInput.ValidateDecimalInputAboveZero();
+
+                Console.WriteLine("Height:");
+                var heightInput = ValidateUserInput.ValidateDecimalInputAboveZero();
 
 
 
