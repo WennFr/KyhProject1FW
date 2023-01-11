@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using KyhProject1FW.Data;
 using KyhProject1FW.Interfaces;
 using KyhProject1FW.Validations;
+using MathLibrary;
 
 namespace KyhProject1FW.ShapeControllers
 {
@@ -38,8 +39,12 @@ namespace KyhProject1FW.ShapeControllers
                 Console.WriteLine("Height:");
                 var heightInput = ValidateUserInput.ValidateDecimalInputAboveZero();
 
+                var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
+
+                var perimiter = calculate.CalculatePerimiter();
 
 
+                
 
             }
 

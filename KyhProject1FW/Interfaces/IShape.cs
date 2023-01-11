@@ -9,14 +9,7 @@ namespace KyhProject1FW.Interfaces
     public interface IShape
     {
 
-        public enum shape
-        {
-            Rectangle,
-            Paralellogram,
-            Triangle,
-            Rhombus
-        }
-
+        public string TypeOfShape { get; set; }
 
     }
 }

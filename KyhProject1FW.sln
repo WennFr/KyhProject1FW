@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KyhProject1FW", "KyhProject1FW\KyhProject1FW.csproj", "{6E5B323E-D45B-4A71-A72E-E766E0583428}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibrary", "MathLibrary\MathLibrary.csproj", "{535C1CE0-844F-4E83-9D48-193CF21B9711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6E5B323E-D45B-4A71-A72E-E766E0583428}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E5B323E-D45B-4A71-A72E-E766E0583428}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E5B323E-D45B-4A71-A72E-E766E0583428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535C1CE0-844F-4E83-9D48-193CF21B9711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535C1CE0-844F-4E83-9D48-193CF21B9711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535C1CE0-844F-4E83-9D48-193CF21B9711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535C1CE0-844F-4E83-9D48-193CF21B9711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
