@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainMenuApp.Menus.Menus;
+using ServiceLibrary.Interfaces;
+using ShapeApp.Menus;
 
 namespace ShapeApp
 {
-    public class ShapeApplication
+    public class ShapeApplication : IProject
     {
-
-        public void ShowMenu()
+        private IMenu _shapeMenu;
+        public ShapeApplication(IMenu shapeMenu)
         {
-
-            var shapeMenu = new ShapeMenu();
-            shapeMenu.ShowMenu();
-
+            _shapeMenu = shapeMenu;
+        }
+        public void StartApplication()
+        {
+            _shapeMenu.ShowMenu();
         }
 
     }

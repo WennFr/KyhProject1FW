@@ -3,50 +3,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainMenuApp.Interfaces;
+using ServiceLibrary.Interfaces;
+using ServiceLibrary.Validations;
 
-namespace MainMenuApp.ShapeControllers
+namespace MainMenuApp.GeometryResultControllers
 {
     public class CreateGeometryResult : ICreateResult
     {
         private IDbContext _dbContext;
-        private GeometryResultController _controller;
-        public CreateGeometryResult(IDbContext dbContext, GeometryResultController controller)
+        private IController _controller;
+        public CreateGeometryResult(IDbContext dbContext, IController controller)
         {
             _dbContext = dbContext;
             _controller = controller;
         }
 
-        //public void Create()
-        //{
-        //    Console.Clear();
-        //    while (true)
-        //    {
-        //        _controller.DisplayShapeToCreate();
-        //        var userSelection = ValidateMenuSelection.ValidateSelection(4);
+        public void Create()
+        {
+            Console.Clear();
+            while (true)
+            {
+                _controller.DisplaySelection();
+                var userSelection = ValidateInput.ValidateSelection(4);
 
-        //        if (userSelection == 0)
-        //            break;
+                if (userSelection == 0)
+                    break;
 
-        //        var shapeToUseForGeometricResult = _controller.InitiateShapeToCreate(userSelection);
+                var shapeToUseForGeometryResult = _controller.ReturnShapeObject(userSelection);
 
-        //        Console.WriteLine("Base: ");
-        //        var baseInput = ValidateUserInput.ValidateDecimalInputAboveZero();
+                Console.WriteLine("Base: ");
+                var baseInput = ValidateInput.ValidateDecimalInputAboveZero();
 
-        //        Console.WriteLine("Height:");
-        //        var heightInput = ValidateUserInput.ValidateDecimalInputAboveZero();
+                Console.WriteLine("Height:");
+                var heightInput = ValidateInput.ValidateDecimalInputAboveZero();
 
-        //        var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
+                //var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
 
-        //        var perimiter = calculate.CalculatePerimiter();
-
-
-                
-
-        //    }
+                //var perimiter = calculate.CalculatePerimiter();
 
 
-        //}
+
+
+            }
+
+
+        }
 
 
     }

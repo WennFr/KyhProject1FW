@@ -1,18 +1,20 @@
 ﻿using MainMenuApp.GeometryResultControllers;
-using MainMenuApp.Interfaces;
+using MainMenuApp.GeometryResultControllers;
 using MainMenuApp.Menus;
-using MainMenuApp.ShapeControllers;
 using ServiceLibrary.Interfaces;
+using ShapeApp;
+using ShapeApp.Menus;
 
 namespace MainMenuApp.Services
 {
     public static class DIService
     {
-        public static MainMenu InitializeMainMenuDI(IDbContext dbContext, IValidateServices validateServices)
+        public static MainMenu InitializeMainMenuDI(IDbContext dbContext)
         {
             var geometricResultController = new GeometryResultController(dbContext);
 
-            return new MainMenu(validateServices);
+            return new Menus.MainMenu(new ShapeApplication(new ShapeMenu(new CreateGeometryResult(dbContext,geometricResultController), 
+                new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))));
         }
 
 

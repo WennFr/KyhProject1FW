@@ -1,5 +1,4 @@
-﻿using MainMenuApp.Interfaces;
-
+﻿
 namespace MainMenuApp.Menus
 {
     public class GameMenu 

@@ -1,8 +1,7 @@
-﻿using MainMenuApp.Interfaces;
-using MainMenuApp.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ServiceLibrary.Interfaces;
 
-namespace MainMenuApp.Data
+namespace ServiceLibrary.Data
 {
     public class ApplicationDbContext : DbContext,IDbContext
     {

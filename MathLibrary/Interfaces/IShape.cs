@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainMenuApp.Interfaces
+namespace ServiceLibrary.Interfaces
 {
     public interface IShape
     {

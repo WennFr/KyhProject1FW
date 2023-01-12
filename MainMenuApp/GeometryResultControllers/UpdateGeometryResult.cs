@@ -1,4 +1,4 @@
-﻿using MainMenuApp.Interfaces;
+﻿using ServiceLibrary.Interfaces;
 
 namespace MainMenuApp.GeometryResultControllers
 {

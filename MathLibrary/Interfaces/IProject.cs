@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ServiceLibrary.Interfaces
 {
-    public interface IBuild
+    public interface IProject
     {
-
-
-
+        void StartApplication();
     }
 }

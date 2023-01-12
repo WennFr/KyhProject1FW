@@ -1,10 +1,9 @@
-﻿using ServiceLibrary.Interfaces;
-
+﻿
 namespace ServiceLibrary.Validations
 {
-    public class ValidateInput : IValidateServices
+    public static class ValidateInput 
     {
-        public int ValidateSelection(int selectionMenuMaxLimit)
+        public static int ValidateSelection(int selectionMenuMaxLimit)
         {
             int intSelection;
             Console.WriteLine($"{Environment.NewLine}Menu select:");
@@ -17,7 +16,7 @@ namespace ServiceLibrary.Validations
                 Console.WriteLine("Choose between the available menu numbers");
             }
         }
-        public decimal ValidateDecimalInputAboveZero()
+        public static decimal ValidateDecimalInputAboveZero()
         {
             decimal decimalSelection;
             while (true)

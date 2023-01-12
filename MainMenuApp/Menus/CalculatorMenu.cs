@@ -1,4 +1,5 @@
-﻿using MainMenuApp.Interfaces;
+﻿using ServiceLibrary.Interfaces;
+using ServiceLibrary.Validations;
 
 namespace MainMenuApp.Menus
 {
@@ -26,28 +27,28 @@ namespace MainMenuApp.Menus
             Console.WriteLine("6) %");
         }
 
-        //public bool MenuSelection()
-        //{
-        //    var selectionMenuMaxLimit = 4;
-        //    var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
+        public bool MenuSelection()
+        {
+            var selectionMenuMaxLimit = 4;
+            var selection = ValidateInput.ValidateSelection(selectionMenuMaxLimit);
 
-        //    switch (selection)
-        //    {
-        //        case 1:
-                    
-        //            break;
-        //        case 2:
-        //            break;
-        //        case 3:
-        //            break;
-        //        case 4:
-        //            break;
-        //        case 0:
-        //            return false;
+            switch (selection)
+            {
+                case 1:
 
-        //    }
-        //    return true;
-        //}
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 0:
+                    return false;
+
+            }
+            return true;
+        }
 
 
 

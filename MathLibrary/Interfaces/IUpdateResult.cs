@@ -1,4 +1,4 @@
-﻿namespace MainMenuApp.Interfaces
+﻿namespace ServiceLibrary.Interfaces
 {
     public interface IUpdateResult
     {

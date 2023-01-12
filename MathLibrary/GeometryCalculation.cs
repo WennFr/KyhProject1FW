@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 
 
-namespace MathLibrary
+namespace ServiceLibrary
 {
     public class GeometryCalculation
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MainMenuApp.Data
+namespace ServiceLibrary.Data
 {
     public class GameResult
     {

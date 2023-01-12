@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainMenuApp.Data;
-using MainMenuApp.Interfaces;
-using MainMenuApp.Data;
+using ServiceLibrary.Interfaces;
+using ServiceLibrary.Data;
 
-namespace MainMenuApp.ShapeControllers
+namespace MainMenuApp.GeometryResultControllers 
 {
     public class GeometryResultController : IController
     {
@@ -19,7 +18,7 @@ namespace MainMenuApp.ShapeControllers
 
 
 
-        public void DisplayShapeToCreate()
+        public void DisplaySelection()
         {
             Console.WriteLine("Shape to create:");
 
@@ -31,7 +30,7 @@ namespace MainMenuApp.ShapeControllers
         }
 
 
-        public Shape InitiateShapeToCreate(int userSelection)
+        public Shape ReturnShapeObject(int userSelection)
         {
             Shape shapeToReturn;
 
@@ -49,11 +48,8 @@ namespace MainMenuApp.ShapeControllers
                 case 4:
                     return shapeToReturn = _dbContext.Shapes.FirstOrDefault(s =>
                          s.TypeOfShape == Convert.ToString(Shape.shape.Rhombus));
-
             }
-
             return null;
-
         }
     }
 }

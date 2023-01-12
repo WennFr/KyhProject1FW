@@ -1,7 +1,7 @@
-﻿using MainMenuApp.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ServiceLibrary.Data;
 
-namespace MainMenuApp.Interfaces
+namespace ServiceLibrary.Interfaces
 {
     public interface IDbContext 
     { 
