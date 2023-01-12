@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KyhProject1FW.Interfaces;
-using KyhProject1FW.Validations;
+using MainMenuApp.Interfaces;
+using MainMenuApp.Validations;
+using ShapeApp;
 
-namespace KyhProject1FW.Menus
+
+namespace MainMenuApp.Menus
 {
     public class MainMenu 
     {
@@ -46,7 +48,8 @@ namespace KyhProject1FW.Menus
             switch (selection)
             {
                 case 1:
-                    _shapeMenu.ShowMenu();
+                    var shapeApplication = new ShapeApplication();
+                    shapeApplication.ShowMenu();
                     break;
                 case 2:
                     _calculatorMenu.ShowMenu();

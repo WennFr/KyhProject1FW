@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KyhProject1FW.Data;
-using KyhProject1FW.Interfaces;
+using MainMenuApp.Menus.Interfaces;
+using MainMenuApp.Menus.Data;
 
-namespace KyhProject1FW.ShapeControllers
+namespace MainMenuApp.Menus.ShapeControllers
 {
     public class GeometryResultController : IController
     {

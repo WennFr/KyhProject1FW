@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace KyhProject1FW.Migrations
+namespace MainMenuApp.Menus.Migrations
 {
     public partial class Initialmigration : Migration
     {

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace KyhProject1FW.Migrations
+namespace MainMenuApp.Menus.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230109201204_Initial migration")]

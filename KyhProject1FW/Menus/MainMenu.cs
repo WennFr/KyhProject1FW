@@ -46,6 +46,8 @@ namespace KyhProject1FW.Menus
             switch (selection)
             {
                 case 1:
+                    var shapeApp = new ShapeApp();
+                  
                     _shapeMenu.ShowMenu();
                     break;
                 case 2:

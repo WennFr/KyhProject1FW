@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KyhProject1FW.Data;
-using KyhProject1FW.Interfaces;
-using KyhProject1FW.ShapeControllers;
-using KyhProject1FW.Services;
+using MainMenuApp.Menus.Interfaces;
+using MainMenuApp.Menus.ShapeControllers;
+using MainMenuApp.Menus.Services;
+using MainMenuApp.Menus.Data;
 
-namespace KyhProject1FW
+namespace MainMenuApp.Menus
 {
     public class Application
     {

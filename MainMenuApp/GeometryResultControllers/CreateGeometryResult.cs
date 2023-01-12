@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KyhProject1FW.Data;
-using KyhProject1FW.Interfaces;
-using KyhProject1FW.Validations;
+using MainMenuApp.Menus.Data;
+using MainMenuApp.Menus.Interfaces;
+using MainMenuApp.Menus.Validations;
 using MathLibrary;
 
-namespace KyhProject1FW.ShapeControllers
+namespace MainMenuApp.Menus.ShapeControllers
 {
     public class CreateGeometryResult : ICreateResult
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KyhProject1FW.Data
+namespace MainMenuApp.Menus.Data
 {
     public class Builder
     {

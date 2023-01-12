@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainMenuApp.Interfaces
+namespace ShapeApp.Interfaces
 {
-    public interface IShape
+    public interface IMenu
     {
-
-        public string TypeOfShape { get; set; }
-
+        void ShowMenu();
+        bool MenuSelection();
     }
 }

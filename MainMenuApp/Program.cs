@@ -1,4 +1,4 @@
-﻿using KyhProject1FW;
+﻿using MainMenuApp.Menus;
 
 var app = new Application();
 app.Run();

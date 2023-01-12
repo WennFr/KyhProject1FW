@@ -19,7 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CalculatorApp\CalculatorApp.csproj" />
+    <ProjectReference Include="..\GameApp\GameApp.csproj" />
     <ProjectReference Include="..\MathLibrary\ServiceLibrary.csproj" />
+    <ProjectReference Include="..\ShapeApp\ShapeApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
