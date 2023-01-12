@@ -10,11 +10,11 @@ using MathLibrary;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    public class CreateGeometricResult : ICreateResult
+    public class CreateGeometryResult : ICreateResult
     {
         private IDbContext _dbContext;
-        private GeometricResultController _controller;
-        public CreateGeometricResult(IDbContext dbContext, GeometricResultController controller)
+        private GeometryResultController _controller;
+        public CreateGeometryResult(IDbContext dbContext, GeometryResultController controller)
         {
             _dbContext = dbContext;
             _controller = controller;

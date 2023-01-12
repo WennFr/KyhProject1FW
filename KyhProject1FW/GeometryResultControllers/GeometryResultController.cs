@@ -8,10 +8,10 @@ using KyhProject1FW.Interfaces;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    public class GeometricResultController : IController
+    public class GeometryResultController : IController
     {
         private IDbContext _dbContext;
-        public GeometricResultController(IDbContext dbContext)
+        public GeometryResultController(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }

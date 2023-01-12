@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    public class UpdateGeometricResult : IUpdateResult
+    public class ReadGeometryResult : IReadResult
     {
         private IDbContext _dbContext;
-        public UpdateGeometricResult(IDbContext dbContext)
+        public ReadGeometryResult(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public void Update()
+        public void Read()
         {
 
 

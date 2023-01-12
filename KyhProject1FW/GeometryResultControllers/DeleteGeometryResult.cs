@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace KyhProject1FW.ShapeControllers
 {
-    public class ReadGeometricResult : IReadResult
+    public class DeleteGeometryResult : IDeleteResult
     {
         private IDbContext _dbContext;
-        public ReadGeometricResult(IDbContext dbContext)
+        public DeleteGeometryResult(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public void Read()
+        public void Delete()
         {
 
 
@@ -23,6 +23,7 @@ namespace KyhProject1FW.ShapeControllers
 
 
         }
+
 
 
     }
