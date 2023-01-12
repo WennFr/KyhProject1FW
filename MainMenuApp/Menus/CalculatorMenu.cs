@@ -1,5 +1,4 @@
 ﻿using MainMenuApp.Interfaces;
-using MainMenuApp.Validations;
 
 namespace MainMenuApp.Menus
 {
@@ -15,7 +14,7 @@ namespace MainMenuApp.Menus
             Console.WriteLine("4) Delete");
             Console.WriteLine("0) Go back to main menu");
 
-            MenuSelection();
+            //MenuSelection();
         }
         public void ChooseOperatorMenu()
         {
@@ -27,28 +26,28 @@ namespace MainMenuApp.Menus
             Console.WriteLine("6) %");
         }
 
-        public bool MenuSelection()
-        {
-            var selectionMenuMaxLimit = 4;
-            var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
+        //public bool MenuSelection()
+        //{
+        //    var selectionMenuMaxLimit = 4;
+        //    var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
 
-            switch (selection)
-            {
-                case 1:
+        //    switch (selection)
+        //    {
+        //        case 1:
                     
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 0:
-                    return false;
+        //            break;
+        //        case 2:
+        //            break;
+        //        case 3:
+        //            break;
+        //        case 4:
+        //            break;
+        //        case 0:
+        //            return false;
 
-            }
-            return true;
-        }
+        //    }
+        //    return true;
+        //}
 
 
 

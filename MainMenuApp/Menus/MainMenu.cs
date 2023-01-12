@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MainMenuApp.Interfaces;
-using MainMenuApp.Validations;
+using ServiceLibrary.Interfaces;
 using ShapeApp;
 
 
 namespace MainMenuApp.Menus
 {
-    public class MainMenu 
+    public class MainMenu
     {
-        private IMenu _shapeMenu;
-        private IMenu _calculatorMenu;
-        private IMenu _gameMenu;
+        private IValidateServices _validateServices;
+        //private IMenu _calculatorMenu;
+        //private IMenu _gameMenu;
         public bool IsApplicationRunning { get; set; }
 
-        public MainMenu(IMenu shapeMenu, IMenu calculatorMenu, IMenu gameMenu)
+        public MainMenu(IValidateServices validateServices)
         {
             IsApplicationRunning = true;
-            _shapeMenu = shapeMenu;
-            _calculatorMenu = calculatorMenu;
-            _gameMenu = gameMenu;
+            _validateServices = validateServices;
+            //_calculatorMenu = calculatorMenu;
+            //_gameMenu = gameMenu;
 
         }
 
@@ -43,7 +43,7 @@ namespace MainMenuApp.Menus
         public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 3;
-            var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
+            var selection = _validateServices.ValidateSelection(selectionMenuMaxLimit);
 
             switch (selection)
             {
@@ -52,10 +52,10 @@ namespace MainMenuApp.Menus
                     shapeApplication.ShowMenu();
                     break;
                 case 2:
-                    _calculatorMenu.ShowMenu();
+                    //_calculatorMenu.ShowMenu();
                     break;
                 case 3:
-                    _gameMenu.ShowMenu();
+                    //_gameMenu.ShowMenu();
                     break;
                 case 0:
                     return false;

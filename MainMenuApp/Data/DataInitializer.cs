@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MainMenuApp.Data;
 
-namespace MainMenuApp.Menus.Data
+namespace MainMenuApp.Data
 {
     public class DataInitializer
     {

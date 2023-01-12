@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MainMenuApp.Interfaces;
-using MainMenuApp.Menus.Data;
-using MainMenuApp.Validations;
-using MathLibrary;
 
 namespace MainMenuApp.ShapeControllers
 {
@@ -20,36 +17,36 @@ namespace MainMenuApp.ShapeControllers
             _controller = controller;
         }
 
-        public void Create()
-        {
-            Console.Clear();
-            while (true)
-            {
-                _controller.DisplayShapeToCreate();
-                var userSelection = ValidateMenuSelection.ValidateSelection(4);
+        //public void Create()
+        //{
+        //    Console.Clear();
+        //    while (true)
+        //    {
+        //        _controller.DisplayShapeToCreate();
+        //        var userSelection = ValidateMenuSelection.ValidateSelection(4);
 
-                if (userSelection == 0)
-                    break;
+        //        if (userSelection == 0)
+        //            break;
 
-                var shapeToUseForGeometricResult = _controller.InitiateShapeToCreate(userSelection);
+        //        var shapeToUseForGeometricResult = _controller.InitiateShapeToCreate(userSelection);
 
-                Console.WriteLine("Base: ");
-                var baseInput = ValidateUserInput.ValidateDecimalInputAboveZero();
+        //        Console.WriteLine("Base: ");
+        //        var baseInput = ValidateUserInput.ValidateDecimalInputAboveZero();
 
-                Console.WriteLine("Height:");
-                var heightInput = ValidateUserInput.ValidateDecimalInputAboveZero();
+        //        Console.WriteLine("Height:");
+        //        var heightInput = ValidateUserInput.ValidateDecimalInputAboveZero();
 
-                var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
+        //        var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
 
-                var perimiter = calculate.CalculatePerimiter();
+        //        var perimiter = calculate.CalculatePerimiter();
 
 
                 
 
-            }
+        //    }
 
 
-        }
+        //}
 
 
     }

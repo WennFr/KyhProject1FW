@@ -2,6 +2,6 @@
 {
     public interface ICreateResult
     { 
-        void Create();
+        //void Create();
     }
 }

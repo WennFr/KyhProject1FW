@@ -1,9 +1,8 @@
 ﻿using MainMenuApp.Interfaces;
-using MainMenuApp.Validations;
 
 namespace MainMenuApp.Menus
 {
-    public class GameMenu : IMenu
+    public class GameMenu 
     {
         public void ShowMenu()
         {
@@ -14,27 +13,27 @@ namespace MainMenuApp.Menus
             Console.WriteLine("0) Go back to main menu");
 
 
-            MenuSelection();
+            //MenuSelection();
         }
 
-        public bool MenuSelection()
-        {
-            var selectionMenuMaxLimit = 2;
+        //public bool MenuSelection()
+        //{
+        //    var selectionMenuMaxLimit = 2;
 
-            var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
+        //    var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
 
-            switch (selection)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 0:
-                    return false;
-            }
+        //    switch (selection)
+        //    {
+        //        case 1:
+        //            break;
+        //        case 2:
+        //            break;
+        //        case 0:
+        //            return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
 
 

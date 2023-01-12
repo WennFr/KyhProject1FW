@@ -1,5 +1,5 @@
 ﻿using MainMenuApp.Interfaces;
-using MainMenuApp.Menus.Data;
+using MainMenuApp.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace MainMenuApp.Data
