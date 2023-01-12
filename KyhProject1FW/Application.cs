@@ -19,6 +19,7 @@ namespace KyhProject1FW
             var mainMenu = DIService.InitializeMainMenuDI(dbContext);
             mainMenu.ShowMenu();
 
+
         }
 
     }
