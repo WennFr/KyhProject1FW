@@ -10,9 +10,6 @@ namespace ShapeApp
     public class ShapeApplication
     {
 
-
-
-
         public void ShowMenu()
         {
 
@@ -20,8 +17,6 @@ namespace ShapeApp
             shapeMenu.ShowMenu();
 
         }
-
-
 
     }
 }

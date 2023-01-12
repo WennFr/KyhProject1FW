@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainMenuApp.Menus.Interfaces;
-using MainMenuApp.Menus.ShapeControllers;
-using MainMenuApp.Menus.Services;
+using MainMenuApp.Interfaces;
 using MainMenuApp.Menus.Data;
+using MainMenuApp.Services;
 
 namespace MainMenuApp.Menus
 {

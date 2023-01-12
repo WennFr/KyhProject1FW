@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainMenuApp.Menus.Interfaces;
+using MainMenuApp.Interfaces;
 
-namespace MainMenuApp.Menus.Data
+namespace MainMenuApp.Data
 {
     public class Shape : IShape
     {

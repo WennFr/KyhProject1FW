@@ -28,33 +28,33 @@ public class ShapeMenu : IMenu
         Console.WriteLine("4) Delete");
         Console.WriteLine("0) Go back to main menu");
 
-        MenuSelection();
+        //MenuSelection();
     }
 
-    public bool MenuSelection()
-    {
-        var selectionMenuMaxLimit = 4;
+    //public bool MenuSelection()
+    //{
+    //    var selectionMenuMaxLimit = 4;
 
-        //var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
+    //    //var selection = ValidateMenuSelection.ValidateSelection(selectionMenuMaxLimit);
 
-        //switch (selection)
-        //{
-        //    case 1:
-        //        _createResult.Create();
-        //        break;
-        //    case 2:
-        //        _readResult.Read();
-        //        break;
-        //    case 3:
-        //        _updateResult.Update();
-        //        break;
-        //    case 4:
-        //        _deleteResult.Delete();
-        //        break;
-        //    case 0:
-        //        return false;
-        //}
+    //    //switch (selection)
+    //    //{
+    //    //    case 1:
+    //    //        _createResult.Create();
+    //    //        break;
+    //    //    case 2:
+    //    //        _readResult.Read();
+    //    //        break;
+    //    //    case 3:
+    //    //        _updateResult.Update();
+    //    //        break;
+    //    //    case 4:
+    //    //        _deleteResult.Delete();
+    //    //        break;
+    //    //    case 0:
+    //    //        return false;
+    //    //}
 
-        //return true;
-    }
+    //    //return true;
+    //}
 }

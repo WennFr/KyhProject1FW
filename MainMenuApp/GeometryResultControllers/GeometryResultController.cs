@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainMenuApp.Menus.Interfaces;
+using MainMenuApp.Data;
+using MainMenuApp.Interfaces;
 using MainMenuApp.Menus.Data;
 
-namespace MainMenuApp.Menus.ShapeControllers
+namespace MainMenuApp.ShapeControllers
 {
     public class GeometryResultController : IController
     {

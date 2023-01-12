@@ -8,7 +8,7 @@ namespace ShapeApp.Interfaces
 {
     public interface IMenu
     {
-        void ShowMenu();
-        bool MenuSelection();
+        //void ShowMenu();
+        //bool MenuSelection();
     }
 }

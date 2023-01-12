@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MainMenuApp.Interfaces;
 using MainMenuApp.Menus.Data;
-using MainMenuApp.Menus.Interfaces;
-using MainMenuApp.Menus.Validations;
+using MainMenuApp.Validations;
 using MathLibrary;
 
-namespace MainMenuApp.Menus.ShapeControllers
+namespace MainMenuApp.ShapeControllers
 {
     public class CreateGeometryResult : ICreateResult
     {
