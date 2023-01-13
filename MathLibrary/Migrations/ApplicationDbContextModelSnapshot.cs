@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using ServiceLibrary.Data;
 
 #nullable disable
 
@@ -21,7 +22,7 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("KyhProject1FW.Data.CalculationResult", b =>
+            modelBuilder.Entity("ServiceLibrary.Data.CalculationResult", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,11 +33,11 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                     b.Property<DateTime>("DateOfCalculation")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EquationResult")
-                        .HasColumnType("int");
+                    b.Property<double>("EquationResult")
+                        .HasColumnType("float");
 
-                    b.Property<int>("FirstNumber")
-                        .HasColumnType("int");
+                    b.Property<double>("FirstNumber")
+                        .HasColumnType("float");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -45,15 +46,15 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SecondNumber")
-                        .HasColumnType("int");
+                    b.Property<double>("SecondNumber")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
                     b.ToTable("CalculationResults");
                 });
 
-            modelBuilder.Entity("KyhProject1FW.Data.GameResult", b =>
+            modelBuilder.Entity("ServiceLibrary.Data.GameResult", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,8 +62,8 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AveragePlayerWins")
-                        .HasColumnType("int");
+                    b.Property<double>("AveragePlayerWins")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("DateOfGameResult")
                         .HasColumnType("datetime2");
@@ -78,7 +79,7 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                     b.ToTable("GameResults");
                 });
 
-            modelBuilder.Entity("KyhProject1FW.Data.GeometricResult", b =>
+            modelBuilder.Entity("ServiceLibrary.Data.GeometricResult", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,26 +87,26 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Area")
-                        .HasColumnType("int");
+                    b.Property<double>("Area")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("DateOfGeometricResult")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Perimiter")
-                        .HasColumnType("int");
+                    b.Property<double>("Perimiter")
+                        .HasColumnType("float");
 
                     b.Property<int>("ShapeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Width")
-                        .HasColumnType("int");
+                    b.Property<double>("Width")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -114,7 +115,7 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                     b.ToTable("GeometricResults");
                 });
 
-            modelBuilder.Entity("KyhProject1FW.Data.Shape", b =>
+            modelBuilder.Entity("ServiceLibrary.Data.Shape", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -134,9 +135,9 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                     b.ToTable("Shapes");
                 });
 
-            modelBuilder.Entity("KyhProject1FW.Data.GeometricResult", b =>
+            modelBuilder.Entity("ServiceLibrary.Data.GeometricResult", b =>
                 {
-                    b.HasOne("KyhProject1FW.Data.Shape", "Shape")
+                    b.HasOne("ServiceLibrary.Data.Shape", "Shape")
                         .WithMany()
                         .HasForeignKey("ShapeId")
                         .OnDelete(DeleteBehavior.Cascade)

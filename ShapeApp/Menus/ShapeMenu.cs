@@ -29,7 +29,7 @@ public class ShapeMenu : IMenu
         Console.WriteLine("4) Delete");
         Console.WriteLine("0) Go back to main menu");
 
-        //MenuSelection();
+        MenuSelection();
     }
 
     public bool MenuSelection()

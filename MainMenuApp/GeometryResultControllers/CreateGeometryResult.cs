@@ -32,10 +32,10 @@ namespace MainMenuApp.GeometryResultControllers
                 var shapeToUseForGeometryResult = _controller.ReturnShapeObject(userSelection);
 
                 Console.WriteLine("Base: ");
-                var baseInput = ValidateInput.ValidateDecimalInputAboveZero();
+                var baseInput = ValidateInput.ValidateDoubleInputAboveZero();
 
                 Console.WriteLine("Height:");
-                var heightInput = ValidateInput.ValidateDecimalInputAboveZero();
+                var heightInput = ValidateInput.ValidateDoubleInputAboveZero();
 
                 //var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
 

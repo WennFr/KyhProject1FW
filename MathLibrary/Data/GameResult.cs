@@ -11,7 +11,7 @@ namespace ServiceLibrary.Data
         [Required]
         public int NumberOfComputerWins { get; set; }
         [Required]
-        public int AveragePlayerWins { get; set; }
+        public double AveragePlayerWins { get; set; }
         [Required]
         public DateTime DateOfGameResult { get; set; }
 

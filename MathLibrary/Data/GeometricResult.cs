@@ -9,13 +9,13 @@ namespace ServiceLibrary.Data
         [Required]
         public Shape Shape { get; set; }
         [Required]
-        public int Height { get; set; }
+        public double Height { get; set; }
         [Required]
-        public int Width { get; set; }
+        public double Width { get; set; }
         [Required]
-        public int Perimiter { get; set; }
+        public double Perimiter { get; set; }
         [Required]
-        public int Area { get; set; }
+        public double Area { get; set; }
         [Required]
         public DateTime DateOfGeometricResult { get; set; }
         [Required]

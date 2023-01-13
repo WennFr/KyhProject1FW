@@ -16,20 +16,55 @@ namespace ServiceLibrary.Validations
                 Console.WriteLine("Choose between the available menu numbers");
             }
         }
-        public static decimal ValidateDecimalInputAboveZero()
+
+
+        public static double ValidateDoubleInput()
         {
-            decimal decimalSelection;
+            double doubleSelection;
+
             while (true)
             {
                 // Console.Write(">");
-                if (decimal.TryParse(Console.ReadLine(), out decimalSelection) && decimalSelection > 0)
+                if (double.TryParse(Console.ReadLine(), out doubleSelection) && doubleSelection > 0)
                 {
-                    return decimalSelection;
+                    return doubleSelection;
                 }
                 Console.WriteLine("Please write a valid number above zero:");
             }
 
         }
+
+
+        public static double ValidateDoubleInputAboveZero()
+        {
+            double doubleSelection;
+            while (true)
+            {
+                // Console.Write(">");
+                if (double.TryParse(Console.ReadLine(), out doubleSelection) && doubleSelection > 0)
+                {
+                    return doubleSelection;
+                }
+                Console.WriteLine("Please write a valid number:");
+            }
+
+        }
+
+        public static char ValidateOperatorSelection()
+        {
+            char op;
+
+            while (true)
+            {
+                if (char.TryParse(Console.ReadLine(), out op) && op == '+' || op == '-' || op == '*' ||
+                    op == '/' || op == '√' && op == '%')
+                    return op;
+                Console.WriteLine("Operator has to be (+, -, *, /, √ or %) ");
+            }
+
+        }
+
+
 
 
 

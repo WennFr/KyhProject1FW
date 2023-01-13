@@ -16,9 +16,6 @@ namespace MainMenuApp.GeometryResultControllers
             _dbContext = dbContext;
         }
 
-
-
-
         public void DisplaySelection()
         {
             Console.WriteLine("Shape to create:");
