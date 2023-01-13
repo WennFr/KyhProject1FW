@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 
-namespace MainMenuApp.CalculationResultControllers
+namespace CalculatorApp.CalculationResultControllers
 {
-    public class DeleteCalculationResult : IDeleteResult
+    public class ReadCalculationResult : IReadResult
     {
         private IDbContext _dbContext;
-        public DeleteCalculationResult(IDbContext dbContext)
+        public ReadCalculationResult(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
 
-        public void Delete()
+        public void Read()
         {
 
 
@@ -24,7 +24,10 @@ namespace MainMenuApp.CalculationResultControllers
 
 
 
+
+
         }
+
 
 
     }

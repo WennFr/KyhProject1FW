@@ -5,20 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 
-namespace MainMenuApp.CalculationResultControllers
+namespace CalculatorApp.CalculationResultControllers
 {
-    public class ReadCalculationResult : IReadResult
+    public class UpdateCalculationResult : IUpdateResult
     {
         private IDbContext _dbContext;
-        public ReadCalculationResult(IDbContext dbContext)
+        public UpdateCalculationResult(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-
-        public void Read()
+        public void Update()
         {
-
 
 
 

@@ -7,7 +7,7 @@ using ServiceLibrary.Interfaces;
 
 namespace ServiceLibrary.CalculatorStrategies
 {
-    public class CalculatorContext
+    public class CalculatorContext : ICalculatorContext
     {
         private ICalculatorStrategy _strategy;
 

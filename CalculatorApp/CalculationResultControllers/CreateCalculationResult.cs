@@ -5,30 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 
-namespace MainMenuApp.CalculationResultControllers
+namespace CalculatorApp.CalculationResultControllers
 {
     public class CreateCalculationResult : ICreateResult
     {
         private IDbContext _dbContext;
-        public CreateCalculationResult(IDbContext dbContext)
+        private ICalculatorContext _calculatorContext;
+        private ICalculatorStrategy _additionStrategy;
+        private ICalculatorStrategy _subtractionStrategy;
+        private ICalculatorStrategy _multiplicationStrategy;
+        private ICalculatorStrategy _divisionStrategy;
+        public CreateCalculationResult(IDbContext dbContext, ICalculatorContext calculatorContext, ICalculatorStrategy additionStrategy, 
+            ICalculatorStrategy subtractionStrategy, ICalculatorStrategy multiplicationStrategy, ICalculatorStrategy divisionStrategy)
         {
             _dbContext = dbContext;
+            _calculatorContext = calculatorContext;
+            _additionStrategy = additionStrategy;
+            _subtractionStrategy = subtractionStrategy;
+            _multiplicationStrategy = multiplicationStrategy;
+            _divisionStrategy = divisionStrategy;
         }
 
         public void Create()
         {
             while (true)
-                {
+                { 
                     Console.Clear();
-                    double Num1, Num2;
-                    double Result = 0.00;
+                    double num1, num2;
+                    double result = 0.00;
                     char op;
                     try
                     {
                         Console.Write("Enter your First Number :  ");
-                        Num1 = Convert.ToDouble(Console.ReadLine());
+                        num1 = Convert.ToDouble(Console.ReadLine());
 
-                        if (Double.IsInfinity(Num1))
+                        if (Double.IsInfinity(num1))
                         {
                             Console.WriteLine("Overflow");
                             Console.ReadKey();
@@ -42,17 +53,18 @@ namespace MainMenuApp.CalculationResultControllers
                                 break;
                             Console.WriteLine("Operator has to be (+, -, * or /) ");
                         }
-                        Console.Write("Enter your Second Number :");
-                        Num2 = Convert.ToDouble(Console.ReadLine());
 
-                        if (Double.IsInfinity(Num2))
+                    Console.Write("Enter your Second Number :");
+                        num2 = Convert.ToDouble(Console.ReadLine());
+
+                        if (Double.IsInfinity(num2))
                         {
                             Console.WriteLine("Overflow");
                             Console.ReadKey();
                             continue;
                         }
 
-                        if (Double.IsInfinity(Num1 / Num2))
+                        if (Double.IsInfinity(num1 / num2))
                         {
                             Console.WriteLine("Error: " + "Attempted to divide by zero0");
                             Console.ReadKey();
@@ -80,33 +92,29 @@ namespace MainMenuApp.CalculationResultControllers
                         continue;
                     }
 
-                    Result = Calculator(Num1, Num2, op);
-                    Console.WriteLine("\n{0} {1} {2} = {3}", Num1, op, Num2, Result);
+                    switch (op)
+                    {
+                        case '+':
+                            _calculatorContext.SetStrategy(_additionStrategy);
+                            break;
+                        case '-':
+                            _calculatorContext.SetStrategy(_subtractionStrategy);
+                            break;
+                        case '*':
+                            _calculatorContext.SetStrategy(_multiplicationStrategy);
+                            break;
+                        case '/':
+                            _calculatorContext.SetStrategy(_divisionStrategy);
+                            break;
+                    }
+
+                    result = _calculatorContext.ExecuteStrategy(num1, num2);
+                    Console.WriteLine("\n{0} {1} {2} = {3}",$" {num1} {op} {num2} {result}");
                     Console.ReadKey();
                 }
 
             }
-        double Calculator(double v1, double v2, char op)
-            {
-                double Result = 0.00;
-
-                switch (op)
-                {
-                    case '+':
-                        Result = v1 + v2;
-                        break;
-                    case '-':
-                        Result = v1 - v2;
-                        break;
-                    case '*':
-                        Result = v1 * v2;
-                        break;
-                    case '/':
-                        Result = v1 / v2;
-                        break;
-                }
-                return Result;
-            }
+        
 
 
     }
