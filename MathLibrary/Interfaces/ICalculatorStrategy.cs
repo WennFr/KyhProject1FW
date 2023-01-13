@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ServiceLibrary.Interfaces
 {
-    public interface IMenu
-    { 
-        void ShowMenu();
-        bool MenuSelection();
+    public interface ICalculatorStrategy
+    {
+        double Execute(double x, double y);
     }
 }

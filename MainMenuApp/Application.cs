@@ -18,8 +18,6 @@ namespace MainMenuApp
             var mainMenu = DIService.InitializeMainMenuDI(dbContext);
             mainMenu.ShowMenu();
 
-
-
         }
 
     }

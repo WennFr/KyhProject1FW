@@ -9,7 +9,6 @@ namespace MainMenuApp.CalculationResultControllers
 {
     public class CreateCalculationResult : ICreateResult
     {
-
         private IDbContext _dbContext;
         public CreateCalculationResult(IDbContext dbContext)
         {
@@ -22,7 +21,7 @@ namespace MainMenuApp.CalculationResultControllers
                 {
                     Console.Clear();
                     double Num1, Num2;
-                    double Result = 0;
+                    double Result = 0.00;
                     char op;
                     try
                     {
@@ -43,9 +42,6 @@ namespace MainMenuApp.CalculationResultControllers
                                 break;
                             Console.WriteLine("Operator has to be (+, -, * or /) ");
                         }
-
-
-
                         Console.Write("Enter your Second Number :");
                         Num2 = Convert.ToDouble(Console.ReadLine());
 
