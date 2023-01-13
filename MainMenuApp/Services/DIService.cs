@@ -11,9 +11,9 @@ namespace MainMenuApp.Services
     {
         public static MainMenu InitializeMainMenuDI(IDbContext dbContext)
         {
-            var geometricResultController = new GeometryResultController(dbContext);
+            var geometryResultController = new GeometryResultController(dbContext);
 
-            return new Menus.MainMenu(new ShapeApplication(new ShapeMenu(new CreateGeometryResult(dbContext,geometricResultController), 
+            return new Menus.MainMenu(new ShapeApplication(new ShapeMenu(new CreateGeometryResult(dbContext,geometryResultController), 
                 new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))));
         }
 
