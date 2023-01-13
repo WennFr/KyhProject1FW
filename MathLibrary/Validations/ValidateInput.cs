@@ -1,9 +1,9 @@
 ﻿
 namespace ServiceLibrary.Validations
 {
-    public static class ValidateInput 
+    public static class ValidateInput
     {
-        public static int ValidateSelection(int selectionMenuMaxLimit)
+        public static int ValidateMenuSelection(int selectionMenuMaxLimit)
         {
             int intSelection;
             Console.WriteLine($"{Environment.NewLine}Menu select:");
@@ -61,6 +61,29 @@ namespace ServiceLibrary.Validations
                     return op;
                 Console.WriteLine("Operator has to be (+, -, *, /, √ or %) ");
             }
+
+        }
+
+        public static bool ValidateUserChoice()
+        {
+
+
+            while (true)
+            {
+                var userChoice = Console.ReadLine();
+
+                if (userChoice.ToLower() == "y" || userChoice.ToLower() == "yes")
+                    return true;
+
+                else if (userChoice.ToLower() == "n" || userChoice.ToLower() == "no")
+                    return false;
+
+
+
+                Console.WriteLine("Choose an option: ");
+            }
+
+
 
         }
 

@@ -48,7 +48,7 @@ namespace CalculatorApp.CalculationResultControllers
                         Console.ReadKey();
                         continue;
                     }
-                    Console.Write("Enter an Operator  (+, -, * or /): ");
+                    Console.Write("Enter an Operator  (+, -, *, /, √ or %): ");
                     op = ValidateInput.ValidateOperatorSelection();
 
                     Console.Write("Enter your Second Number: ");
@@ -68,7 +68,7 @@ namespace CalculatorApp.CalculationResultControllers
                         continue;
                     }
                 }
-                
+
                 catch (DivideByZeroException e)
                 {
                     Console.WriteLine("Error: " + e.Message);
@@ -97,16 +97,41 @@ namespace CalculatorApp.CalculationResultControllers
                     case '/':
                         _calculatorContext.SetStrategy(_divisionStrategy);
                         break;
+                    case '√':
+                        break;
+                    case '%':
+                        break;
+
                 }
+
                 result = _calculatorContext.ExecuteStrategy(num1, num2);
-                Console.WriteLine($" {num1} {op} {num2} = {result}");
-                Console.ReadKey();
+
+
+                if (op == '√')
+                    Console.WriteLine($"{op}{num1} = {result}");
+                else
+                    Console.WriteLine($" {num1} {op} {num2} = {result}");
 
 
                 _dbContext.CalculationResults.Add(new CalculationResult()
                 {
-
+                    FirstNumber = num1,
+                    Operator = op,
+                    SecondNumber = num2,
+                    EquationResult = result,
+                    DateOfCalculation = DateTime.Now,
+                    IsActive = true
                 });
+
+
+                Console.WriteLine("Create new calculation?");
+                var isNewCalculation = ValidateInput.ValidateUserChoice();
+
+                if (!isNewCalculation)
+                    break;
+
+
+
 
             }
 

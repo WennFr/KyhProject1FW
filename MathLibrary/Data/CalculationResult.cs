@@ -9,7 +9,7 @@ namespace ServiceLibrary.Data
         [Required]
         public double FirstNumber { get; set; }
         [Required]
-        public string Operator { get; set; }
+        public char Operator { get; set; }
         [Required]
         public double SecondNumber { get; set; }
         [Required]

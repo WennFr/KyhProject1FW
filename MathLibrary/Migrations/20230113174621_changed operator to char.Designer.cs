@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ServiceLibrary.Data;
 
@@ -11,9 +12,10 @@ using ServiceLibrary.Data;
 namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230113174621_changed operator to char")]
+    partial class changedoperatortochar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,7 +81,7 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                     b.ToTable("GameResults");
                 });
 
-            modelBuilder.Entity("ServiceLibrary.Data.GeometryResult", b =>
+            modelBuilder.Entity("ServiceLibrary.Data.GeometricResult", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,7 +92,7 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                     b.Property<double>("Area")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("DateOfGeometryResult")
+                    b.Property<DateTime>("DateOfGeometricResult")
                         .HasColumnType("datetime2");
 
                     b.Property<double>("Height")
@@ -112,7 +114,7 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
 
                     b.HasIndex("ShapeId");
 
-                    b.ToTable("GeometryResults");
+                    b.ToTable("GeometricResults");
                 });
 
             modelBuilder.Entity("ServiceLibrary.Data.Shape", b =>
@@ -135,7 +137,7 @@ namespace ServiceLibrary.Data.Data.Data.Menus.Migrations
                     b.ToTable("Shapes");
                 });
 
-            modelBuilder.Entity("ServiceLibrary.Data.GeometryResult", b =>
+            modelBuilder.Entity("ServiceLibrary.Data.GeometricResult", b =>
                 {
                     b.HasOne("ServiceLibrary.Data.Shape", "Shape")
                         .WithMany()

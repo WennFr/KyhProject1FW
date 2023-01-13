@@ -36,7 +36,7 @@ public class ShapeMenu : IMenu
     {
         var selectionMenuMaxLimit = 4;
 
-        var selection = ValidateInput.ValidateSelection(selectionMenuMaxLimit);
+        var selection = ValidateInput.ValidateMenuSelection(selectionMenuMaxLimit);
 
         switch (selection)
         {

@@ -2,7 +2,7 @@
 
 namespace ServiceLibrary.Data
 {
-    public class GeometricResult
+    public class GeometryResult
     {
         [Key] 
         public int Id { get; set; }
@@ -17,7 +17,7 @@ namespace ServiceLibrary.Data
         [Required]
         public double Area { get; set; }
         [Required]
-        public DateTime DateOfGeometricResult { get; set; }
+        public DateTime DateOfGeometryResult { get; set; }
         [Required]
         public bool IsActive { get; set; }
 

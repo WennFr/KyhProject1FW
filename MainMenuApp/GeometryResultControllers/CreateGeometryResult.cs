@@ -24,7 +24,7 @@ namespace MainMenuApp.GeometryResultControllers
             while (true)
             {
                 _controller.DisplaySelection();
-                var userSelection = ValidateInput.ValidateSelection(4);
+                var userSelection = ValidateInput.ValidateMenuSelection(4);
 
                 if (userSelection == 0)
                     break;

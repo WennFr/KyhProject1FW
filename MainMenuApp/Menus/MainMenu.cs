@@ -43,7 +43,7 @@ namespace MainMenuApp.Menus
         public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 3;
-            var selection = ValidateInput.ValidateSelection(selectionMenuMaxLimit);
+            var selection = ValidateInput.ValidateMenuSelection(selectionMenuMaxLimit);
 
             switch (selection)
             {
