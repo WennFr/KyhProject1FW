@@ -49,13 +49,16 @@ namespace CalculatorApp.Menus
             switch (selection)
             {
                 case 1:
-
+                    _createResult.Create();
                     break;
                 case 2:
+                    _readResult.Read();
                     break;
                 case 3:
+                    _updateResult.Update();
                     break;
                 case 4:
+                    _deleteResult.Delete();
                     break;
                 case 0:
                     return false;
