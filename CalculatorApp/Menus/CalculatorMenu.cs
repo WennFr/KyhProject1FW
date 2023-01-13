@@ -1,10 +1,24 @@
 ﻿using ServiceLibrary.Interfaces;
 using ServiceLibrary.Validations;
 
-namespace MainMenuApp.Menus
+namespace CalculatorApp.Menus
 {
     public class CalculatorMenu : IMenu
     {
+        private ICreateResult _createResult;
+        private IDeleteResult _deleteResult;
+        private IReadResult _readResult;
+        private IUpdateResult _updateResult;
+
+        public CalculatorMenu(ICreateResult createResult, IReadResult readResult, IUpdateResult updateResult,
+            IDeleteResult deleteResult)
+        {
+            _createResult = createResult;
+            _readResult = readResult;
+            _updateResult = updateResult;
+            _deleteResult = deleteResult;
+        }
+
         public void ShowMenu()
         {
             Console.Clear();
@@ -15,7 +29,7 @@ namespace MainMenuApp.Menus
             Console.WriteLine("4) Delete");
             Console.WriteLine("0) Go back to main menu");
 
-            //MenuSelection();
+            MenuSelection();
         }
         public void ChooseOperatorMenu()
         {

@@ -1,4 +1,7 @@
-﻿using MainMenuApp.GeometryResultControllers;
+﻿using CalculatorApp.Menus;
+using CalculatorApp;
+using MainMenuApp.CalculationResultControllers;
+using MainMenuApp.GeometryResultControllers;
 using MainMenuApp.GeometryResultControllers;
 using MainMenuApp.Menus;
 using ServiceLibrary.Interfaces;
@@ -13,8 +16,21 @@ namespace MainMenuApp.Services
         {
             var geometryResultController = new GeometryResultController(dbContext);
 
-            return new Menus.MainMenu(new ShapeApplication(new ShapeMenu(new CreateGeometryResult(dbContext,geometryResultController), 
-                new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))));
+            return new Menus.MainMenu(
+                new ShapeApplication(
+                    new ShapeMenu(
+                        new CreateGeometryResult(dbContext,geometryResultController), 
+                new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))),
+
+                new CalculatorApplication
+                    (new CalculatorMenu(new CreateCalculationResult(dbContext), new ReadCalculationResult(dbContext),
+                        new UpdateCalculationResult(dbContext), new DeleteCalculationResult(dbContext))));
+
+
+
+
+            
+
         }
 
 

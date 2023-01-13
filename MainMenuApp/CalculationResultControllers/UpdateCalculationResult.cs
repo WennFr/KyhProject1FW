@@ -3,10 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Interfaces;
 
 namespace MainMenuApp.CalculationResultControllers
 {
-    internal class UpdateCalculationResult
+    public class UpdateCalculationResult : IUpdateResult
     {
+        private IDbContext _dbContext;
+        public UpdateCalculationResult(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public void Update()
+        {
+
+
+
+
+
+
+
+        }
+
+
+
     }
 }
