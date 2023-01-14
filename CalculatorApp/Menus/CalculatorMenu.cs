@@ -54,7 +54,7 @@ namespace CalculatorApp.Menus
                     break;
                 case 2:
                     Console.Clear();
-                    MenuHeader.ViewAllResults();
+                    MenuHeader.ViewResults();
                     _readResult.Read();
                     ServiceMessage.PressEnterToContinue();
                     break;

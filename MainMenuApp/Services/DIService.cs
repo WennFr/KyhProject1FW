@@ -15,17 +15,20 @@ namespace MainMenuApp.Services
         public static MainMenu InitializeMainMenuDI(IDbContext dbContext)
         {
             var geometryResultController = new GeometryResultController(dbContext);
+            var calculationResultController = new CalculationResultController(dbContext);
+            var readCalculationResult = new ReadCalculationResult(dbContext);
 
-            return new Menus.MainMenu(
+            return new MainMenu(
                 new ShapeApplication(
                     new ShapeMenu(
                         new CreateGeometryResult(dbContext,geometryResultController), 
                 new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))),
 
                 new CalculatorApplication
-                    (new CalculatorMenu(new CreateCalculationResult(dbContext,new CalculatorContext(),new AdditionStrategy(), new SubtractionStrategy(), new MultiplicationStrategy(), new DivisionStrategy(), new SquareRootStrategy(), new ModuloStrategy()), 
-                        new ReadCalculationResult(dbContext),
-                        new UpdateCalculationResult(dbContext), new DeleteCalculationResult(dbContext))));
+                    (new CalculatorMenu(new CreateCalculationResult(dbContext,new CalculatorContext(),new AdditionStrategy(), 
+                        new SubtractionStrategy(), new MultiplicationStrategy(), new DivisionStrategy(), new SquareRootStrategy(), new ModuloStrategy()), 
+                        readCalculationResult,
+                        new UpdateCalculationResult(dbContext,readCalculationResult,calculationResultController), new DeleteCalculationResult(dbContext))));
 
 
 

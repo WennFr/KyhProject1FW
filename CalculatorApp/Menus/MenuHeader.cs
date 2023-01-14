@@ -10,11 +10,15 @@ namespace CalculatorApp.Menus
     public static class MenuHeader
     {
 
-        public static void ViewAllResults()
+        public static void ViewResults()
         {
             Console.WriteLine($"View all Results{Environment.NewLine}");
         }
 
+        public static void EditResult()
+        {
+            Console.WriteLine($"Edit result {Environment.NewLine}");
+        }
 
 
 
