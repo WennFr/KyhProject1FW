@@ -1,5 +1,5 @@
 ﻿using ServiceLibrary.Interfaces;
-using ServiceLibrary.Validations;
+using ServiceLibrary.Services;
 
 namespace CalculatorApp.Menus
 {
@@ -44,7 +44,7 @@ namespace CalculatorApp.Menus
         public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 4;
-            var selection = ValidateInput.ValidateMenuSelection(selectionMenuMaxLimit);
+            var selection = UserInputService.ValidateMenuSelection(selectionMenuMaxLimit);
 
             switch (selection)
             {

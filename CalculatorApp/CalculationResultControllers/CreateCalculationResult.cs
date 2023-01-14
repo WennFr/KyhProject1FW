@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
-using ServiceLibrary.Validations;
+using ServiceLibrary.Services;
 
 namespace CalculatorApp.CalculationResultControllers
 {
@@ -34,41 +34,38 @@ namespace CalculatorApp.CalculationResultControllers
             while (true)
             {
                 Console.Clear();
-                double num1, num2;
+                double num1, num2 = 0.00;
                 double result = 0.00;
                 char op;
                 try
                 {
                     Console.Write("Enter your First Number:  ");
-                    num1 = ValidateInput.ValidateDoubleInput();
+                    num1 = UserInputService.ValidateDoubleInput();
 
-                    if (Double.IsInfinity(num1))
-                    {
-                        Console.WriteLine("Overflow");
-                        Console.ReadKey();
+                    if (MathService.IsInfinity(num1))
                         continue;
-                    }
-                    Console.Write("Enter an Operator  (+, -, *, /, √ or %): ");
-                    op = ValidateInput.ValidateOperatorSelection();
 
-                    Console.Write("Enter your Second Number: ");
-                    num2 = ValidateInput.ValidateDoubleInput();
+                    Console.Clear();
+                    Console.WriteLine($"{num1}");
 
-                    if (Double.IsInfinity(num2))
+                    Console.Write($"{Environment.NewLine}Enter an Operator  (+, -, *, /, √ or %): ");
+                    op = UserInputService.ValidateOperatorSelection();
+
+                    if (op != '√')
                     {
-                        Console.WriteLine("Overflow");
-                        Console.ReadKey();
-                        continue;
-                    }
 
-                    if (Double.IsInfinity(num1 / num2))
-                    {
-                        Console.WriteLine("Error: " + "Attempted to divide by zero");
-                        Console.ReadKey();
-                        continue;
+                        Console.Clear();
+                        Console.WriteLine($"{num1} {op}");
+
+                        Console.Write($"{Environment.NewLine}Enter your Second Number: ");
+                        num2 = UserInputService.ValidateDoubleInput();
+
+                        if (MathService.IsInfinity(num2))
+                            continue;
+                        if (MathService.IsDividedByZero(num1, num2))
+                            continue;
                     }
                 }
-
                 catch (DivideByZeroException e)
                 {
                     Console.WriteLine("Error: " + e.Message);
@@ -106,6 +103,7 @@ namespace CalculatorApp.CalculationResultControllers
 
                 result = _calculatorContext.ExecuteStrategy(num1, num2);
 
+                Console.Clear();
 
                 if (op == '√')
                     Console.WriteLine($"{op}{num1} = {result}");
@@ -123,16 +121,12 @@ namespace CalculatorApp.CalculationResultControllers
                     IsActive = true
                 });
 
+                _dbContext.SaveChanges();
 
-                Console.WriteLine("Create new calculation?");
-                var isNewCalculation = ValidateInput.ValidateUserChoice();
-
+                Console.WriteLine($"{Environment.NewLine}Create new calculation?");
+                var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isNewCalculation)
                     break;
-
-
-
-
             }
 
         }

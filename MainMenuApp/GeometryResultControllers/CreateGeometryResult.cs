@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
-using ServiceLibrary.Validations;
+using ServiceLibrary.Services;
 
 namespace MainMenuApp.GeometryResultControllers
 {
@@ -24,7 +24,7 @@ namespace MainMenuApp.GeometryResultControllers
             while (true)
             {
                 _controller.DisplaySelection();
-                var userSelection = ValidateInput.ValidateMenuSelection(4);
+                var userSelection = UserInputService.ValidateMenuSelection(4);
 
                 if (userSelection == 0)
                     break;
@@ -32,10 +32,10 @@ namespace MainMenuApp.GeometryResultControllers
                 var shapeToUseForGeometryResult = _controller.ReturnShapeObject(userSelection);
 
                 Console.WriteLine("Base: ");
-                var baseInput = ValidateInput.ValidateDoubleInputAboveZero();
+                var baseInput = UserInputService.ValidateDoubleInputAboveZero();
 
                 Console.WriteLine("Height:");
-                var heightInput = ValidateInput.ValidateDoubleInputAboveZero();
+                var heightInput = UserInputService.ValidateDoubleInputAboveZero();
 
                 //var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
 

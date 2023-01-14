@@ -1,7 +1,6 @@
-﻿
-namespace ServiceLibrary.Validations
+﻿namespace ServiceLibrary.Services
 {
-    public static class ValidateInput
+    public static class UserInputService
     {
         public static int ValidateMenuSelection(int selectionMenuMaxLimit)
         {
@@ -25,11 +24,11 @@ namespace ServiceLibrary.Validations
             while (true)
             {
                 // Console.Write(">");
-                if (double.TryParse(Console.ReadLine(), out doubleSelection) && doubleSelection > 0)
+                if (double.TryParse(Console.ReadLine(), out doubleSelection))
                 {
                     return doubleSelection;
                 }
-                Console.WriteLine("Please write a valid number above zero:");
+                Console.WriteLine("Please write a valid number:");
             }
 
         }
@@ -45,7 +44,7 @@ namespace ServiceLibrary.Validations
                 {
                     return doubleSelection;
                 }
-                Console.WriteLine("Please write a valid number:");
+                Console.WriteLine("Please write a valid number above zero:");
             }
 
         }
@@ -64,7 +63,7 @@ namespace ServiceLibrary.Validations
 
         }
 
-        public static bool ValidateUserChoice()
+        public static bool ValidateTrueOrFalseUserChoice()
         {
 
 

@@ -1,10 +1,10 @@
 ﻿using ServiceLibrary.Interfaces;
-using ServiceLibrary.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Services;
 
 namespace MainMenuApp.Menus
 {
@@ -43,7 +43,7 @@ namespace MainMenuApp.Menus
         public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 3;
-            var selection = ValidateInput.ValidateMenuSelection(selectionMenuMaxLimit);
+            var selection = UserInputService.ValidateMenuSelection(selectionMenuMaxLimit);
 
             switch (selection)
             {
