@@ -20,6 +20,8 @@ namespace CalculatorApp.CalculationResultControllers
         private ICalculatorStrategy _subtractionStrategy;
         private ICalculatorStrategy _multiplicationStrategy;
         private ICalculatorStrategy _divisionStrategy;
+        private ICalculatorStrategy _sqrRootStrategy;
+        private ICalculatorStrategy _moduluStrategy;
         public CreateCalculationResult(IDbContext dbContext, ICalculatorContext calculatorContext, ICalculatorStrategy additionStrategy,
             ICalculatorStrategy subtractionStrategy, ICalculatorStrategy multiplicationStrategy, ICalculatorStrategy divisionStrategy)
         {
@@ -50,7 +52,7 @@ namespace CalculatorApp.CalculationResultControllers
                     Console.Clear();
                     Console.WriteLine($"{num1}");
 
-                    Console.Write($"{Environment.NewLine}Enter an Operator  (+, -, *, /, √ or %): ");
+                    Console.Write($"{Environment.NewLine}Enter an Operator  (1.+,2.-,3.*,4./,5.√ or 6.%): ");
                     op = UserInputService.ValidateOperatorSelection();
 
                     if (op != '√')

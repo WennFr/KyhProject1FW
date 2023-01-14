@@ -52,13 +52,40 @@
         public static char ValidateOperatorSelection()
         {
             char op;
+            int opSelectionNumber;
 
             while (true)
             {
+
                 if (char.TryParse(Console.ReadLine(), out op) && op == '+' || op == '-' || op == '*' ||
                     op == '/' || op == '√' && op == '%')
                     return op;
-                Console.WriteLine("Operator has to be (+, -, *, /, √ or %) ");
+
+                if (int.TryParse(Convert.ToString(op), out opSelectionNumber) && opSelectionNumber > 0 && opSelectionNumber <= 6)
+                {
+                    switch (opSelectionNumber)
+                    {
+                        case 1:
+                            op = '+';
+                            return op;
+                        case 2:
+                            op = '-';
+                            return op;
+                        case 3:
+                            op = '*';
+                            return op;
+                        case 4:
+                            op = '/';
+                            return op;
+                        case 5:
+                            op = '√';
+                            return op;
+                        case 6:
+                            op = '%';
+                            return op;
+                    }
+                }
+                Console.WriteLine("Operator has to be (1.+, 2.-,3.*,4./,5.√ or 6.%) ");
             }
 
         }
