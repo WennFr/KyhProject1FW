@@ -1,4 +1,5 @@
 ﻿using ServiceLibrary.Interfaces;
+using ServiceLibrary.Messages;
 using ServiceLibrary.Services;
 
 namespace CalculatorApp.Menus
@@ -52,7 +53,10 @@ namespace CalculatorApp.Menus
                     _createResult.Create();
                     break;
                 case 2:
+                    Console.Clear();
+                    MenuHeader.ViewAllResults();
                     _readResult.Read();
+                    ServiceMessage.PressEnterToContinue();
                     break;
                 case 3:
                     _updateResult.Update();

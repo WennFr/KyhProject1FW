@@ -11,10 +11,10 @@ namespace MainMenuApp.GeometryResultControllers
             _dbContext = dbContext;
         }
 
-        public void Read()
+        public bool Read()
         {
 
-
+            return true;
 
 
 

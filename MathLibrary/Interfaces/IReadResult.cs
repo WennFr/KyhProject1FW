@@ -2,6 +2,6 @@
 {
     public interface IReadResult
     {
-        void Read();
+        bool Read();
     }
 }
