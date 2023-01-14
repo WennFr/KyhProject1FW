@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 
-namespace ServiceLibrary.CalculatorStrategies
+namespace CalculatorApp.CalculatorStrategies
 {
-    public class Multiplication : ICalculatorStrategy
+    public class SubtractionStrategy : ICalculatorStrategy
     {
         public double Execute(double x, double y)
         {
-            return x * y;
+            return x - y;
         }
 
     }

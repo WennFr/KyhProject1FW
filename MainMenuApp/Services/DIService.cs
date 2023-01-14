@@ -3,7 +3,7 @@ using CalculatorApp;
 using CalculatorApp.CalculationResultControllers;
 using MainMenuApp.GeometryResultControllers;
 using MainMenuApp.Menus;
-using ServiceLibrary.CalculatorStrategies;
+using CalculatorApp.CalculatorStrategies;
 using ServiceLibrary.Interfaces;
 using ShapeApp;
 using ShapeApp.Menus;
@@ -23,7 +23,7 @@ namespace MainMenuApp.Services
                 new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))),
 
                 new CalculatorApplication
-                    (new CalculatorMenu(new CreateCalculationResult(dbContext,new CalculatorContext(),new AdditionStrategy(), new SubtractionStrategy(), new Multiplication(), new DivisionStrategy()), new ReadCalculationResult(dbContext),
+                    (new CalculatorMenu(new CreateCalculationResult(dbContext,new CalculatorContext(),new AdditionStrategy(), new SubtractionStrategy(), new MultiplicationStrategy(), new DivisionStrategy()), new ReadCalculationResult(dbContext),
                         new UpdateCalculationResult(dbContext), new DeleteCalculationResult(dbContext))));
 
 

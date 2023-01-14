@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 
-namespace ServiceLibrary.CalculatorStrategies
+namespace CalculatorApp.CalculatorStrategies
 {
     public class CalculatorContext : ICalculatorContext
     {
