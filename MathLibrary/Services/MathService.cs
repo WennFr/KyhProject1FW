@@ -34,5 +34,20 @@ namespace ServiceLibrary.Services
         }
 
 
+
+        public static bool IsSquareRootOfNegativeNumber(double num1)
+        {
+            if (num1 < 0)
+            {
+                Console.WriteLine("Error: " + "Square root of negative number");
+                Console.ReadKey();
+                return true;
+            }
+
+            return false;
+
+        }
+
+
     }
 }

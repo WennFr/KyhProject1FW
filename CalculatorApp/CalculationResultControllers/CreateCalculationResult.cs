@@ -23,7 +23,8 @@ namespace CalculatorApp.CalculationResultControllers
         private ICalculatorStrategy _sqrRootStrategy;
         private ICalculatorStrategy _moduluStrategy;
         public CreateCalculationResult(IDbContext dbContext, ICalculatorContext calculatorContext, ICalculatorStrategy additionStrategy,
-            ICalculatorStrategy subtractionStrategy, ICalculatorStrategy multiplicationStrategy, ICalculatorStrategy divisionStrategy)
+            ICalculatorStrategy subtractionStrategy, ICalculatorStrategy multiplicationStrategy, ICalculatorStrategy divisionStrategy,
+            ICalculatorStrategy sqrRootStrategy)
         {
             _dbContext = dbContext;
             _calculatorContext = calculatorContext;
@@ -31,6 +32,7 @@ namespace CalculatorApp.CalculationResultControllers
             _subtractionStrategy = subtractionStrategy;
             _multiplicationStrategy = multiplicationStrategy;
             _divisionStrategy = divisionStrategy;
+            _sqrRootStrategy = sqrRootStrategy;
         }
 
         public void Create()
@@ -52,7 +54,7 @@ namespace CalculatorApp.CalculationResultControllers
                     Console.Clear();
                     Console.WriteLine($"{num1}");
 
-                    Console.Write($"{Environment.NewLine}Enter an Operator  (1.+,2.-,3.*,4./,5.√ or 6.%): ");
+                    Console.Write($"{Environment.NewLine}Enter an Operator: (1.+,2.-,3.*,4./,5.√ or 6.%): ");
                     op = UserInputService.ValidateOperatorSelection();
 
                     if (op != '√')
@@ -69,6 +71,10 @@ namespace CalculatorApp.CalculationResultControllers
                         if (MathService.IsDividedByZero(num1, num2))
                             continue;
                     }
+
+                    else if (op == '√')
+                        if (MathService.IsSquareRootOfNegativeNumber(num1))
+                            continue;
                 }
                 catch (DivideByZeroException e)
                 {
@@ -99,6 +105,7 @@ namespace CalculatorApp.CalculationResultControllers
                         _calculatorContext.SetStrategy(_divisionStrategy);
                         break;
                     case '√':
+                        _calculatorContext.SetStrategy(_sqrRootStrategy);
                         break;
                     case '%':
                         break;
