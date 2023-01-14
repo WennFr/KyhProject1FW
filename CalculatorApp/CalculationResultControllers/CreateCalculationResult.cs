@@ -121,7 +121,7 @@ namespace CalculatorApp.CalculationResultControllers
                 if (op == '√')
                     Console.WriteLine($"{op}{num1} = {result}");
                 else
-                    Console.WriteLine($" {num1} {op} {num2} = {result}");
+                    Console.WriteLine($"{num1} {op} {num2} = {result}");
 
 
                 _dbContext.CalculationResults.Add(new CalculationResult()
@@ -136,7 +136,7 @@ namespace CalculatorApp.CalculationResultControllers
 
                 _dbContext.SaveChanges();
 
-                Console.WriteLine($"{Environment.NewLine}Create new calculation?");
+                Console.WriteLine($"{Environment.NewLine}Create new calculation?(y/n)");
                 var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isNewCalculation)
                     break;

@@ -10,7 +10,7 @@ namespace CalculatorApp.CalculatorStrategies
     {
         public double Execute(double x, double y)
         {
-            return Math.Sqrt(x);
+            return Math.Round(Math.Sqrt(x),2);
         }
 
     }

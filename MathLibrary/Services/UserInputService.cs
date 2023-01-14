@@ -23,7 +23,6 @@
 
             while (true)
             {
-                // Console.Write(">");
                 if (double.TryParse(Console.ReadLine(), out doubleSelection))
                 {
                     return doubleSelection;
@@ -39,7 +38,6 @@
             double doubleSelection;
             while (true)
             {
-                // Console.Write(">");
                 if (double.TryParse(Console.ReadLine(), out doubleSelection) && doubleSelection > 0)
                 {
                     return doubleSelection;
@@ -85,15 +83,13 @@
                             return op;
                     }
                 }
-                Console.WriteLine("Operator has to be (1.+, 2.-,3.*,4./,5.√ or 6.%) ");
+                Console.WriteLine($"{Environment.NewLine}Operator has to be (1.+, 2.-,3.*,4./,5.√ or 6.%) ");
             }
 
         }
 
         public static bool ValidateTrueOrFalseUserChoice()
         {
-
-
             while (true)
             {
                 var userChoice = Console.ReadLine();
@@ -104,12 +100,8 @@
                 else if (userChoice.ToLower() == "n" || userChoice.ToLower() == "no")
                     return false;
 
-
-
                 Console.WriteLine("Choose an option: ");
             }
-
-
 
         }
 
