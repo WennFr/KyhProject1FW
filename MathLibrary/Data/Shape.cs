@@ -8,7 +8,7 @@ using ServiceLibrary.Interfaces;
 
 namespace ServiceLibrary.Data
 {
-    public class Shape : IShape
+    public class Shape 
     {
         [Key]
         public int Id { get; set; }

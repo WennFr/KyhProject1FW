@@ -19,6 +19,13 @@ namespace ServiceLibrary.Messages
 
         }
 
+        public static void ChooseBetweenAvailableMenuNumbers()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Choose between the available numbers in the menu");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+        }
 
 
     }

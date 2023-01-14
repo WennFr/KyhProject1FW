@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CalculatorApp.CalculatorStrategies;
 using Microsoft.EntityFrameworkCore;
 using CalculatorApp.CalculatorStrategies;
+using CalculatorApp.Interfaces;
 using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Services;
@@ -15,25 +16,17 @@ namespace CalculatorApp.CalculationResultControllers
     public class CreateCalculationResult : ICreateResult
     {
         private IDbContext _dbContext;
-        private ICalculatorContext _calculatorContext;
-        private ICalculatorStrategy _additionStrategy;
-        private ICalculatorStrategy _subtractionStrategy;
-        private ICalculatorStrategy _multiplicationStrategy;
-        private ICalculatorStrategy _divisionStrategy;
-        private ICalculatorStrategy _sqrRootStrategy;
-        private ICalculatorStrategy _modulusStrategy;
-        public CreateCalculationResult(IDbContext dbContext, ICalculatorContext calculatorContext, ICalculatorStrategy additionStrategy,
-            ICalculatorStrategy subtractionStrategy, ICalculatorStrategy multiplicationStrategy, ICalculatorStrategy divisionStrategy,
-            ICalculatorStrategy sqrRootStrategy, ICalculatorStrategy modulusStrategy)
+        private ICalculationResultController _controller;
+        //private ICalculatorStrategy _additionStrategy;
+        //private ICalculatorStrategy _subtractionStrategy;
+        //private ICalculatorStrategy _multiplicationStrategy;
+        //private ICalculatorStrategy _divisionStrategy;
+        //private ICalculatorStrategy _sqrRootStrategy;
+        //private ICalculatorStrategy _modulusStrategy;
+        public CreateCalculationResult(IDbContext dbContext, ICalculationResultController controller)
         {
             _dbContext = dbContext;
-            _calculatorContext = calculatorContext;
-            _additionStrategy = additionStrategy;
-            _subtractionStrategy = subtractionStrategy;
-            _multiplicationStrategy = multiplicationStrategy;
-            _divisionStrategy = divisionStrategy;
-            _sqrRootStrategy = sqrRootStrategy;
-            _modulusStrategy = modulusStrategy;
+            _controller = controller;
         }
 
         public void Create()
@@ -91,30 +84,7 @@ namespace CalculatorApp.CalculationResultControllers
                     continue;
                 }
 
-                switch (op)
-                {
-                    case '+':
-                        _calculatorContext.SetStrategy(_additionStrategy);
-                        break;
-                    case '-':
-                        _calculatorContext.SetStrategy(_subtractionStrategy);
-                        break;
-                    case '*':
-                        _calculatorContext.SetStrategy(_multiplicationStrategy);
-                        break;
-                    case '/':
-                        _calculatorContext.SetStrategy(_divisionStrategy);
-                        break;
-                    case '√':
-                        _calculatorContext.SetStrategy(_sqrRootStrategy);
-                        break;
-                    case '%':
-                        _calculatorContext.SetStrategy(_modulusStrategy);
-                        break;
-
-                }
-
-                result = _calculatorContext.ExecuteStrategy(num1, num2);
+                result = _controller.SetNewCalculationResultStrategyPattern(num1, num2, op);
 
                 Console.Clear();
 
