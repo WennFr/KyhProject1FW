@@ -21,10 +21,10 @@ namespace CalculatorApp.CalculationResultControllers
         private ICalculatorStrategy _multiplicationStrategy;
         private ICalculatorStrategy _divisionStrategy;
         private ICalculatorStrategy _sqrRootStrategy;
-        private ICalculatorStrategy _moduluStrategy;
+        private ICalculatorStrategy _modulusStrategy;
         public CreateCalculationResult(IDbContext dbContext, ICalculatorContext calculatorContext, ICalculatorStrategy additionStrategy,
             ICalculatorStrategy subtractionStrategy, ICalculatorStrategy multiplicationStrategy, ICalculatorStrategy divisionStrategy,
-            ICalculatorStrategy sqrRootStrategy)
+            ICalculatorStrategy sqrRootStrategy, ICalculatorStrategy modulusStrategy)
         {
             _dbContext = dbContext;
             _calculatorContext = calculatorContext;
@@ -33,6 +33,7 @@ namespace CalculatorApp.CalculationResultControllers
             _multiplicationStrategy = multiplicationStrategy;
             _divisionStrategy = divisionStrategy;
             _sqrRootStrategy = sqrRootStrategy;
+            _modulusStrategy = modulusStrategy;
         }
 
         public void Create()
@@ -108,6 +109,7 @@ namespace CalculatorApp.CalculationResultControllers
                         _calculatorContext.SetStrategy(_sqrRootStrategy);
                         break;
                     case '%':
+                        _calculatorContext.SetStrategy(_modulusStrategy);
                         break;
 
                 }

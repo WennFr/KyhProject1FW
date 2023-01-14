@@ -23,7 +23,8 @@ namespace MainMenuApp.Services
                 new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))),
 
                 new CalculatorApplication
-                    (new CalculatorMenu(new CreateCalculationResult(dbContext,new CalculatorContext(),new AdditionStrategy(), new SubtractionStrategy(), new MultiplicationStrategy(), new DivisionStrategy(), new SquareRootStrategy()), new ReadCalculationResult(dbContext),
+                    (new CalculatorMenu(new CreateCalculationResult(dbContext,new CalculatorContext(),new AdditionStrategy(), new SubtractionStrategy(), new MultiplicationStrategy(), new DivisionStrategy(), new SquareRootStrategy(), new ModuloStrategy()), 
+                        new ReadCalculationResult(dbContext),
                         new UpdateCalculationResult(dbContext), new DeleteCalculationResult(dbContext))));
 
 
