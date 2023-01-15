@@ -9,11 +9,13 @@ namespace ServiceLibrary.Data
         [Required]
         public Shape Shape { get; set; }
         [Required]
-        public double Height { get; set; }
+        public double Input1 { get; set; }
         [Required]
-        public double Width { get; set; }
+        public double Input2 { get; set; }
         [Required]
-        public double Perimiter { get; set; }
+        public double Input3 { get; set; }
+        [Required]
+        public double Perimeter { get; set; }
         [Required]
         public double Area { get; set; }
         [Required]
