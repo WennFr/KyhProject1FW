@@ -57,7 +57,8 @@ namespace CalculatorApp.CalculationResultControllers
                         case 1:
                             Console.Write($"{Environment.NewLine}First number:");
                             newNumber = UserInputService.ValidateDoubleInput();
-                            if (MathService.IsInfinity(newNumber) || MathService.IsDividedByZero(newNumber, resultToUpdate.SecondNumber) && resultToUpdate.Operator != '√')
+                            if (MathService.IsInfinity(newNumber) || MathService.IsDividedByZero(newNumber, resultToUpdate.SecondNumber, resultToUpdate.Operator)
+                                                                  || MathService.IsSquareRootOfNegativeNumber(newNumber, resultToUpdate.Operator))
                                 continue;
 
                             resultToUpdate.FirstNumber = newNumber;
@@ -71,6 +72,10 @@ namespace CalculatorApp.CalculationResultControllers
                             if (resultToUpdate.Operator == '√')
                                 resultToUpdate.SecondNumber = 0.00;
 
+                            if (MathService.IsDividedByZero(resultToUpdate.FirstNumber, resultToUpdate.SecondNumber, op)
+                                || MathService.IsSquareRootOfNegativeNumber(resultToUpdate.FirstNumber, op))
+                                continue;
+
                             resultToUpdate.Operator = op;
                             resultToUpdate.EquationResult = _controller
                             .SetNewCalculationResultStrategyPattern(resultToUpdate.FirstNumber, resultToUpdate.SecondNumber, resultToUpdate.Operator);
@@ -82,7 +87,7 @@ namespace CalculatorApp.CalculationResultControllers
 
                             Console.Write($"{Environment.NewLine}Second number:");
                             newNumber = UserInputService.ValidateDoubleInput();
-                            if (MathService.IsInfinity(newNumber) || MathService.IsDividedByZero(newNumber, resultToUpdate.SecondNumber) && resultToUpdate.Operator != '√')
+                            if (MathService.IsInfinity(newNumber) || MathService.IsDividedByZero(resultToUpdate.FirstNumber, newNumber, resultToUpdate.Operator))
                                 continue;
 
                             resultToUpdate.SecondNumber = newNumber;

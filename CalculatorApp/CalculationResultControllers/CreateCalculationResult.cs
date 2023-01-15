@@ -62,12 +62,12 @@ namespace CalculatorApp.CalculationResultControllers
 
                         if (MathService.IsInfinity(num2))
                             continue;
-                        if (MathService.IsDividedByZero(num1, num2))
+                        if (MathService.IsDividedByZero(num1, num2, op))
                             continue;
                     }
 
                     else if (op == '√')
-                        if (MathService.IsSquareRootOfNegativeNumber(num1))
+                        if (MathService.IsSquareRootOfNegativeNumber(num1, op))
                             continue;
                 }
                 catch (DivideByZeroException e)

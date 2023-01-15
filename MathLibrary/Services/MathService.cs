@@ -21,9 +21,11 @@ namespace ServiceLibrary.Services
         }
 
 
-        public static bool IsDividedByZero(double num1, double num2)
+        public static bool IsDividedByZero(double num1, double num2, char op)
         {
-            if (Double.IsInfinity(num1 / num2))
+
+
+            if (Double.IsInfinity(num1 / num2) && op == '/' || num1 == 0 && num2 == 0 && op == '/')
             {
                 Console.WriteLine("Error: " + "Attempted to divide by zero");
                 Console.ReadKey();
@@ -35,9 +37,9 @@ namespace ServiceLibrary.Services
 
 
 
-        public static bool IsSquareRootOfNegativeNumber(double num1)
+        public static bool IsSquareRootOfNegativeNumber(double num1, char op)
         {
-            if (num1 < 0)
+            if (num1 < 0 && op == '√')
             {
                 Console.WriteLine("Error: " + "Square root of negative number");
                 Console.ReadKey();
