@@ -27,7 +27,7 @@ namespace CalculatorApp.CalculationResultControllers
             while (true)
             {
                 Console.Clear();
-                MenuHeader.EditResult();
+                CalcMenuHeader.EditResult();
 
                 var isAnyActiveResults = _readResult.Read();
 

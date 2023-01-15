@@ -30,7 +30,7 @@ namespace CalculatorApp.CalculationResultControllers
             while (true)
             {
                 Console.Clear();
-                MenuHeader.DeleteResult();
+                CalcMenuHeader.DeleteResult();
 
                 var isAnyActiveResults = _readResult.Read();
                 if (!isAnyActiveResults)

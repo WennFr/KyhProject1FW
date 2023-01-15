@@ -1,7 +1,7 @@
 ﻿
 using ServiceLibrary.Interfaces;
 
-namespace MainMenuApp.GeometryResultControllers
+namespace ShapeApp.GeometryResultControllers
 {
     public class ReadGeometryResult : IReadResult
     {

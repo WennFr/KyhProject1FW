@@ -1,7 +1,7 @@
 ﻿using CalculatorApp.Menus;
 using CalculatorApp;
 using CalculatorApp.CalculationResultControllers;
-using MainMenuApp.GeometryResultControllers;
+using ShapeApp.GeometryResultControllers;
 using MainMenuApp.Menus;
 using CalculatorApp.CalculatorStrategies;
 using ServiceLibrary.Interfaces;

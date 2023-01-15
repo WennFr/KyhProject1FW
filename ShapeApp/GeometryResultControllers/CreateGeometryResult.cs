@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Services;
 
-namespace MainMenuApp.GeometryResultControllers
+namespace ShapeApp.GeometryResultControllers
 {
     public class CreateGeometryResult : ICreateResult
     {

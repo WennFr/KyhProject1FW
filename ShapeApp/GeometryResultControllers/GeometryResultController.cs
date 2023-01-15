@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Data;
 
-namespace MainMenuApp.GeometryResultControllers 
+namespace ShapeApp.GeometryResultControllers 
 {
     public class GeometryResultController : IController
     {

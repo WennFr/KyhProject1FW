@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Channels;
 using System.Threading.Tasks;
 
-namespace CalculatorApp.Menus
+namespace ShapeApp.Menus
 {
-    public static class MenuHeader
+    public static class ShapeMenuHeader
     {
 
         public static void ViewResults()
