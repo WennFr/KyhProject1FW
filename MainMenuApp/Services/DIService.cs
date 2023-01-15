@@ -20,15 +20,22 @@ namespace MainMenuApp.Services
             var readCalculationResult = new ReadCalculationResult(dbContext);
 
             return new MainMenu(
+
                 new ShapeApplication(
+
                     new ShapeMenu(
+
                         new CreateGeometryResult(dbContext,geometryResultController), 
                 new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))),
 
-                new CalculatorApplication
-                    (new CalculatorMenu(new CreateCalculationResult(dbContext,calculationResultController), 
+                new CalculatorApplication(
+
+                    new CalculatorMenu(
+
+                        new CreateCalculationResult(dbContext,calculationResultController), 
                         readCalculationResult,
-                        new UpdateCalculationResult(dbContext,readCalculationResult,calculationResultController), new DeleteCalculationResult(dbContext))));
+                        new UpdateCalculationResult(dbContext,readCalculationResult,calculationResultController),
+                        new DeleteCalculationResult(dbContext,readCalculationResult, calculationResultController))));
 
 
 

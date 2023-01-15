@@ -20,6 +20,10 @@ namespace CalculatorApp.Menus
             Console.WriteLine($"Edit result {Environment.NewLine}");
         }
 
+        public static void DeleteResult()
+        {
+            Console.WriteLine($"Delete result {Environment.NewLine}");
+        }
 
 
     }
