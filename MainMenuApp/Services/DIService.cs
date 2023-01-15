@@ -4,6 +4,7 @@ using CalculatorApp.CalculationResultControllers;
 using ShapeApp.GeometryResultControllers;
 using MainMenuApp.Menus;
 using CalculatorApp.CalculatorStrategies;
+using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
 using ShapeApp;
 using ShapeApp.Menus;
@@ -25,7 +26,7 @@ namespace MainMenuApp.Services
 
                     new ShapeMenu(
 
-                        new CreateGeometryResult(dbContext,geometryResultController), 
+                        new CreateGeometryResult(dbContext,geometryResultController, new GeometryResult()), 
                 new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))),
 
                 new CalculatorApplication(

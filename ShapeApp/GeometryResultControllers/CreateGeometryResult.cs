@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Services;
+
 
 namespace ShapeApp.GeometryResultControllers
 {
     public class CreateGeometryResult : ICreateResult
     {
         private IDbContext _dbContext;
-        private IController _controller;
-        public CreateGeometryResult(IDbContext dbContext, IController controller)
+        private IGeometryResultController _controller;
+        private GeometryResult _geometryResultToCreate;
+        public CreateGeometryResult(IDbContext dbContext, IGeometryResultController controller, GeometryResult geometryResultToCreate )
         {
             _dbContext = dbContext;
             _controller = controller;
+            _geometryResultToCreate = geometryResultToCreate;
         }
 
         public void Create()
@@ -31,11 +35,15 @@ namespace ShapeApp.GeometryResultControllers
 
                 var shapeToUseForGeometryResult = _controller.ReturnShapeObject(userSelection);
 
-                Console.WriteLine("Base: ");
-                var baseInput = UserInputService.ValidateDoubleInputAboveZero();
+                _geometryResultToCreate.Shape = shapeToUseForGeometryResult;
 
-                Console.WriteLine("Height:");
-                var heightInput = UserInputService.ValidateDoubleInputAboveZero();
+                _geometryResultToCreate = _controller.DefineGeometryResultInput(_geometryResultToCreate);
+
+
+
+
+
+
 
                 //var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
 

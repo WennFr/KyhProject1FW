@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Data;
+using ServiceLibrary.Services;
 
 namespace ShapeApp.GeometryResultControllers 
 {
-    public class GeometryResultController : IController
+    public class GeometryResultController : IGeometryResultController
     {
         private IDbContext _dbContext;
         public GeometryResultController(IDbContext dbContext)
@@ -26,7 +27,6 @@ namespace ShapeApp.GeometryResultControllers
             Console.WriteLine("4) Rhombus");
             Console.WriteLine("0) Go back to previous menu");
         }
-
 
         public Shape ReturnShapeObject(int userSelection)
         {
@@ -49,5 +49,33 @@ namespace ShapeApp.GeometryResultControllers
             }
             return null;
         }
+
+        public GeometryResult DefineGeometryResultInput(GeometryResult geometryResultToReturn)
+        {
+            Shape.shape validShape;
+            double input1, input2, input3 = 0.00;
+            if (Enum.TryParse<Shape.shape>(geometryResultToReturn.Shape.TypeOfShape, out validShape) && validShape == Shape.shape.Triangle)
+            {
+                Console.WriteLine("Side 1:");
+                input1 = UserInputService.ValidateDoubleInputAboveZero();
+                Console.WriteLine("Side 2");
+                input2 = UserInputService.ValidateDoubleInputAboveZero();
+                Console.WriteLine("Side 3:");
+                input3 = UserInputService.ValidateDoubleInputAboveZero();
+
+            }
+            else
+            {
+                Console.WriteLine("Base: ");
+                var baseInput = UserInputService.ValidateDoubleInputAboveZero();
+                Console.WriteLine("Height:");
+                var heightInput = UserInputService.ValidateDoubleInputAboveZero();
+            }
+
+            return geometryResultToReturn;
+        }
+
+
+
     }
 }
