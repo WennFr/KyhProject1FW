@@ -39,12 +39,7 @@ namespace ShapeApp.GeometryResultControllers
                     Console.Clear();
                     _controller.DisplayChosenResult(resultToUpdate);
 
-                    Console.WriteLine($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
-                    Console.WriteLine("1) Value 1");
-                    Console.WriteLine("2) Value 2");
-                    Console.WriteLine("3) Value 3 (if triangle)");
-                    Console.WriteLine("4) Shape");
-                    Console.WriteLine("0) Save and exit");
+                    ShapeSubMenu.DisplayUpdateShapesSelection();
 
                     var userSelection = UserInputService.ValidateMenuSelection(4);
                     var newValue = 0.00;
@@ -165,7 +160,7 @@ namespace ShapeApp.GeometryResultControllers
         {
             Console.Clear();
 
-            _controller.DisplaySelection();
+            ShapeSubMenu.DisplayAvailableShapesSelection();
             Console.WriteLine($"{Environment.NewLine}What do shape do you want? {Environment.NewLine}");
             var userSelection = UserInputService.ValidateMenuSelection(4);
 

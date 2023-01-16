@@ -7,6 +7,7 @@ using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Services;
 using ShapeApp.Interfaces;
+using ShapeApp.Menus;
 using ShapeApp.Models;
 
 
@@ -33,7 +34,7 @@ namespace ShapeApp.GeometryResultControllers
                 _geometryResultToCreate = new GeometryResult();
 
                 Console.Clear();
-                _controller.DisplaySelection();
+                ShapeSubMenu.DisplayAvailableShapesSelection();
                 var userSelection = UserInputService.ValidateMenuSelection(4);
 
                 if (userSelection == 0)
@@ -54,7 +55,7 @@ namespace ShapeApp.GeometryResultControllers
                 _dbContext.SaveChanges();
 
 
-                Console.WriteLine($"{Environment.NewLine}Create new ?(y/n)");
+                Console.WriteLine($"{Environment.NewLine}Create new result?(y/n)");
                 var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isNewCalculation)
                     break;

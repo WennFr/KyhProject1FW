@@ -9,6 +9,7 @@ using ServiceLibrary.Data;
 using ServiceLibrary.Services;
 using ShapeApp.Interfaces;
 using ServiceLibrary.Messages;
+using ShapeApp.Menus;
 
 namespace ShapeApp.GeometryResultControllers
 {
@@ -34,18 +35,6 @@ namespace ShapeApp.GeometryResultControllers
             _triangleStrategy = triangleStrategy;
             _rhombusStrategy = rhombusStrategy;
         }
-
-        public void DisplaySelection()
-        {
-            Console.WriteLine("Shape to create:");
-
-            Console.WriteLine("1) Rectangle");
-            Console.WriteLine("2) Parallelogram");
-            Console.WriteLine("3) Triangle");
-            Console.WriteLine("4) Rhombus");
-            Console.WriteLine("0) Go back to previous menu");
-        }
-
 
 
         public bool IsShapeTriangle(string typeOfShape)
@@ -133,8 +122,6 @@ namespace ShapeApp.GeometryResultControllers
                     break;
             }
 
-
-
             _areaPerimeter = _geometryContext.ExecuteStrategy(geometryResultToReturn.Input1, geometryResultToReturn.Input2, geometryResultToReturn.Input3);
 
             geometryResultToReturn.Perimeter = Math.Round(_areaPerimeter.Perimeter, 2);
@@ -148,12 +135,12 @@ namespace ShapeApp.GeometryResultControllers
         {
 
             int intSelection;
-            Console.WriteLine($"Choose the id of a result to select:");
+            Console.WriteLine($"Choose id to select:");
             while (true)
             {
                 Console.WriteLine(">");
                 if (int.TryParse(Console.ReadLine(), out intSelection) &&
-                    _dbContext.GeometryResults.Any(c => c.Id == intSelection))
+                    _dbContext.GeometryResults.Any(c => c.Id == intSelection && c.IsActive == true))
                 {
                     var geometryResultToReturn = _dbContext.GeometryResults.FirstOrDefault(s => s.Id == intSelection);
                     Console.Clear();
