@@ -42,7 +42,7 @@ namespace CalculatorApp.CalculationResultControllers
                     Console.Write("First Number:  ");
                     num1 = UserInputService.ValidateDoubleInput();
 
-                    if (MathService.IsInfinity(num1))
+                    if (MathErrorExceptionService.IsInfinity(num1))
                         continue;
 
                     Console.Clear();
@@ -60,14 +60,14 @@ namespace CalculatorApp.CalculationResultControllers
                         Console.Write($"{Environment.NewLine}Second Number: ");
                         num2 = UserInputService.ValidateDoubleInput();
 
-                        if (MathService.IsInfinity(num2))
+                        if (MathErrorExceptionService.IsInfinity(num2))
                             continue;
-                        if (MathService.IsDividedByZero(num1, num2, op))
+                        if (MathErrorExceptionService.IsDividedByZero(num1, num2, op))
                             continue;
                     }
 
                     else if (op == '√')
-                        if (MathService.IsSquareRootOfNegativeNumber(num1, op))
+                        if (MathErrorExceptionService.IsSquareRootOfNegativeNumber(num1, op))
                             continue;
                 }
                 catch (DivideByZeroException e)

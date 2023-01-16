@@ -10,7 +10,6 @@ namespace ShapeApp.Interfaces
     {
 
         public void SetStrategy(IGeometryStrategy strategy);
-        public IAreaPerimeter ExecuteStrategy(double a, double b, double c);
-
+        public IAreaPerimeter ExecuteStrategy(double a, double y, double z);
     }
 }

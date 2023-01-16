@@ -89,7 +89,7 @@ namespace CalculatorApp.CalculationResultControllers
                     return roomSelection;
                 }
 
-                ErrorMessage.ChooseBetweenAvailableMenuNumbers();
+                ProgramErrorMessage.ChooseBetweenAvailableMenuNumbers();
             }
 
         }

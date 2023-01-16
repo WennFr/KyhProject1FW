@@ -20,8 +20,7 @@ namespace MainMenuApp.Services
         {
 
             var areaPerimeter = new AreaPerimeter();
-            var geometryContext = new GeometryContext();
-            var geometryResultController = new GeometryResultController(dbContext,geometryContext,areaPerimeter, new RectangleStrategy(areaPerimeter),
+            var geometryResultController = new GeometryResultController(dbContext,new GeometryContext(),areaPerimeter, new RectangleStrategy(areaPerimeter),
                 new ParallelogramStrategy(areaPerimeter), new TriangleStrategy(areaPerimeter), new RhombusStrategy(areaPerimeter));
 
 

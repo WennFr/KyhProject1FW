@@ -16,9 +16,9 @@ namespace ShapeApp.GeometryStrategies
             _strategy = strategy;
         }
 
-        public IAreaPerimeter ExecuteStrategy(double a, double b, double c)
+        public IAreaPerimeter ExecuteStrategy(double x, double y, double z)
         {
-            return _strategy.Execute(a, b, c);
+            return _strategy.Execute(x, y, z);
         }
 
 

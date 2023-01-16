@@ -12,7 +12,7 @@ namespace ServiceLibrary.Data
         public double Input1 { get; set; }
         [Required]
         public double Input2 { get; set; }
-        [Required]
+
         public double Input3 { get; set; }
         [Required]
         public double Perimeter { get; set; }

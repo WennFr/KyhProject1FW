@@ -1,4 +1,5 @@
 ﻿using ServiceLibrary.Interfaces;
+using ServiceLibrary.Messages;
 using ServiceLibrary.Services;
 
 namespace ShapeApp.Menus;
@@ -44,7 +45,10 @@ public class ShapeMenu : IMenu
                 _createResult.Create();
                 break;
             case 2:
+                Console.Clear();
+                ShapeMenuHeader.ViewResults();
                 _readResult.Read();
+                ServiceMessage.PressEnterToContinue();
                 break;
             case 3:
                 _updateResult.Update();

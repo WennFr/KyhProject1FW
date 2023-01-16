@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace ServiceLibrary.Messages
 {
-    public static class ErrorMessage
+    public static class ProgramErrorMessage
     {
 
         public static void NoActiveResultsToView()

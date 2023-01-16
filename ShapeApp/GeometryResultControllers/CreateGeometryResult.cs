@@ -29,6 +29,9 @@ namespace ShapeApp.GeometryResultControllers
 
             while (true)
             {
+
+                _geometryResultToCreate = new GeometryResult();
+
                 Console.Clear();
                 _controller.DisplaySelection();
                 var userSelection = UserInputService.ValidateMenuSelection(4);
@@ -41,6 +44,9 @@ namespace ShapeApp.GeometryResultControllers
                 _geometryResultToCreate.Shape = shapeToUseForGeometryResult;
                 _geometryResultToCreate = _controller.DefineGeometryResultInput(_geometryResultToCreate);
                 _geometryResultToCreate = _controller.CalculateNewGeometryResultStrategyPattern(_geometryResultToCreate);
+                if (MathErrorExceptionService.IsInvalidArea(_geometryResultToCreate.Area))
+                    continue;
+
                 _geometryResultToCreate.IsActive = true;
                 _geometryResultToCreate.DateOfGeometryResult = DateTime.Now;
 
@@ -48,7 +54,7 @@ namespace ShapeApp.GeometryResultControllers
                 _dbContext.SaveChanges();
 
 
-                Console.WriteLine($"{Environment.NewLine}Create new shape?(y/n)");
+                Console.WriteLine($"{Environment.NewLine}Create new ?(y/n)");
                 var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isNewCalculation)
                     break;

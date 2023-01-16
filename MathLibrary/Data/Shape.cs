@@ -19,7 +19,7 @@ namespace ServiceLibrary.Data
         public enum shape
         {
             Rectangle,
-            Paralellogram,
+            Parallelogram,
             Triangle,
             Rhombus
         }

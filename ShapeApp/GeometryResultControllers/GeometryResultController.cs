@@ -28,6 +28,7 @@ namespace ShapeApp.GeometryResultControllers
             _geometryContext = context;
             _areaPerimeter = areaPerimeter;
             _rectangleStrategy = rectangleStrategy;
+            _parallelogramStrategy = parallelogramStrategy;
             _triangleStrategy = triangleStrategy;
             _rhombusStrategy = rhombusStrategy;
         }
@@ -54,7 +55,7 @@ namespace ShapeApp.GeometryResultControllers
                         s.TypeOfShape == Convert.ToString(Shape.shape.Rectangle));
                 case 2:
                     return shapeToReturn = _dbContext.Shapes.FirstOrDefault(s =>
-                          s.TypeOfShape == Convert.ToString(Shape.shape.Paralellogram));
+                          s.TypeOfShape == Convert.ToString(Shape.shape.Parallelogram));
                 case 3:
                     return shapeToReturn = _dbContext.Shapes.FirstOrDefault(s =>
                           s.TypeOfShape == Convert.ToString(Shape.shape.Triangle));
@@ -87,9 +88,9 @@ namespace ShapeApp.GeometryResultControllers
                 input2 = UserInputService.ValidateDoubleInputAboveZero();
             }
 
-            geometryResultToReturn.Input1 = input1;
-            geometryResultToReturn.Input2 = input2;
-            geometryResultToReturn.Input3 = input3;
+            geometryResultToReturn.Input1 = Math.Round(input1,2);
+            geometryResultToReturn.Input2 = Math.Round(input2,2);
+            geometryResultToReturn.Input3 = Math.Round(input3,2);
 
             return geometryResultToReturn;
         }
@@ -106,7 +107,7 @@ namespace ShapeApp.GeometryResultControllers
                     _geometryContext.SetStrategy(_rectangleStrategy);
                     break;
 
-                case Shape.shape.Paralellogram:
+                case Shape.shape.Parallelogram:
                     _geometryContext.SetStrategy(_parallelogramStrategy);
                     break;
 
@@ -123,8 +124,8 @@ namespace ShapeApp.GeometryResultControllers
 
             _areaPerimeter = _geometryContext.ExecuteStrategy(geometryResultToReturn.Input1, geometryResultToReturn.Input2, geometryResultToReturn.Input3);
 
-            geometryResultToReturn.Perimeter = _areaPerimeter.Perimeter;
-            geometryResultToReturn.Area = _areaPerimeter.Area;
+            geometryResultToReturn.Perimeter = Math.Round(_areaPerimeter.Perimeter,2);
+            geometryResultToReturn.Area = Math.Round(_areaPerimeter.Area,2);
 
             return geometryResultToReturn;
 
