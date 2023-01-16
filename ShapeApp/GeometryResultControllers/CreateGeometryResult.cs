@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Services;
+using ShapeApp.Interfaces;
+using ShapeApp.Models;
 
 
 namespace ShapeApp.GeometryResultControllers
@@ -15,7 +17,7 @@ namespace ShapeApp.GeometryResultControllers
         private IDbContext _dbContext;
         private IGeometryResultController _controller;
         private GeometryResult _geometryResultToCreate;
-        public CreateGeometryResult(IDbContext dbContext, IGeometryResultController controller, GeometryResult geometryResultToCreate )
+        public CreateGeometryResult(IDbContext dbContext, IGeometryResultController controller, GeometryResult geometryResultToCreate)
         {
             _dbContext = dbContext;
             _controller = controller;
@@ -24,9 +26,10 @@ namespace ShapeApp.GeometryResultControllers
 
         public void Create()
         {
-            Console.Clear();
+
             while (true)
             {
+                Console.Clear();
                 _controller.DisplaySelection();
                 var userSelection = UserInputService.ValidateMenuSelection(4);
 
@@ -36,18 +39,8 @@ namespace ShapeApp.GeometryResultControllers
                 var shapeToUseForGeometryResult = _controller.ReturnShapeObject(userSelection);
 
                 _geometryResultToCreate.Shape = shapeToUseForGeometryResult;
-
                 _geometryResultToCreate = _controller.DefineGeometryResultInput(_geometryResultToCreate);
 
-
-
-
-
-
-
-                //var calculate = new GeometryCalculation(shapeToUseForGeometricResult.TypeOfShape, baseInput, heightInput);
-
-                //var perimiter = calculate.CalculatePerimiter();
 
 
 

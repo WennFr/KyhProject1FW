@@ -9,6 +9,6 @@ namespace ShapeApp.Interfaces
     public interface IAreaPerimeter
     {
         public double Area { get; set; }
-        public double Perimiter { get; set; }
+        public double Perimeter { get; set; }
     }
 }

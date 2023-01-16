@@ -39,7 +39,7 @@ namespace CalculatorApp.CalculationResultControllers
                 char op;
                 try
                 {
-                    Console.Write("Enter your First Number:  ");
+                    Console.Write("First Number:  ");
                     num1 = UserInputService.ValidateDoubleInput();
 
                     if (MathService.IsInfinity(num1))
@@ -48,7 +48,7 @@ namespace CalculatorApp.CalculationResultControllers
                     Console.Clear();
                     Console.WriteLine($"{num1}");
 
-                    Console.Write($"{Environment.NewLine}Enter an Operator: (1.+,2.-,3.*,4./,5.√ or 6.%): ");
+                    Console.Write($"{Environment.NewLine}Operator: (1.+,2.-,3.*,4./,5.√ or 6.%): ");
                     op = UserInputService.ValidateOperatorSelection();
 
                     if (op != '√')
@@ -57,7 +57,7 @@ namespace CalculatorApp.CalculationResultControllers
                         Console.Clear();
                         Console.WriteLine($"{num1} {op}");
 
-                        Console.Write($"{Environment.NewLine}Enter your Second Number: ");
+                        Console.Write($"{Environment.NewLine}Second Number: ");
                         num2 = UserInputService.ValidateDoubleInput();
 
                         if (MathService.IsInfinity(num2))

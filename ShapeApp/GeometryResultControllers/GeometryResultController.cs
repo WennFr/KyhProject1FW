@@ -6,15 +6,30 @@ using System.Threading.Tasks;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Data;
 using ServiceLibrary.Services;
+using ShapeApp.Interfaces;
 
 namespace ShapeApp.GeometryResultControllers 
 {
     public class GeometryResultController : IGeometryResultController
     {
         private IDbContext _dbContext;
-        public GeometryResultController(IDbContext dbContext)
+        private IGeometryContext _geometryContext;
+        private IAreaPerimeter _areaPerimeter;
+        private IGeometryStrategy _rectangleStrategy;
+        private IGeometryStrategy _parallelogramStrategy;
+        private IGeometryStrategy _triangleStrategy;
+        private IGeometryStrategy _rhombusStrategy;
+        
+
+        public GeometryResultController(IDbContext dbContext, IGeometryContext context,IAreaPerimeter areaPerimeter,
+            IGeometryStrategy rectangleStrategy, IGeometryStrategy parallelogramStrategy, IGeometryStrategy triangleStrategy, IGeometryStrategy rhombusStrategy)
         {
             _dbContext = dbContext;
+            _geometryContext = context;
+            _areaPerimeter = areaPerimeter;
+            _rectangleStrategy = rectangleStrategy;
+            _triangleStrategy = triangleStrategy;
+            _rhombusStrategy = rhombusStrategy;
         }
 
         public void DisplaySelection()
@@ -56,7 +71,7 @@ namespace ShapeApp.GeometryResultControllers
             double input1, input2, input3 = 0.00;
             if (Enum.TryParse<Shape.shape>(geometryResultToReturn.Shape.TypeOfShape, out validShape) && validShape == Shape.shape.Triangle)
             {
-                Console.WriteLine("Side 1:");
+                Console.WriteLine("Side 1(base):");
                 input1 = UserInputService.ValidateDoubleInputAboveZero();
                 Console.WriteLine("Side 2");
                 input2 = UserInputService.ValidateDoubleInputAboveZero();
@@ -67,13 +82,50 @@ namespace ShapeApp.GeometryResultControllers
             else
             {
                 Console.WriteLine("Base: ");
-                var baseInput = UserInputService.ValidateDoubleInputAboveZero();
+                 input1 = UserInputService.ValidateDoubleInputAboveZero();
                 Console.WriteLine("Height:");
-                var heightInput = UserInputService.ValidateDoubleInputAboveZero();
+                 input2 = UserInputService.ValidateDoubleInputAboveZero();
             }
+
+            geometryResultToReturn.Input1 = input1;
+            geometryResultToReturn.Input2 = input2;
+            geometryResultToReturn.Input3 = input3;
 
             return geometryResultToReturn;
         }
+
+
+        public GeometryResult SetNewGeometryResultStrategyPattern(GeometryResult geometryResultToReturn)
+        {
+            Shape.shape validShape;
+            Enum.TryParse<Shape.shape>(geometryResultToReturn.Shape.TypeOfShape, out validShape);
+
+            switch (validShape)
+            {
+                case Shape.shape.Rectangle:
+                    _geometryContext.SetStrategy(_rectangleStrategy);
+                    break;
+                case Shape.shape.Paralellogram:
+                    //_calculatorContext.SetStrategy(_subtractionStrategy);
+                    break;
+                case Shape.shape.Triangle:
+                    //_calculatorContext.SetStrategy(_multiplicationStrategy);
+                    break;
+                case Shape.shape.Rhombus:
+                    //_calculatorContext.SetStrategy(_divisionStrategy);
+                    break;
+            }
+
+
+
+
+
+
+            return geometryResultToReturn;
+
+        }
+
+
 
 
 
