@@ -82,7 +82,7 @@ namespace CalculatorApp.CalculationResultControllers
             {
                 Console.WriteLine(">");
                 if (int.TryParse(Console.ReadLine(), out intSelection) &&
-                    _dbContext.CalculationResults.Any(c => c.Id == intSelection))
+                    _dbContext.CalculationResults.Any(c => c.Id == intSelection && c.IsActive == true))
                 {
                     var calculationResultToReturn = _dbContext.CalculationResults.FirstOrDefault(s => s.Id == intSelection);
                     Console.Clear();
