@@ -49,107 +49,28 @@ namespace ShapeApp.GeometryResultControllers
                     var userSelection = UserInputService.ValidateMenuSelection(4);
                     var newValue = 0.00;
                     var oldValue = 0.00;
-                    var oldArea =  resultToUpdate.Area;
+                    var oldArea = resultToUpdate.Area;
                     var oldPerimeter = resultToUpdate.Perimeter;
+                    var oldShape = resultToUpdate.Shape;
                     switch (userSelection)
                     {
                         case 1:
-                            oldValue = resultToUpdate.Input1;
-                            if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
-                                Console.Write($"{Environment.NewLine}Side1 (base):");
-                            else
-                                Console.WriteLine("Base: ");
-
-                            newValue = UserInputService.ValidateDoubleInputAboveZero();
-
-                            resultToUpdate.Input1 = newValue;
-                            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
-                            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
-                            {
-                                resultToUpdate.Input1 = oldValue;
-                                resultToUpdate.Perimeter = oldPerimeter;
-                                resultToUpdate.Area = oldArea;
-                            }
-
+                            resultToUpdate = UpdateValue1(newValue, oldValue, oldPerimeter, oldArea, resultToUpdate);
                             continue;
 
                         case 2:
-
-                            oldValue = resultToUpdate.Input2;
-
-                            if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
-                                Console.Write($"{Environment.NewLine}Side2:");
-
-                            else
-                                Console.WriteLine($"{Environment.NewLine}Height: ");
-
-                            newValue = UserInputService.ValidateDoubleInputAboveZero();
-
-                            resultToUpdate.Input2 = newValue;
-                            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
-
-                            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
-                            {
-                                resultToUpdate.Input2 = oldValue;
-                                resultToUpdate.Perimeter = oldPerimeter;
-                                resultToUpdate.Area = oldArea;
-                            }
-
+                            resultToUpdate = UpdateValue2(newValue, oldValue, oldPerimeter, oldArea, resultToUpdate);
                             continue;
 
                         case 3:
-                            oldValue = resultToUpdate.Input3;
                             if (!_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
                                 continue;
 
-                            Console.Write($"{Environment.NewLine}Side3:");
-                            newValue = UserInputService.ValidateDoubleInputAboveZero();
-
-                            resultToUpdate.Input3 = newValue;
-                            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
-
-                            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
-                            {
-                                resultToUpdate.Input3 = oldValue;
-                                resultToUpdate.Perimeter = oldPerimeter;
-                                resultToUpdate.Area = oldArea;
-                            }
-
+                            resultToUpdate = UpdateValue3(newValue, oldValue, oldPerimeter, oldArea, resultToUpdate);
                             continue;
 
-
-
                         case 4:
-                            Console.Clear();
-                            var oldShape = resultToUpdate.Shape;
-
-                            _controller.DisplaySelection();
-                            Console.WriteLine($"{Environment.NewLine}What do shape do you want? {Environment.NewLine}");
-                            userSelection = UserInputService.ValidateMenuSelection(4);
-
-                            resultToUpdate.Shape = _controller.ReturnShapeObject(userSelection);
-
-                            if (!_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
-                                resultToUpdate.Input3 = 0.00;
-
-                            else if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape) &&
-                                     resultToUpdate.Input3 <= 0)
-                            {
-                                Console.Write($"{Environment.NewLine}Side3:");
-
-                                newValue = UserInputService.ValidateDoubleInputAboveZero();
-                                resultToUpdate.Input3 = newValue;
-                            }
-
-                            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
-
-                            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
-                            {
-                                resultToUpdate.Shape = oldShape;
-                                resultToUpdate.Perimeter = oldPerimeter;
-                                resultToUpdate.Area = oldArea;
-                            }
-
+                            resultToUpdate = UpdateShape(newValue, oldValue, oldPerimeter, oldShape, resultToUpdate);
                             continue;
 
                         case 0:
@@ -158,23 +79,130 @@ namespace ShapeApp.GeometryResultControllers
                             break;
                     }
 
-
                 }
 
                 break;
-
-
-
-
-
-
-
-
-
-
             }
 
         }
+
+        public GeometryResult UpdateValue1(double newValue, double oldValue, double oldPerimeter, double oldArea, GeometryResult resultToUpdate)
+        {
+            oldValue = resultToUpdate.Input1;
+            if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
+                Console.Write($"{Environment.NewLine}Side1 (base):");
+            else
+                Console.WriteLine("Base: ");
+
+            newValue = UserInputService.ValidateDoubleInputAboveZero();
+
+            resultToUpdate.Input1 = newValue;
+            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
+            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
+            {
+                resultToUpdate.Input1 = oldValue;
+                resultToUpdate.Perimeter = oldPerimeter;
+                resultToUpdate.Area = oldArea;
+
+                return resultToUpdate;
+            }
+
+            return resultToUpdate;
+        }
+
+        public GeometryResult UpdateValue2(double newValue, double oldValue, double oldPerimeter, double oldArea, GeometryResult resultToUpdate)
+        {
+
+
+            oldValue = resultToUpdate.Input2;
+
+            if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
+                Console.Write($"{Environment.NewLine}Side2:");
+
+            else
+                Console.WriteLine($"{Environment.NewLine}Height: ");
+
+            newValue = UserInputService.ValidateDoubleInputAboveZero();
+
+            resultToUpdate.Input2 = newValue;
+            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
+
+            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
+            {
+                resultToUpdate.Input2 = oldValue;
+                resultToUpdate.Perimeter = oldPerimeter;
+                resultToUpdate.Area = oldArea;
+
+                return resultToUpdate;
+            }
+
+            return resultToUpdate;
+        }
+
+        public GeometryResult UpdateValue3(double newValue, double oldValue, double oldPerimeter, double oldArea, GeometryResult resultToUpdate)
+        {
+            oldValue = resultToUpdate.Input3;
+
+            Console.Write($"{Environment.NewLine}Side3:");
+            newValue = UserInputService.ValidateDoubleInputAboveZero();
+
+            resultToUpdate.Input3 = newValue;
+            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
+
+            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
+            {
+                resultToUpdate.Input3 = oldValue;
+                resultToUpdate.Perimeter = oldPerimeter;
+                resultToUpdate.Area = oldArea;
+                return resultToUpdate;
+            }
+
+            return resultToUpdate;
+        }
+
+
+        public GeometryResult UpdateShape(double newValue, double oldPerimeter, double oldArea, Shape oldShape, GeometryResult resultToUpdate)
+        {
+            Console.Clear();
+
+            _controller.DisplaySelection();
+            Console.WriteLine($"{Environment.NewLine}What do shape do you want? {Environment.NewLine}");
+            var userSelection = UserInputService.ValidateMenuSelection(4);
+
+            resultToUpdate.Shape = _controller.ReturnShapeObject(userSelection);
+
+            if (!_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
+                resultToUpdate.Input3 = 0.00;
+
+            else if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape) &&
+                     resultToUpdate.Input3 <= 0)
+            {
+                Console.Write($"{Environment.NewLine}Side3:");
+
+                newValue = UserInputService.ValidateDoubleInputAboveZero();
+                resultToUpdate.Input3 = newValue;
+            }
+
+            resultToUpdate = _controller.CalculateNewGeometryResultStrategyPattern(resultToUpdate);
+
+            if (MathErrorExceptionService.IsInvalidArea(resultToUpdate.Area))
+            {
+                resultToUpdate.Shape = oldShape;
+                resultToUpdate.Perimeter = oldPerimeter;
+                resultToUpdate.Area = oldArea;
+
+                return resultToUpdate;
+            }
+
+            return resultToUpdate;
+
+        }
+
+
+
+
+
+
 
 
     }
