@@ -22,6 +22,7 @@ namespace MainMenuApp.Services
             var areaPerimeter = new AreaPerimeter();
             var geometryResultController = new GeometryResultController(dbContext,new GeometryContext(),areaPerimeter, new RectangleStrategy(areaPerimeter),
                 new ParallelogramStrategy(areaPerimeter), new TriangleStrategy(areaPerimeter), new RhombusStrategy(areaPerimeter));
+            var readGeometryResult = new ReadGeometryResult(dbContext);
 
 
 
@@ -34,7 +35,7 @@ namespace MainMenuApp.Services
             return new MainMenu(
 
                 new ShapeApplication(new ShapeMenu(new CreateGeometryResult(dbContext,geometryResultController,new GeometryResult()), 
-                new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext), new DeleteGeometryResult(dbContext))),
+                new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext,readGeometryResult,geometryResultController), new DeleteGeometryResult(dbContext))),
 
                 new CalculatorApplication(new CalculatorMenu(new CreateCalculationResult(dbContext,calculationResultController),readCalculationResult,
                         new UpdateCalculationResult(dbContext,readCalculationResult,calculationResultController),

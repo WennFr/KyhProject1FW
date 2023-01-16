@@ -11,6 +11,8 @@ namespace ServiceLibrary.Interfaces
         Shape ReturnShapeObject(int userSelection);
         GeometryResult DefineGeometryResultInput(GeometryResult geometryResultToReturn);
         GeometryResult CalculateNewGeometryResultStrategyPattern(GeometryResult geometryResultToReturn);
-
+        GeometryResult ChooseResultToReturn();
+        void DisplayChosenResult(GeometryResult geometryResultToUpdate);
+        bool IsShapeTriangle(string typeOfShape);
     }
 }

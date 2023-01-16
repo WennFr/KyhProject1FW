@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Data;
 using ServiceLibrary.Services;
 using ShapeApp.Interfaces;
+using ServiceLibrary.Messages;
 
 namespace ShapeApp.GeometryResultControllers
 {
@@ -42,6 +44,17 @@ namespace ShapeApp.GeometryResultControllers
             Console.WriteLine("3) Triangle");
             Console.WriteLine("4) Rhombus");
             Console.WriteLine("0) Go back to previous menu");
+        }
+
+
+
+        public bool IsShapeTriangle(string typeOfShape)
+        {
+            Shape.shape validShape;
+            if (Enum.TryParse<Shape.shape>(typeOfShape, out validShape) && validShape == Shape.shape.Triangle)
+                return true;
+
+            return false;
         }
 
         public Shape ReturnShapeObject(int userSelection)
@@ -88,9 +101,9 @@ namespace ShapeApp.GeometryResultControllers
                 input2 = UserInputService.ValidateDoubleInputAboveZero();
             }
 
-            geometryResultToReturn.Input1 = Math.Round(input1,2);
-            geometryResultToReturn.Input2 = Math.Round(input2,2);
-            geometryResultToReturn.Input3 = Math.Round(input3,2);
+            geometryResultToReturn.Input1 = Math.Round(input1, 2);
+            geometryResultToReturn.Input2 = Math.Round(input2, 2);
+            geometryResultToReturn.Input3 = Math.Round(input3, 2);
 
             return geometryResultToReturn;
         }
@@ -124,12 +137,60 @@ namespace ShapeApp.GeometryResultControllers
 
             _areaPerimeter = _geometryContext.ExecuteStrategy(geometryResultToReturn.Input1, geometryResultToReturn.Input2, geometryResultToReturn.Input3);
 
-            geometryResultToReturn.Perimeter = Math.Round(_areaPerimeter.Perimeter,2);
-            geometryResultToReturn.Area = Math.Round(_areaPerimeter.Area,2);
+            geometryResultToReturn.Perimeter = Math.Round(_areaPerimeter.Perimeter, 2);
+            geometryResultToReturn.Area = Math.Round(_areaPerimeter.Area, 2);
 
             return geometryResultToReturn;
 
         }
+
+        public GeometryResult ChooseResultToReturn()
+        {
+
+            int intSelection;
+            Console.WriteLine($"Choose the id of a result to select:");
+            while (true)
+            {
+                Console.WriteLine(">");
+                if (int.TryParse(Console.ReadLine(), out intSelection) &&
+                    _dbContext.GeometryResults.Any(c => c.Id == intSelection))
+                {
+                    var geometryResultToReturn = _dbContext.GeometryResults.FirstOrDefault(s => s.Id == intSelection);
+                    Console.Clear();
+                    return geometryResultToReturn;
+                }
+
+                ProgramErrorMessage.ChooseBetweenAvailableMenuNumbers();
+            }
+
+        }
+
+        public void DisplayChosenResult(GeometryResult geometryResultToUpdate)
+        {
+
+            Console.WriteLine("{0,-10} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10},", $"{Environment.NewLine}ID", "Shape", "Value1", "Value2", "Value3",
+                "Perimeter", "Area", $"Date of result {Environment.NewLine}");
+
+            {
+                Console.WriteLine("{0,-8} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}",
+                    $"{geometryResultToUpdate.Id}",
+                    $"{geometryResultToUpdate.Shape.TypeOfShape}",
+                    $"{geometryResultToUpdate.Input1}",
+                    $"{geometryResultToUpdate.Input2}",
+                    $"{geometryResultToUpdate.Input3}",
+                    $"{geometryResultToUpdate.Perimeter}",
+                    $"{geometryResultToUpdate.Area}",
+                    $"{geometryResultToUpdate.DateOfGeometryResult}");
+
+                Console.WriteLine(
+                    $"----------------------------------------------------------------------------------------------------------------");
+            }
+
+
+        }
+
+
+
 
 
 

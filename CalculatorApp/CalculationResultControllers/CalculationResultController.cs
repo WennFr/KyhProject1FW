@@ -84,9 +84,9 @@ namespace CalculatorApp.CalculationResultControllers
                 if (int.TryParse(Console.ReadLine(), out intSelection) &&
                     _dbContext.CalculationResults.Any(c => c.Id == intSelection))
                 {
-                    var roomSelection = _dbContext.CalculationResults.FirstOrDefault(s => s.Id == intSelection);
+                    var calculationResultToReturn = _dbContext.CalculationResults.FirstOrDefault(s => s.Id == intSelection);
                     Console.Clear();
-                    return roomSelection;
+                    return calculationResultToReturn;
                 }
 
                 ProgramErrorMessage.ChooseBetweenAvailableMenuNumbers();
