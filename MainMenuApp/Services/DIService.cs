@@ -35,7 +35,7 @@ namespace MainMenuApp.Services
             return new MainMenu(
 
                 new ShapeApplication(new ShapeMenu(new CreateGeometryResult(dbContext,geometryResultController,new GeometryResult()), 
-                new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext,readGeometryResult,geometryResultController), new DeleteGeometryResult(dbContext))),
+                new ReadGeometryResult(dbContext), new UpdateGeometryResult(dbContext,readGeometryResult,geometryResultController), new DeleteGeometryResult(dbContext,readGeometryResult,geometryResultController))),
 
                 new CalculatorApplication(new CalculatorMenu(new CreateCalculationResult(dbContext,calculationResultController),readCalculationResult,
                         new UpdateCalculationResult(dbContext,readCalculationResult,calculationResultController),

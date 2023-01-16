@@ -38,7 +38,7 @@ namespace CalculatorApp.CalculationResultControllers
 
                 var resultToDelete = _controller.ChooseResultToReturn();
 
-                Console.WriteLine($"{Environment.NewLine}Are you sure you want to delete the result? y/n");
+                Console.WriteLine($"{Environment.NewLine}Are you sure you want to delete this result? y/n");
                 var isDeleteResult = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isDeleteResult)
                 {
