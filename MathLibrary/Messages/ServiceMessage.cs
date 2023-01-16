@@ -19,7 +19,12 @@ namespace ServiceLibrary.Messages
 
         }
 
-
+        public static void Sucess()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{Environment.NewLine}Success!");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
 
     }
 }

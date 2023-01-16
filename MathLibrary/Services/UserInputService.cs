@@ -20,9 +20,9 @@
         public static double ValidateDoubleInput()
         {
             double doubleSelection;
-
             while (true)
             {
+                Console.Write($"{Environment.NewLine}>");
                 if (double.TryParse(Console.ReadLine(), out doubleSelection))
                 {
                     return doubleSelection;
@@ -54,7 +54,7 @@
 
             while (true)
             {
-
+                Console.Write($"{Environment.NewLine}>");
                 if (char.TryParse(Console.ReadLine(), out op) && op == '+' || op == '-' || op == '*' ||
                     op == '/' || op == '√' && op == '%')
                     return op;

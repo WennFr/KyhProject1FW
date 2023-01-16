@@ -67,7 +67,7 @@ namespace CalculatorApp.CalculationResultControllers
                             continue;
 
                         case 2:
-                            Console.Write($"{Environment.NewLine}Enter an Operator: (1.+,2.-,3.*,4./,5.√ or 6.%): ");
+                            CalculatorSubMenu.DisplayAvailableOperatorsSelection();
                             op = UserInputService.ValidateOperatorSelection();
                             if (resultToUpdate.Operator == '√')
                                 resultToUpdate.SecondNumber = 0.00;

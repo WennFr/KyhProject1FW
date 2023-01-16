@@ -7,8 +7,10 @@ using CalculatorApp.CalculatorStrategies;
 using Microsoft.EntityFrameworkCore;
 using CalculatorApp.CalculatorStrategies;
 using CalculatorApp.Interfaces;
+using CalculatorApp.Menus;
 using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
+using ServiceLibrary.Messages;
 using ServiceLibrary.Services;
 
 namespace CalculatorApp.CalculationResultControllers
@@ -48,7 +50,8 @@ namespace CalculatorApp.CalculationResultControllers
                     Console.Clear();
                     Console.WriteLine($"{num1}");
 
-                    Console.Write($"{Environment.NewLine}Operator: (1.+,2.-,3.*,4./,5.√ or 6.%): ");
+                    CalculatorSubMenu.DisplayAvailableOperatorsSelection();
+
                     op = UserInputService.ValidateOperatorSelection();
 
                     if (op != '√')
@@ -105,6 +108,8 @@ namespace CalculatorApp.CalculationResultControllers
                 });
 
                 _dbContext.SaveChanges();
+
+                ServiceMessage.Sucess();
 
                 Console.WriteLine($"{Environment.NewLine}Create new calculation?(y/n)");
                 var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
