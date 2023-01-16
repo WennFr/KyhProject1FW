@@ -8,6 +8,6 @@ namespace ShapeApp.Interfaces
 {
     public interface IGeometryStrategy
     {
-        IAreaPerimeter Execute(double a, double b, double c);
+        IAreaPerimeter Execute(double x, double y, double z);
     }
 }

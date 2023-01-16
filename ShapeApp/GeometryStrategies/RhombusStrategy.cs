@@ -17,8 +17,12 @@ namespace ShapeApp.GeometryStrategies
             _areaPerimeter = areaPerimeter;
         }
 
-        public IAreaPerimeter Execute(double a, double b, double c)
+        public IAreaPerimeter Execute(double x, double y, double z)
         {
+
+            _areaPerimeter.Perimeter = 4 * x;
+            _areaPerimeter.Area = x * y;
+
             return _areaPerimeter;
         }
 

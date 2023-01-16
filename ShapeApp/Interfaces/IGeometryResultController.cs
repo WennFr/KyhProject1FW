@@ -10,7 +10,7 @@ namespace ServiceLibrary.Interfaces
         void DisplaySelection();
         Shape ReturnShapeObject(int userSelection);
         GeometryResult DefineGeometryResultInput(GeometryResult geometryResultToReturn);
-        GeometryResult SetNewGeometryResultStrategyPattern(GeometryResult geometryResultToReturn);
+        GeometryResult CalculateNewGeometryResultStrategyPattern(GeometryResult geometryResultToReturn);
 
     }
 }

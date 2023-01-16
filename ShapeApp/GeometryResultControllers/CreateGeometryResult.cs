@@ -40,10 +40,18 @@ namespace ShapeApp.GeometryResultControllers
 
                 _geometryResultToCreate.Shape = shapeToUseForGeometryResult;
                 _geometryResultToCreate = _controller.DefineGeometryResultInput(_geometryResultToCreate);
+                _geometryResultToCreate = _controller.CalculateNewGeometryResultStrategyPattern(_geometryResultToCreate);
+                _geometryResultToCreate.IsActive = true;
+                _geometryResultToCreate.DateOfGeometryResult = DateTime.Now;
+
+                _dbContext.GeometryResults.Add(_geometryResultToCreate);
+                _dbContext.SaveChanges();
 
 
-
-
+                Console.WriteLine($"{Environment.NewLine}Create new shape?(y/n)");
+                var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
+                if (!isNewCalculation)
+                    break;
 
             }
 

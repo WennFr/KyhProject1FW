@@ -8,7 +8,7 @@ using ServiceLibrary.Data;
 using ServiceLibrary.Services;
 using ShapeApp.Interfaces;
 
-namespace ShapeApp.GeometryResultControllers 
+namespace ShapeApp.GeometryResultControllers
 {
     public class GeometryResultController : IGeometryResultController
     {
@@ -19,9 +19,9 @@ namespace ShapeApp.GeometryResultControllers
         private IGeometryStrategy _parallelogramStrategy;
         private IGeometryStrategy _triangleStrategy;
         private IGeometryStrategy _rhombusStrategy;
-        
 
-        public GeometryResultController(IDbContext dbContext, IGeometryContext context,IAreaPerimeter areaPerimeter,
+
+        public GeometryResultController(IDbContext dbContext, IGeometryContext context, IAreaPerimeter areaPerimeter,
             IGeometryStrategy rectangleStrategy, IGeometryStrategy parallelogramStrategy, IGeometryStrategy triangleStrategy, IGeometryStrategy rhombusStrategy)
         {
             _dbContext = dbContext;
@@ -82,9 +82,9 @@ namespace ShapeApp.GeometryResultControllers
             else
             {
                 Console.WriteLine("Base: ");
-                 input1 = UserInputService.ValidateDoubleInputAboveZero();
+                input1 = UserInputService.ValidateDoubleInputAboveZero();
                 Console.WriteLine("Height:");
-                 input2 = UserInputService.ValidateDoubleInputAboveZero();
+                input2 = UserInputService.ValidateDoubleInputAboveZero();
             }
 
             geometryResultToReturn.Input1 = input1;
@@ -95,7 +95,7 @@ namespace ShapeApp.GeometryResultControllers
         }
 
 
-        public GeometryResult SetNewGeometryResultStrategyPattern(GeometryResult geometryResultToReturn)
+        public GeometryResult CalculateNewGeometryResultStrategyPattern(GeometryResult geometryResultToReturn)
         {
             Shape.shape validShape;
             Enum.TryParse<Shape.shape>(geometryResultToReturn.Shape.TypeOfShape, out validShape);
@@ -105,21 +105,26 @@ namespace ShapeApp.GeometryResultControllers
                 case Shape.shape.Rectangle:
                     _geometryContext.SetStrategy(_rectangleStrategy);
                     break;
+
                 case Shape.shape.Paralellogram:
-                    //_calculatorContext.SetStrategy(_subtractionStrategy);
+                    _geometryContext.SetStrategy(_parallelogramStrategy);
                     break;
+
                 case Shape.shape.Triangle:
-                    //_calculatorContext.SetStrategy(_multiplicationStrategy);
+                    _geometryContext.SetStrategy(_triangleStrategy);
                     break;
+
                 case Shape.shape.Rhombus:
-                    //_calculatorContext.SetStrategy(_divisionStrategy);
+                    _geometryContext.SetStrategy(_rhombusStrategy);
                     break;
             }
 
 
 
+            _areaPerimeter = _geometryContext.ExecuteStrategy(geometryResultToReturn.Input1, geometryResultToReturn.Input2, geometryResultToReturn.Input3);
 
-
+            geometryResultToReturn.Perimeter = _areaPerimeter.Perimeter;
+            geometryResultToReturn.Area = _areaPerimeter.Area;
 
             return geometryResultToReturn;
 
