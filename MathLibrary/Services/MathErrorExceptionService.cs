@@ -12,9 +12,7 @@ namespace ServiceLibrary.Services
         {
             if (Double.IsInfinity(number))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Overflow");
-                Console.ForegroundColor = ConsoleColor.Gray;
+                ColorService.ConsoleWriteLineRed("Overflow");
                 Console.ReadKey();
                 return true;
             }
@@ -29,26 +27,19 @@ namespace ServiceLibrary.Services
 
             if (Double.IsInfinity(num1 / num2) && op == '/' || num1 == 0 && num2 == 0 && op == '/')
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Error: " + "Attempted to divide by zero");
-                Console.ForegroundColor = ConsoleColor.Gray;
+                ColorService.ConsoleWriteLineRed("Error: " + "Attempted to divide by zero");
                 Console.ReadKey();
                 return true;
             }
 
             return false;
         }
-
-
 
         public static bool IsSquareRootOfNegativeNumber(double num1, char op)
         {
             if (num1 < 0 && op == '√')
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Error: " + "Square root of negative number");
-                Console.ForegroundColor = ConsoleColor.Gray;
-
+                ColorService.ConsoleWriteLineRed("Error: " + "Square root of negative number");
                 Console.ReadKey();
                 return true;
             }
@@ -57,18 +48,14 @@ namespace ServiceLibrary.Services
 
         }
 
-
         public static bool IsInvalidArea(double areaToControl)
         {
             if (Double.IsNaN(areaToControl))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Error: " + "Impossible shape");
-                Console.ForegroundColor = ConsoleColor.Gray;
+                ColorService.ConsoleWriteLineRed("Error: " + "Impossible shape");
                 Console.ReadKey();
                 return true;
             }
-
 
             return false;
         }
