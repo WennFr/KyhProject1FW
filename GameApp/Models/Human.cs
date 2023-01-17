@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameApp.Services;
 using ServiceLibrary.Messages;
 
 namespace GameApp.Models
@@ -10,6 +11,7 @@ namespace GameApp.Models
     public class Human
     {
         private string action;
+
 
         public string Action
         {
@@ -25,38 +27,21 @@ namespace GameApp.Models
             }
         }
 
-
-        public bool ChooseAction()
+        public void ChooseAction()
         {
-            
-                Console.WriteLine("Rock, paper or scissors?");
-                Console.Write(">");
-                var userChoice = Console.ReadLine();
 
+            Console.WriteLine("[1]Rock, [2]paper or [3]scissors?");
+            var userChoice = GameValidationService.ChooseAction();
 
+            action = userChoice;
 
-                if (userChoice.ToLower() == "rock" || userChoice.ToLower() == "paper" ||
-                    userChoice.ToLower() == "scissors")
-                {
-                    action = userChoice;
-                    return true;
-
-                }
-
-                else
-                {
-                    Console.WriteLine("You have to choose between rock, paper or scissors");
-                    Console.WriteLine(Environment.NewLine);
-                    ServiceMessage.PressEnterToContinue();
-                    return false;
-                }
-            
-
-
-
-
-
-
+            //else
+            //{
+            //    Console.WriteLine("You have to choose between rock, paper or scissors");
+            //    Console.WriteLine(Environment.NewLine);
+            //    ServiceMessage.PressEnterToContinue();
+            //    return false;
+            //}
 
         }
     }

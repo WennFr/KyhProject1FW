@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Data;
 
 namespace GameApp.Models
 {
@@ -20,6 +21,10 @@ namespace GameApp.Models
             Paper,
             Scissors
         }
+
+
+   
+
 
 
     }

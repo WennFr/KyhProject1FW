@@ -23,25 +23,21 @@ namespace GameApp.GameResultControllers
         public void Create()
         {
             gameRound = new GameRound();
-            var isRunning = true;
 
 
-            while (isRunning)
-            {
-                RockPaperScissors();
-                isRunning = ContinueOrExit();
-            }
-
+            RockPaperScissors();
             WhoIsGameWinner();
 
-            double averageHumanWins = gameRound.HumanWin / gameRound.Round;
+            double averageHumanWins = (Convert.ToDouble(gameRound.HumanWin) / Convert.ToDouble(gameRound.Round));
 
             _dbContext.GameResults.Add(new GameResult()
             {
                 NumberOfPlayerWins = gameRound.HumanWin,
                 NumberOfComputerWins = gameRound.ComputerWin,
                 AveragePlayerWins = averageHumanWins,
-                DateOfGameResult = DateTime.Now
+                AmountOfRounds = gameRound.Round,
+                DateOfGameResult = DateTime.Now,
+                IsActive = true
 
             });
 
@@ -51,14 +47,15 @@ namespace GameApp.GameResultControllers
 
         public void RockPaperScissors()
         {
-            gameRound.Round = 1;
+            gameRound.Round = 0;
 
             var isRunning = true;
 
             while (isRunning)
             {
                 Console.Clear();
-                Console.WriteLine($"Round {1} HUMAN:{gameRound.HumanWin} COMPUTER:{gameRound.ComputerWin} {Environment.NewLine}");
+                gameRound.Round++;
+                Console.WriteLine($"Round {gameRound.Round} HUMAN:{gameRound.HumanWin} COMPUTER:{gameRound.ComputerWin} {Environment.NewLine}");
 
                 gameRound.Human.ChooseAction();
                 gameRound.Computer.ChooseAction();
@@ -92,7 +89,7 @@ namespace GameApp.GameResultControllers
 
             }
 
-            else if (gameRound.ComputerWin < gameRound.ComputerWin)
+            else if (gameRound.HumanWin < gameRound.ComputerWin)
             {
                 Console.Clear();
                 Console.WriteLine("Computer won the game...");
@@ -101,9 +98,9 @@ namespace GameApp.GameResultControllers
             else
             {
                 Console.Clear();
-                Console.WriteLine("Game ends in draw.");
+                Console.WriteLine("Game ends in a draw.");
             }
-
+            ServiceMessage.PressEnterToContinue();
         }
 
         public void WhoIsRoundWinner()
@@ -134,7 +131,6 @@ namespace GameApp.GameResultControllers
                 ServiceMessage.PressEnterToContinue();
             }
 
-            gameRound.Round++;
 
         }
 

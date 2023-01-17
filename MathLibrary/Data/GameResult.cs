@@ -11,12 +11,15 @@ namespace ServiceLibrary.Data
         [Required]
         public int NumberOfComputerWins { get; set; }
         [Required]
+        public int AmountOfRounds { get; set; }
+        [Required]
         public double AveragePlayerWins { get; set; }
         [Required]
         public DateTime DateOfGameResult { get; set; }
-
+        [Required]
+        public bool IsActive { get; set; }
        
-
+        
 
     }
 }
