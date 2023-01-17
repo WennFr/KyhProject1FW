@@ -31,11 +31,11 @@ namespace MainMenuApp.Menus
             while (IsApplicationRunning)
             {
                 Console.Clear();
-                Console.WriteLine($"Project 1 - Main Menu {Environment.NewLine}");
+                ColorService.ConsoleWriteLineCyan($"Project 1 - Main Menu {Environment.NewLine}");
                 Console.WriteLine("1) Shapes");
                 Console.WriteLine("2) Calculator");
                 Console.WriteLine("3) Rock,Paper,Scissors");
-                Console.WriteLine("0) Quit");
+                ColorService.ConsoleWriteLineRed("0) Quit");
 
                 IsApplicationRunning = MenuSelection();
             }
