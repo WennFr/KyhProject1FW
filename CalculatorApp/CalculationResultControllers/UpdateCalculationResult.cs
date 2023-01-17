@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CalculatorApp.Interfaces;
 using CalculatorApp.Menus;
 using ServiceLibrary.Interfaces;
+using ServiceLibrary.Messages;
 using ServiceLibrary.Services;
 
 namespace CalculatorApp.CalculationResultControllers
@@ -32,7 +33,10 @@ namespace CalculatorApp.CalculationResultControllers
                 var isAnyActiveResults = _readResult.Read();
 
                 if (!isAnyActiveResults)
+                {
+                    ServiceMessage.PressEnterToContinue();
                     break;
+                }
 
                 var resultToUpdate = _controller.ChooseResultToReturn();
 

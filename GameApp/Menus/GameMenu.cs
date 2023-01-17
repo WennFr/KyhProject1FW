@@ -1,5 +1,6 @@
 ﻿
 using ServiceLibrary.Interfaces;
+using ServiceLibrary.Messages;
 using ServiceLibrary.Services;
 
 namespace GameApp.Menus
@@ -18,7 +19,7 @@ namespace GameApp.Menus
             Console.Clear();
             Console.WriteLine($"Rock,Paper,Scissors {Environment.NewLine}");
             Console.WriteLine("1) Play Game");
-            Console.WriteLine("2) View Highscore");
+            Console.WriteLine("2) View Results");
             Console.WriteLine("0) Go back to main menu");
 
 
@@ -37,6 +38,7 @@ namespace GameApp.Menus
                     break;
                 case 2:
                     _read.Read();
+                    ServiceMessage.PressEnterToContinue();
                     break;
                 case 0:
                     return false;

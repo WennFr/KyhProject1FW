@@ -34,7 +34,11 @@ namespace CalculatorApp.CalculationResultControllers
 
                 var isAnyActiveResults = _readResult.Read();
                 if (!isAnyActiveResults)
+                {
+                    ServiceMessage.PressEnterToContinue();
                     break;
+
+                }
 
                 var resultToDelete = _controller.ChooseResultToReturn();
 

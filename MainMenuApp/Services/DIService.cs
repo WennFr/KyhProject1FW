@@ -44,7 +44,7 @@ namespace MainMenuApp.Services
                         new UpdateCalculationResult(dbContext,readCalculationResult,calculationResultController),
                         new DeleteCalculationResult(dbContext,readCalculationResult, calculationResultController))),
                 
-                new GameApplication(new GameMenu(new CreateGameResult(dbContext), new ReadGeometryResult(dbContext)))
+                new GameApplication(new GameMenu(new CreateGameResult(dbContext), new ReadGameResult(dbContext)))
                 );
 
 

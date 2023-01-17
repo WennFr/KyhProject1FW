@@ -20,7 +20,7 @@ namespace GameApp.GameResultControllers
         public bool Read()
         {
 
-            if (_dbContext.GameResults.Count() < 0 || !_dbContext.GameResults.Any(c => c.IsActive == true))
+            if (_dbContext.GameResults.Count() < 0 || !_dbContext.GameResults.Any(g => g.IsActive == true))
             {
                 ProgramErrorMessage.NoActiveResultsToView();
                 ServiceMessage.PressEnterToContinue();
@@ -28,7 +28,7 @@ namespace GameApp.GameResultControllers
             }
 
             Console.WriteLine("{0,-10} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10}", $"{Environment.NewLine}ID", "PlayerWins", "ComputerWins", "Rounds", "AvgPlayerWins", $"Date {Environment.NewLine}");
-            foreach (var gameResult in _dbContext.GameResults.Where(c => c.IsActive == true))
+            foreach (var gameResult in _dbContext.GameResults.Where(g => g.IsActive == true))
             {
                 Console.WriteLine("{0,-8} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10}",
                     $"{gameResult.Id}",

@@ -24,7 +24,6 @@ namespace CalculatorApp.CalculationResultControllers
             if (_dbContext.CalculationResults.Count() < 0 || !_dbContext.CalculationResults.Any(c=> c.IsActive == true) )
             {
                 ProgramErrorMessage.NoActiveResultsToView();
-                ServiceMessage.PressEnterToContinue();
                 return false;
             }
 
