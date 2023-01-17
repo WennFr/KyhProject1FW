@@ -70,6 +70,7 @@ namespace ShapeApp.GeometryResultControllers
 
         public GeometryResult DefineGeometryResultInput(GeometryResult geometryResultToReturn)
         {
+            Console.Clear();
             Shape.shape validShape;
             double input1, input2, input3 = 0.00;
             if (Enum.TryParse<Shape.shape>(geometryResultToReturn.Shape.TypeOfShape, out validShape) && validShape == Shape.shape.Triangle)

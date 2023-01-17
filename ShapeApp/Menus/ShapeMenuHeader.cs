@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Services;
 
 namespace ShapeApp.Menus
 {
     public static class ShapeMenuHeader
     {
+        public static void Shapes()
+        {
 
+            ColorService.ConsoleWriteLineBlue("Shapes");
+            Console.WriteLine("");
+
+        }
         public static void ViewResults()
         {
             Console.WriteLine($"View all Results{Environment.NewLine}");

@@ -22,7 +22,10 @@ public class ShapeMenu : IMenu
 
     public void ShowMenu()
     {
+
         Console.Clear();
+
+
         Console.WriteLine($"Shapes {Environment.NewLine}");
         Console.WriteLine("1) Create");
         Console.WriteLine("2) View");

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
+using ServiceLibrary.Messages;
 using ServiceLibrary.Services;
 using ShapeApp.Interfaces;
 using ShapeApp.Menus;
@@ -45,16 +46,18 @@ namespace ShapeApp.GeometryResultControllers
                 _geometryResultToCreate.Shape = shapeToUseForGeometryResult;
                 _geometryResultToCreate = _controller.DefineGeometryResultInput(_geometryResultToCreate);
                 _geometryResultToCreate = _controller.CalculateNewGeometryResultStrategyPattern(_geometryResultToCreate);
+
                 if (MathErrorExceptionService.IsInvalidArea(_geometryResultToCreate.Area))
                     continue;
 
                 _geometryResultToCreate.IsActive = true;
                 _geometryResultToCreate.DateOfGeometryResult = DateTime.Now;
-
                 _dbContext.GeometryResults.Add(_geometryResultToCreate);
                 _dbContext.SaveChanges();
 
-
+                Console.Clear();
+                _controller.DisplayChosenResult(_geometryResultToCreate);
+                ServiceMessage.Sucess();
                 Console.WriteLine($"{Environment.NewLine}Create new result?(y/n)");
                 var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isNewCalculation)
