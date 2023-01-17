@@ -28,14 +28,15 @@ namespace GameApp.Menus
         public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 2;
-
             var selection = UserInputService.ValidateMenuSelection(selectionMenuMaxLimit);
 
             switch (selection)
             {
                 case 1:
+                    _create.Create();
                     break;
                 case 2:
+                    _read.Read();
                     break;
                 case 0:
                     return false;

@@ -20,7 +20,5 @@ namespace GameApp
         {
             _gameMenu.ShowMenu();
         }
-
-
     }
 }

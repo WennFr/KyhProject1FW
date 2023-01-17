@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameApp;
 using ServiceLibrary.Services;
 
 namespace MainMenuApp.Menus
@@ -12,19 +13,18 @@ namespace MainMenuApp.Menus
     {
         private IProject _shapeApplication;
         private IProject _calculatorApplication;
-        private IProject _gameProject;
+        private IProject _gameApplication;
 
 
         //private IMenu _gameMenu;
         public bool IsApplicationRunning { get; set; }
 
-        public MainMenu(IProject shapeApplication, IProject calculatorApplication)
+        public MainMenu(IProject shapeApplication, IProject calculatorApplication, IProject gameApplication)
         {
             IsApplicationRunning = true;
             _shapeApplication = shapeApplication;
-
             _calculatorApplication = calculatorApplication;
-            //_gameMenu = gameMenu;
+            _gameApplication = gameApplication;
         }
         public void ShowMenu()
         {
@@ -54,7 +54,7 @@ namespace MainMenuApp.Menus
                     _calculatorApplication.StartApplication();
                     break;
                 case 3:
-                    //_gameMenu.ShowMenu();
+                    _gameApplication.StartApplication();
                     break;
                 case 0:
                     return false;

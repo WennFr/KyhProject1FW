@@ -5,6 +5,9 @@ using CalculatorApp.CalculationResultControllers;
 using ShapeApp.GeometryResultControllers;
 using MainMenuApp.Menus;
 using CalculatorApp.CalculatorStrategies;
+using GameApp;
+using GameApp.GameResultControllers;
+using GameApp.Menus;
 using ServiceLibrary.Data;
 using ServiceLibrary.Interfaces;
 using ShapeApp;
@@ -39,7 +42,10 @@ namespace MainMenuApp.Services
 
                 new CalculatorApplication(new CalculatorMenu(new CreateCalculationResult(dbContext,calculationResultController),readCalculationResult,
                         new UpdateCalculationResult(dbContext,readCalculationResult,calculationResultController),
-                        new DeleteCalculationResult(dbContext,readCalculationResult, calculationResultController))));
+                        new DeleteCalculationResult(dbContext,readCalculationResult, calculationResultController))),
+                
+                new GameApplication(new GameMenu(new CreateGameResult(dbContext), new ReadGeometryResult(dbContext)))
+                );
 
 
 
