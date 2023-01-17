@@ -32,16 +32,7 @@ namespace CalculatorApp.Menus
 
             MenuSelection();
         }
-        public void ChooseOperatorMenu()
-        {
-            Console.WriteLine("1) +");
-            Console.WriteLine("2) -");
-            Console.WriteLine("3) *");
-            Console.WriteLine("4) /");
-            Console.WriteLine("5) √");
-            Console.WriteLine("6) %");
-        }
-
+        
         public bool MenuSelection()
         {
             var selectionMenuMaxLimit = 4;
@@ -51,18 +42,22 @@ namespace CalculatorApp.Menus
             {
                 case 1:
                     _createResult.Create();
+                    ShowMenu();
                     break;
                 case 2:
                     Console.Clear();
                     CalcMenuHeader.ViewResults();
                     _readResult.Read();
                     ServiceMessage.PressEnterToContinue();
+                    ShowMenu();
                     break;
                 case 3:
                     _updateResult.Update();
+                    ShowMenu();
                     break;
                 case 4:
                     _deleteResult.Delete();
+                    ShowMenu();
                     break;
                 case 0:
                     return false;

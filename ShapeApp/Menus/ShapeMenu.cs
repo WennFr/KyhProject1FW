@@ -43,18 +43,22 @@ public class ShapeMenu : IMenu
         {
             case 1:
                 _createResult.Create();
+                ShowMenu();
                 break;
             case 2:
                 Console.Clear();
                 ShapeMenuHeader.ViewResults();
                 _readResult.Read();
                 ServiceMessage.PressEnterToContinue();
+                ShowMenu();
                 break;
             case 3:
                 _updateResult.Update();
+                ShowMenu();
                 break;
             case 4:
                 _deleteResult.Delete();
+                ShowMenu();
                 break;
             case 0:
                 return false;

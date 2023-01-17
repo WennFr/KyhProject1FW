@@ -11,18 +11,6 @@ namespace GameApp.Services
     public static class GameValidationService
     {
 
-        //public static bool IsValidAction(string typeOfAction)
-        //{
-        //    action myAction;
-        //    while (true)
-        //    {
-        //        if (Enum.TryParse<action>(typeOfAction, out myAction))
-        //            return true;
-
-        //        Console.WriteLine($"{Environment.NewLine}Pick rock, paper or scissors!");
-        //    }
-
-        //}
 
         public static string ChooseAction()
         {
@@ -30,7 +18,7 @@ namespace GameApp.Services
             while (true)
             {
                 Console.Write(">");
-                if (Enum.TryParse<action>(Console.ReadLine(), out myAction))
+                if (Enum.TryParse<action>(Console.ReadLine(), ignoreCase: true, out myAction) && Enum.IsDefined(myAction))
                     return Convert.ToString(myAction);
 
                ColorService.ConsoleWriteLineRed($"{Environment.NewLine}You have to choose between rock, paper or scissors!");

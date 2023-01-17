@@ -28,7 +28,7 @@ namespace GameApp.GameResultControllers
             RockPaperScissors();
             WhoIsGameWinner();
 
-            double averageHumanWins = (Convert.ToDouble(gameRound.HumanWin) / Convert.ToDouble(gameRound.Round));
+            double averageHumanWins = Math.Round(Convert.ToDouble(gameRound.HumanWin) / Convert.ToDouble(gameRound.Round),2);
 
             _dbContext.GameResults.Add(new GameResult()
             {

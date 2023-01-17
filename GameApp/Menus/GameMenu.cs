@@ -35,10 +35,13 @@ namespace GameApp.Menus
             {
                 case 1:
                     _create.Create();
+                    ShowMenu();
                     break;
                 case 2:
+                    Console.Clear();
                     _read.Read();
                     ServiceMessage.PressEnterToContinue();
+                    ShowMenu();
                     break;
                 case 0:
                     return false;
