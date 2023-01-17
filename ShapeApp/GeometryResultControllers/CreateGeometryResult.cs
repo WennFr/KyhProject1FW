@@ -35,6 +35,7 @@ namespace ShapeApp.GeometryResultControllers
                 _geometryResultToCreate = new GeometryResult();
 
                 Console.Clear();
+                ShapeMenuHeader.CreateShapes();
                 ShapeSubMenu.DisplayAvailableShapesSelection();
                 var userSelection = UserInputService.ValidateMenuSelection(4);
 
@@ -44,6 +45,8 @@ namespace ShapeApp.GeometryResultControllers
                 var shapeToUseForGeometryResult = _controller.ReturnShapeObject(userSelection);
 
                 _geometryResultToCreate.Shape = shapeToUseForGeometryResult;
+                Console.Clear();
+                ShapeMenuHeader.CreateShapes();
                 _geometryResultToCreate = _controller.DefineGeometryResultInput(_geometryResultToCreate);
                 _geometryResultToCreate = _controller.CalculateNewGeometryResultStrategyPattern(_geometryResultToCreate);
 

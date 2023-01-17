@@ -70,7 +70,6 @@ namespace ShapeApp.GeometryResultControllers
 
         public GeometryResult DefineGeometryResultInput(GeometryResult geometryResultToReturn)
         {
-            Console.Clear();
             Shape.shape validShape;
             double input1, input2, input3 = 0.00;
             if (Enum.TryParse<Shape.shape>(geometryResultToReturn.Shape.TypeOfShape, out validShape) && validShape == Shape.shape.Triangle)
@@ -156,7 +155,7 @@ namespace ShapeApp.GeometryResultControllers
         public void DisplayChosenResult(GeometryResult geometryResultToUpdate)
         {
 
-            Console.WriteLine("{0,-10} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10},", $"{Environment.NewLine}ID", "Shape", "Value1", "Value2", "Value3",
+            Console.WriteLine("{0,-10} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}", $"{Environment.NewLine}ID", "Shape", "Value1", "Value2", "Value3",
                 "Perimeter", "Area", $"Date of result {Environment.NewLine}");
 
             {

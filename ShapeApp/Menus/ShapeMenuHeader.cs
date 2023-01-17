@@ -12,10 +12,20 @@ namespace ShapeApp.Menus
         public static void Shapes()
         {
 
-            ColorService.ConsoleWriteLineBlue("Shapes");
-            Console.WriteLine("");
+            ColorService.ConsoleWriteLineDarkGreen("Shapes");
+            Console.WriteLine("= = = = = = = = = = = = =");
 
         }
+
+        public static void CreateShapes()
+        {
+
+            ColorService.ConsoleWriteLineDarkGreen("Create Shapes");
+            Console.WriteLine("= = = = = = = = = = = = =");
+
+        }
+
+
         public static void ViewResults()
         {
             Console.WriteLine($"View all Results{Environment.NewLine}");

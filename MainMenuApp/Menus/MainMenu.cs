@@ -32,11 +32,11 @@ namespace MainMenuApp.Menus
             {
                 Console.Clear();
                 ColorService.ConsoleWriteLineCyan($"Project 1 - Main Menu {Environment.NewLine}");
-                Console.WriteLine("1) Shapes");
-                Console.WriteLine("2) Calculator");
-                Console.WriteLine("3) Rock,Paper,Scissors");
+                ColorService.ConsoleWriteLineDarkGreen("1) Shapes");
+                ColorService.ConsoleWriteLineBlue("2) Calculator");
+                ColorService.ConsoleWriteLineWhite("3) Rock,Paper,Scissors");
                 ColorService.ConsoleWriteLineRed("0) Quit");
-
+                
                 IsApplicationRunning = MenuSelection();
             }
         }

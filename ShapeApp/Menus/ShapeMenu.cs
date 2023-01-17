@@ -26,11 +26,11 @@ public class ShapeMenu : IMenu
         Console.Clear();
 
 
-        Console.WriteLine($"Shapes {Environment.NewLine}");
-        Console.WriteLine("1) Create");
-        Console.WriteLine("2) View");
-        Console.WriteLine("3) Edit");
-        Console.WriteLine("4) Delete");
+        ShapeMenuHeader.Shapes();
+        ColorService.ConsoleWriteLineGreen("1) Create");
+        ColorService.ConsoleWriteLineGreen("2) View");
+        ColorService.ConsoleWriteLineGreen("3) Edit");
+        ColorService.ConsoleWriteLineGreen("4) Delete");
         Console.WriteLine("0) Go back to main menu");
 
         MenuSelection();
