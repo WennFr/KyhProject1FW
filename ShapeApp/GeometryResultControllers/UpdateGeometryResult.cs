@@ -28,7 +28,10 @@ namespace ShapeApp.GeometryResultControllers
                 var isAnyActiveResults = _readResult.Read();
 
                 if (!isAnyActiveResults)
+                {
+                    ServiceMessage.PressEnterToContinue();
                     break;
+                }
 
                 var resultToUpdate = _controller.ChooseResultToReturn();
 

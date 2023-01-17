@@ -19,7 +19,6 @@ namespace ShapeApp.GeometryResultControllers
             if (_dbContext.GeometryResults.Count() < 0 || !_dbContext.GeometryResults.Any(c => c.IsActive == true))
             {
                 ProgramErrorMessage.NoActiveResultsToView();
-                ServiceMessage.PressEnterToContinue();
                 return false;
             }
 

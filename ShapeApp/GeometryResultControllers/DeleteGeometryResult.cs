@@ -28,8 +28,11 @@ namespace ShapeApp.GeometryResultControllers
 
                 var isAnyActiveResults = _readResult.Read();
                 if (!isAnyActiveResults)
+                {
+                    ServiceMessage.PressEnterToContinue();
                     break;
-
+                }
+               
                 var resultToDelete = _controller.ChooseResultToReturn();
 
                 Console.WriteLine($"{Environment.NewLine}Are you sure you want to delete this result? y/n");
