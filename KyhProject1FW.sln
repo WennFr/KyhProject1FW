@@ -5,13 +5,13 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainMenuApp", "MainMenuApp\MainMenuApp.csproj", "{6E5B323E-D45B-4A71-A72E-E766E0583428}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLibrary", "MathLibrary\ServiceLibrary.csproj", "{535C1CE0-844F-4E83-9D48-193CF21B9711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLibrary", "ServiceLibrary\ServiceLibrary.csproj", "{535C1CE0-844F-4E83-9D48-193CF21B9711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeApp", "ShapeApp\ShapeApp.csproj", "{CB2DB711-EFF7-4160-9652-67EC8B1D0332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapeApp", "ShapeApp\ShapeApp.csproj", "{CB2DB711-EFF7-4160-9652-67EC8B1D0332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorApp", "CalculatorApp\CalculatorApp.csproj", "{2642FE47-7F74-4E19-BF19-494ED7913475}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorApp", "CalculatorApp\CalculatorApp.csproj", "{2642FE47-7F74-4E19-BF19-494ED7913475}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameApp", "GameApp\GameApp.csproj", "{944A48FE-1853-4F1A-A23F-ACA9B9E9EE00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameApp", "GameApp\GameApp.csproj", "{944A48FE-1853-4F1A-A23F-ACA9B9E9EE00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
