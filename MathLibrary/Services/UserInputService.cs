@@ -12,7 +12,7 @@
                 if (int.TryParse(Console.ReadLine(), out intSelection) && intSelection >= 0 && intSelection <= selectionMenuMaxLimit)
                     return intSelection;
 
-                Console.WriteLine("Choose between the available menu numbers");
+                ColorService.ConsoleWriteLineRed("Choose between the available menu numbers");
             }
         }
 
@@ -27,10 +27,8 @@
                 {
                     return doubleSelection;
                 }
-                Console.WriteLine("Please write a valid number:");
 
-
-
+                ColorService.ConsoleWriteLineRed("Please write a valid number:");
 
             }
 
@@ -46,7 +44,7 @@
                 {
                     return doubleSelection;
                 }
-                Console.WriteLine("Please write a valid number above zero:");
+                ColorService.ConsoleWriteLineRed("Please write a valid number above zero:");
             }
 
         }
@@ -87,7 +85,7 @@
                             return op;
                     }
                 }
-                Console.WriteLine($"{Environment.NewLine}Operator has to be (1.+, 2.-,3.*,4./,5.√ or 6.%) ");
+               ColorService.ConsoleWriteLineRed($"{Environment.NewLine}Operator has to be (1.+, 2.-,3.*,4./,5.√ or 6.%) ");
             }
 
         }
@@ -104,7 +102,7 @@
                 else if (userChoice.ToLower() == "n" || userChoice.ToLower() == "no")
                     return false;
 
-                Console.WriteLine("Choose an option: ");
+                ColorService.ConsoleWriteLineRed("Choose an option: ");
             }
 
         }

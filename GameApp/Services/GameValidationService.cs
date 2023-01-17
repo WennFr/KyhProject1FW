@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Services;
 using static GameApp.Models.GameRound;
 
 namespace GameApp.Services
@@ -10,18 +11,18 @@ namespace GameApp.Services
     public static class GameValidationService
     {
 
-        public static bool IsValidAction(string typeOfAction)
-        {
-            action myAction;
-            while (true)
-            {
-                if (Enum.TryParse<action>(typeOfAction, out myAction))
-                    return true;
+        //public static bool IsValidAction(string typeOfAction)
+        //{
+        //    action myAction;
+        //    while (true)
+        //    {
+        //        if (Enum.TryParse<action>(typeOfAction, out myAction))
+        //            return true;
 
-                Console.WriteLine($"{Environment.NewLine}Pick rock, paper or scissors!");
-            }
+        //        Console.WriteLine($"{Environment.NewLine}Pick rock, paper or scissors!");
+        //    }
 
-        }
+        //}
 
         public static string ChooseAction()
         {
@@ -32,7 +33,7 @@ namespace GameApp.Services
                 if (Enum.TryParse<action>(Console.ReadLine(), out myAction))
                     return Convert.ToString(myAction);
 
-                Console.WriteLine($"{Environment.NewLine}You have to choose between rock, paper or scissors!");
+               ColorService.ConsoleWriteLineRed($"{Environment.NewLine}You have to choose between rock, paper or scissors!");
             }
 
 
