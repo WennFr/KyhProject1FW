@@ -25,7 +25,7 @@ namespace ServiceLibrary.Services
         {
 
 
-            if (Double.IsInfinity(num1 / num2) && op == '/' || num1 == 0 && num2 == 0 && op == '/')
+            if (Double.IsInfinity(num1 / num2) && op == '/' || num1 == 0 && num2 == 0 && op == '/' || Double.IsNaN(num1 % num2))
             {
                 ColorService.ConsoleWriteLineRed("Error: " + "Attempted to divide by zero");
                 Console.ReadKey();

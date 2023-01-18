@@ -46,12 +46,11 @@ namespace CalculatorApp.CalculationResultControllers
                 {
                     Console.Clear();
                     _controller.DisplayChosenResult(resultToUpdate);
-
-                    ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
-                    ColorService.ConsoleWriteLineCyan("1) First number");
-                    ColorService.ConsoleWriteLineCyan("2) Operator");
-                    ColorService.ConsoleWriteLineCyan("3) Second number");
-                    ColorService.ConsoleWriteLineGreen("0) Save and exit");
+                    
+                    if (resultToUpdate.Operator == '√')
+                    CalculatorSubMenu.DisplayUpdateCalculatorSelectionOneNumber();
+                    else
+                    CalculatorSubMenu.DisplayUpdateCalculatorSelectionTwoNumbers();
 
                     var userSelection = UserInputService.ValidateMenuSelection(3);
                     var newNumber = 0.00;
@@ -74,7 +73,7 @@ namespace CalculatorApp.CalculationResultControllers
                             CalculatorSubMenu.DisplayAvailableOperatorsSelection();
                             op = UserInputService.ValidateOperatorSelection();
                             if (resultToUpdate.Operator == '√')
-                                resultToUpdate.SecondNumber = 0.00;
+                                resultToUpdate.SecondNumber = 1.00;
 
                             if (MathErrorExceptionService.IsDividedByZero(resultToUpdate.FirstNumber, resultToUpdate.SecondNumber, op)
                                 || MathErrorExceptionService.IsSquareRootOfNegativeNumber(resultToUpdate.FirstNumber, op))
@@ -100,6 +99,9 @@ namespace CalculatorApp.CalculationResultControllers
                             continue;
 
                         case 0:
+                            if (resultToUpdate.Operator == '√')
+                                resultToUpdate.SecondNumber = 0.00;
+
                             _dbContext.SaveChanges();
                             isRunning = false;
                             break;

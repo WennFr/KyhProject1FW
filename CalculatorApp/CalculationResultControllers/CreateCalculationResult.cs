@@ -34,55 +34,40 @@ namespace CalculatorApp.CalculationResultControllers
                 double num1, num2 = 0.00;
                 double result = 0.00;
                 char op;
-                try
+
+                ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}First Number:");
+                num1 = UserInputService.ValidateDoubleInput();
+
+                if (MathErrorExceptionService.IsInfinity(num1))
+                    continue;
+
+                Console.Clear();
+                CalcMenuHeader.CreateCalculation();
+
+                Console.WriteLine($"{Environment.NewLine}{num1}");
+
+                CalculatorSubMenu.DisplayAvailableOperatorsSelection();
+
+                op = UserInputService.ValidateOperatorSelection();
+
+                if (op != '√')
                 {
-                    ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}First Number:");
-                    num1 = UserInputService.ValidateDoubleInput();
-
-                    if (MathErrorExceptionService.IsInfinity(num1))
-                        continue;
-
                     Console.Clear();
                     CalcMenuHeader.CreateCalculation();
+                    Console.WriteLine($"{Environment.NewLine}{num1} {op}");
 
-                    Console.WriteLine($"{Environment.NewLine}{num1}");
+                    ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Second Number: ");
+                    num2 = UserInputService.ValidateDoubleInput();
 
-                    CalculatorSubMenu.DisplayAvailableOperatorsSelection();
-
-                    op = UserInputService.ValidateOperatorSelection();
-
-                    if (op != '√')
-                    {
-                        Console.Clear();
-                        CalcMenuHeader.CreateCalculation();
-                        Console.WriteLine($"{Environment.NewLine}{num1} {op}");
-
-                        ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Second Number: ");
-                        num2 = UserInputService.ValidateDoubleInput();
-
-                        if (MathErrorExceptionService.IsInfinity(num2))
-                            continue;
-                        if (MathErrorExceptionService.IsDividedByZero(num1, num2, op))
-                            continue;
-                    }
-
-                    else if (op == '√')
-                        if (MathErrorExceptionService.IsSquareRootOfNegativeNumber(num1, op))
-                            continue;
-                }
-                catch (DivideByZeroException e)
-                {
-                    Console.WriteLine("Error: " + e.Message);
-                    Console.ReadKey();
-                    continue;
+                    if (MathErrorExceptionService.IsInfinity(num2))
+                        continue;
+                    if (MathErrorExceptionService.IsDividedByZero(num1, num2, op))
+                        continue;
                 }
 
-                catch (Exception e)
-                {
-                    Console.WriteLine("Error: " + e.Message);
-                    Console.ReadKey();
-                    continue;
-                }
+                else if (op == '√')
+                    if (MathErrorExceptionService.IsSquareRootOfNegativeNumber(num1, op))
+                        continue;
 
                 result = _controller.SetNewCalculationResultStrategyPattern(num1, num2, op);
 

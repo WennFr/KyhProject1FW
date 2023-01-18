@@ -22,5 +22,28 @@ namespace CalculatorApp.Menus
         }
 
 
+        public static void DisplayUpdateCalculatorSelectionOneNumber()
+        {
+
+            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
+            ColorService.ConsoleWriteLineCyan("1) First number");
+            ColorService.ConsoleWriteLineCyan("2) Operator");
+            ColorService.ConsoleWriteLineGreen("0) Save and exit");
+
+        }
+
+        public static void DisplayUpdateCalculatorSelectionTwoNumbers()
+        {
+
+            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
+            ColorService.ConsoleWriteLineCyan("1) First number");
+            ColorService.ConsoleWriteLineCyan("2) Operator");
+            ColorService.ConsoleWriteLineCyan("3) Second number");
+            ColorService.ConsoleWriteLineGreen("0) Save and exit");
+
+        }
+
+
+
     }
 }
