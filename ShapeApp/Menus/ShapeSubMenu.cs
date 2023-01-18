@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Services;
 
 namespace ShapeApp.Menus
 {
@@ -11,12 +12,11 @@ namespace ShapeApp.Menus
 
         public static void DisplayAvailableShapesSelection()
         {
-            Console.WriteLine($"Shape to create:{Environment.NewLine}");
 
-            Console.WriteLine("1) Rectangle");
-            Console.WriteLine("2) Parallelogram");
-            Console.WriteLine("3) Triangle");
-            Console.WriteLine("4) Rhombus");
+            ColorService.ConsoleWriteLineGreen("1) Rectangle");
+            ColorService.ConsoleWriteLineGreen("2) Parallelogram");
+            ColorService.ConsoleWriteLineGreen("3) Triangle");
+            ColorService.ConsoleWriteLineGreen("4) Rhombus");
             Console.WriteLine("0) Go back to previous menu");
         }
 

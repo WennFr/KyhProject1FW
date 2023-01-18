@@ -55,8 +55,23 @@ namespace ServiceLibrary.Services
             Console.WriteLine(stringToColor);
             Console.ForegroundColor = ConsoleColor.Gray;
         }
-
-
-
+        public static void ConsoleWriteLineDarkMagenta(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        public static void ConsoleWriteLineDarkGreen(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        public static void ConsoleWriteLineDarkCyan(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
     }
 }

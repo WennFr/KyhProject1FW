@@ -40,6 +40,7 @@
             double doubleSelection;
             while (true)
             {
+                Console.Write("> ");
                 if (double.TryParse(Console.ReadLine(), out doubleSelection) && doubleSelection > 0)
                 {
                     return doubleSelection;
