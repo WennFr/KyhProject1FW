@@ -5,10 +5,10 @@
         public static int ValidateMenuSelection(int selectionMenuMaxLimit)
         {
             int intSelection;
-            Console.WriteLine($"{Environment.NewLine}Menu select:");
+            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Menu select:");
             while (true)
             {
-                Console.Write("> ");
+                ColorService.ConsoleWriteDarkCyan("> ");
                 if (int.TryParse(Console.ReadLine(), out intSelection) && intSelection >= 0 && intSelection <= selectionMenuMaxLimit)
                     return intSelection;
 
@@ -22,7 +22,7 @@
             double doubleSelection;
             while (true)
             {
-                Console.Write($"{Environment.NewLine}>");
+                ColorService.ConsoleWriteDarkCyan($"{Environment.NewLine}>");
                 if (double.TryParse(Console.ReadLine(), out doubleSelection))
                 {
                     return doubleSelection;
@@ -40,7 +40,7 @@
             double doubleSelection;
             while (true)
             {
-                Console.Write("> ");
+                ColorService.ConsoleWriteDarkCyan("> ");
                 if (double.TryParse(Console.ReadLine(), out doubleSelection) && doubleSelection > 0)
                 {
                     return doubleSelection;
@@ -57,7 +57,7 @@
 
             while (true)
             {
-                Console.Write($"{Environment.NewLine}>");
+                ColorService.ConsoleWriteDarkCyan($"{Environment.NewLine}>");
                 if (char.TryParse(Console.ReadLine(), out op) && op == '+' || op == '-' || op == '*' ||
                     op == '/' || op == '√' && op == '%')
                     return op;
@@ -96,7 +96,7 @@
             while (true)
             {
                 var userChoice = Console.ReadLine();
-
+                ColorService.ConsoleWriteDarkCyan(">");
                 if (userChoice.ToLower() == "y" || userChoice.ToLower() == "yes")
                     return true;
 

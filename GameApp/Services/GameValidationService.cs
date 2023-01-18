@@ -17,7 +17,7 @@ namespace GameApp.Services
             action myAction;
             while (true)
             {
-                Console.Write(">");
+                ColorService.ConsoleWriteDarkCyan(">");
                 if (Enum.TryParse<action>(Console.ReadLine(), ignoreCase: true, out myAction) && Enum.IsDefined(myAction))
                     return Convert.ToString(myAction);
 

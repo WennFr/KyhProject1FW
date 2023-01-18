@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Messages;
+using ServiceLibrary.Services;
 
 namespace GameApp.GameResultControllers
 {
@@ -23,22 +24,23 @@ namespace GameApp.GameResultControllers
             if (_dbContext.GameResults.Count() < 0 || !_dbContext.GameResults.Any(g => g.IsActive == true))
             {
                 ProgramErrorMessage.NoActiveResultsToView();
-                ServiceMessage.PressEnterToContinue();
                 return false;
             }
 
-            Console.WriteLine("{0,-10} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10}", $"{Environment.NewLine}ID", "PlayerWins", "ComputerWins", "Rounds", "AvgPlayerWins", $"Date {Environment.NewLine}");
+            Console.WriteLine("{0,-10} {1,-15} {2,-15} {3,-10} {4,-20} {5,-10}", $"{Environment.NewLine}ID", "PlayerWins", "ComputerWins", "Rounds", "AvgPlayerWins%", $"Date {Environment.NewLine}");
             foreach (var gameResult in _dbContext.GameResults.Where(g => g.IsActive == true))
             {
-                Console.WriteLine("{0,-8} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10}",
+               var stringToColor = String.Format("{0,-8} {1,-15} {2,-15} {3,-10} {4,-20} {5,-10}",
                     $"{gameResult.Id}",
                     $"{gameResult.NumberOfPlayerWins}",
                     $"{gameResult.NumberOfComputerWins}",
                     $"{gameResult.AmountOfRounds}",
-                    $"{gameResult.AveragePlayerWins}",
+                    $"{gameResult.AveragePlayerWinsPercentage}%",
                     $"{gameResult.DateOfGameResult}");
+
+               ColorService.ConsoleWriteLineYellow(stringToColor);
                 Console.WriteLine(
-                    $"--------------------------------------------------------------------------------------");
+                    $"-------------------------------------------------------------------------------------------------");
             }
 
             return true;

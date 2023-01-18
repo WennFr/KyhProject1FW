@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameApp.Services;
 using ServiceLibrary.Messages;
+using ServiceLibrary.Services;
 
 namespace GameApp.Models
 {
@@ -30,7 +31,7 @@ namespace GameApp.Models
         public void ChooseAction()
         {
 
-            Console.WriteLine("[1]Rock, [2]paper or [3]scissors?");
+            ColorService.ConsoleWriteLineWhite($"{Environment.NewLine}[1]Rock, [2]Paper or [3]Scissors?");
             var userChoice = GameValidationService.ChooseAction();
 
             action = userChoice;

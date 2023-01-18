@@ -23,11 +23,11 @@ namespace CalculatorApp.Menus
         public void ShowMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Calculator {Environment.NewLine}");
-            Console.WriteLine("1) Create");
-            Console.WriteLine("2) View");
-            Console.WriteLine("3) Edit");
-            Console.WriteLine("4) Delete");
+            CalcMenuHeader.Calculator();
+            ColorService.ConsoleWriteLineCyan("1) Create");
+            ColorService.ConsoleWriteLineCyan("2) View");
+            ColorService.ConsoleWriteLineCyan("3) Edit");
+            ColorService.ConsoleWriteLineCyan("4) Delete");
             Console.WriteLine("0) Go back to main menu");
 
             MenuSelection();

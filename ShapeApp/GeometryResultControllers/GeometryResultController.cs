@@ -74,9 +74,9 @@ namespace ShapeApp.GeometryResultControllers
             double input1, input2, input3 = 0.00;
             if (Enum.TryParse<Shape.shape>(geometryResultToReturn.Shape.TypeOfShape, out validShape) && validShape == Shape.shape.Triangle)
             {
-                Console.WriteLine("Side 1(base):");
+                ColorService.ConsoleWriteLineDarkCyan("Side 1(base):");
                 input1 = UserInputService.ValidateDoubleInputAboveZero();
-                Console.WriteLine("Side 2");
+                ColorService.ConsoleWriteLineDarkCyan("Side 2");
                 input2 = UserInputService.ValidateDoubleInputAboveZero();
                 Console.WriteLine("Side 3:");
                 input3 = UserInputService.ValidateDoubleInputAboveZero();
@@ -84,9 +84,9 @@ namespace ShapeApp.GeometryResultControllers
             }
             else
             {
-                Console.WriteLine("Base: ");
+                ColorService.ConsoleWriteLineDarkCyan("Base: ");
                 input1 = UserInputService.ValidateDoubleInputAboveZero();
-                Console.WriteLine("Height:");
+                ColorService.ConsoleWriteLineDarkCyan("Height:");
                 input2 = UserInputService.ValidateDoubleInputAboveZero();
             }
 
@@ -135,10 +135,10 @@ namespace ShapeApp.GeometryResultControllers
         {
 
             int intSelection;
-            Console.WriteLine($"Choose id to select:");
+            ColorService.ConsoleWriteLineDarkCyan($"Choose id to select:");
             while (true)
             {
-                Console.WriteLine(">");
+                ColorService.ConsoleWriteDarkCyan(">");
                 if (int.TryParse(Console.ReadLine(), out intSelection) &&
                     _dbContext.GeometryResults.Any(c => c.Id == intSelection && c.IsActive == true))
                 {
@@ -154,21 +154,22 @@ namespace ShapeApp.GeometryResultControllers
 
         public void DisplayChosenResult(GeometryResult geometryResultToUpdate)
         {
-
+            var measurement = "cm";
             Console.WriteLine("{0,-10} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}", $"{Environment.NewLine}ID", "Shape", "Value1", "Value2", "Value3",
                 "Perimeter", "Area", $"Date of result {Environment.NewLine}");
 
             {
-                Console.WriteLine("{0,-8} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}",
-                    $"{geometryResultToUpdate.Id}",
-                    $"{geometryResultToUpdate.Shape.TypeOfShape}",
-                    $"{geometryResultToUpdate.Input1}",
-                    $"{geometryResultToUpdate.Input2}",
-                    $"{geometryResultToUpdate.Input3}",
-                    $"{geometryResultToUpdate.Perimeter}",
-                    $"{geometryResultToUpdate.Area}",
-                    $"{geometryResultToUpdate.DateOfGeometryResult}");
+                var stringToColor = String.Format("{0,-8} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}",
+                       $"{geometryResultToUpdate.Id}",
+                       $"{geometryResultToUpdate.Shape.TypeOfShape}",
+                       $"{geometryResultToUpdate.Input1}{measurement}",
+                       $"{geometryResultToUpdate.Input2}{measurement}",
+                       $"{geometryResultToUpdate.Input3}{measurement}",
+                       $"{geometryResultToUpdate.Perimeter}{measurement}",
+                       $"{geometryResultToUpdate.Area}{measurement}2",
+                       $"{geometryResultToUpdate.DateOfGeometryResult}");
 
+                ColorService.ConsoleWriteLineYellow(stringToColor);
                 Console.WriteLine(
                     $"----------------------------------------------------------------------------------------------------------------");
             }

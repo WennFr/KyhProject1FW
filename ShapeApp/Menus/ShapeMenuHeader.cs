@@ -13,7 +13,7 @@ namespace ShapeApp.Menus
         {
 
             ColorService.ConsoleWriteLineDarkGreen("Shapes");
-            Console.WriteLine("= = = = = = = = = = = = =");
+            Console.WriteLine("=========");
 
         }
 
@@ -28,17 +28,17 @@ namespace ShapeApp.Menus
 
         public static void ViewResults()
         {
-            Console.WriteLine($"View all Results{Environment.NewLine}");
+            ColorService.ConsoleWriteLineDarkGreen($"View all shapes{Environment.NewLine}");
         }
 
         public static void EditResult()
         {
-            Console.WriteLine($"Edit result {Environment.NewLine}");
+            ColorService.ConsoleWriteLineDarkGreen($"Edit shape {Environment.NewLine}");
         }
 
         public static void DeleteResult()
         {
-            Console.WriteLine($"Delete result {Environment.NewLine}");
+            ColorService.ConsoleWriteLineDarkGreen($"Delete shape {Environment.NewLine}");
         }
 
 

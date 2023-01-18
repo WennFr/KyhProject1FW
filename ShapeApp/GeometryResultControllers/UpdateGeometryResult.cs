@@ -40,6 +40,8 @@ namespace ShapeApp.GeometryResultControllers
                 while (isRunning)
                 {
                     Console.Clear();
+                    ShapeMenuHeader.EditResult();
+
                     _controller.DisplayChosenResult(resultToUpdate);
 
                     ShapeSubMenu.DisplayUpdateShapesSelection();
@@ -88,9 +90,9 @@ namespace ShapeApp.GeometryResultControllers
         {
             oldValue = resultToUpdate.Input1;
             if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
-                Console.Write($"{Environment.NewLine}Side1 (base):");
+                ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Side1 (base):");
             else
-                Console.WriteLine("Base: ");
+                ColorService.ConsoleWriteLineDarkCyan("Base: ");
 
             newValue = UserInputService.ValidateDoubleInputAboveZero();
 
@@ -115,10 +117,10 @@ namespace ShapeApp.GeometryResultControllers
             oldValue = resultToUpdate.Input2;
 
             if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape))
-                Console.Write($"{Environment.NewLine}Side2:");
+                ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Side2:");
 
             else
-                Console.WriteLine($"{Environment.NewLine}Height: ");
+                ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Height: ");
 
             newValue = UserInputService.ValidateDoubleInputAboveZero();
 
@@ -141,7 +143,7 @@ namespace ShapeApp.GeometryResultControllers
         {
             oldValue = resultToUpdate.Input3;
 
-            Console.Write($"{Environment.NewLine}Side3:");
+            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Side3:");
             newValue = UserInputService.ValidateDoubleInputAboveZero();
 
             resultToUpdate.Input3 = newValue;
@@ -164,8 +166,11 @@ namespace ShapeApp.GeometryResultControllers
             Console.Clear();
 
             ShapeSubMenu.DisplayAvailableShapesSelection();
-            Console.WriteLine($"{Environment.NewLine}What do shape do you want? {Environment.NewLine}");
+            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}What do shape do you want? {Environment.NewLine}");
             var userSelection = UserInputService.ValidateMenuSelection(4);
+
+            if (userSelection == 0)
+                return resultToUpdate;
 
             resultToUpdate.Shape = _controller.ReturnShapeObject(userSelection);
 
@@ -175,7 +180,7 @@ namespace ShapeApp.GeometryResultControllers
             else if (_controller.IsShapeTriangle(resultToUpdate.Shape.TypeOfShape) &&
                      resultToUpdate.Input3 <= 0)
             {
-                Console.Write($"{Environment.NewLine}Side3:");
+                ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Side3:");
 
                 newValue = UserInputService.ValidateDoubleInputAboveZero();
                 resultToUpdate.Input3 = newValue;

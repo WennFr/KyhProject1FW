@@ -23,18 +23,16 @@ namespace GameApp.GameResultControllers
         public void Create()
         {
             gameRound = new GameRound();
-
-
             RockPaperScissors();
             WhoIsGameWinner();
 
-            double averageHumanWins = Math.Round(Convert.ToDouble(gameRound.HumanWin) / Convert.ToDouble(gameRound.Round),2);
+            var averageHumanWins = GameWinAverageInPercent(gameRound.HumanWin,gameRound.ComputerWin);
 
             _dbContext.GameResults.Add(new GameResult()
             {
                 NumberOfPlayerWins = gameRound.HumanWin,
                 NumberOfComputerWins = gameRound.ComputerWin,
-                AveragePlayerWins = averageHumanWins,
+                AveragePlayerWinsPercentage = averageHumanWins,
                 AmountOfRounds = gameRound.Round,
                 DateOfGameResult = DateTime.Now,
                 IsActive = true
@@ -55,11 +53,12 @@ namespace GameApp.GameResultControllers
             {
                 Console.Clear();
                 gameRound.Round++;
-                Console.WriteLine($"Round {gameRound.Round} HUMAN:{gameRound.HumanWin} COMPUTER:{gameRound.ComputerWin} {Environment.NewLine}");
+                ScoreMenu();
 
                 gameRound.Human.ChooseAction();
                 gameRound.Computer.ChooseAction();
                 GameEventDisplay();
+                DisplayRoundScore();
                 WhoIsRoundWinner();
                 isRunning = ContinueOrExit();
             }
@@ -69,14 +68,13 @@ namespace GameApp.GameResultControllers
         public bool ContinueOrExit()
         {
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine("Do you want to play again y/n?");
+            ColorService.ConsoleWriteLineDarkCyan("Do you want to play again y/n?");
             var isTrue = UserInputService.ValidateTrueOrFalseUserChoice();
 
             if (isTrue)
                 return true;
 
             return false;
-
 
         }
 
@@ -85,20 +83,23 @@ namespace GameApp.GameResultControllers
             if (gameRound.HumanWin > gameRound.ComputerWin)
             {
                 Console.Clear();
-                Console.WriteLine("Human won the game!");
+                ColorService.ConsoleWriteGreen("HUMAN ");
+                ColorService.ConsoleWriteWhite($"won the game!{Environment.NewLine}");
 
             }
 
             else if (gameRound.HumanWin < gameRound.ComputerWin)
             {
                 Console.Clear();
-                Console.WriteLine("Computer won the game...");
+                ColorService.ConsoleWriteRed("COMPUTER ");
+                ColorService.ConsoleWriteWhite($"won the game...{Environment.NewLine}");
+
             }
 
             else
             {
                 Console.Clear();
-                Console.WriteLine("Game ends in a draw.");
+                ColorService.ConsoleWriteWhite($"Game ends in a draw. {Environment.NewLine}");
             }
             ServiceMessage.PressEnterToContinue();
         }
@@ -110,52 +111,65 @@ namespace GameApp.GameResultControllers
                 gameRound.Human.Action.ToUpper() == "PAPER" && gameRound.Computer.Action.ToUpper() == "ROCK")
             {
 
-                Console.WriteLine($"Human won round {gameRound.Round}");
+                ColorService.ConsoleWriteLineWhite($"{Environment.NewLine}Human won round {gameRound.Round}!");
                 gameRound.HumanWin++;
-                ServiceMessage.PressEnterToContinue();
             }
 
             else if (gameRound.Computer.Action.ToUpper() == "ROCK" && gameRound.Human.Action.ToUpper() == "SCISSORS" ||
                 gameRound.Computer.Action.ToUpper() == "SCISSORS" && gameRound.Human.Action.ToUpper() == "PAPER" ||
                      gameRound.Computer.Action.ToUpper() == "PAPER" && gameRound.Human.Action.ToUpper() == "ROCK")
             {
-                Console.WriteLine($"Computer won round {gameRound.Round}");
+                ColorService.ConsoleWriteLineWhite($"{Environment.NewLine}Computer won round {gameRound.Round}...");
                 gameRound.ComputerWin++;
-                ServiceMessage.PressEnterToContinue();
             }
 
             else
             {
-
-                Console.WriteLine($"Round {gameRound.Round} ends in a draw.");
-                ServiceMessage.PressEnterToContinue();
+                ColorService.ConsoleWriteLineWhite($"{Environment.NewLine}Round {gameRound.Round} ends in a draw.");
             }
-
 
         }
 
         public void GameEventDisplay()
         {
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine("...rock");
-            Thread.Sleep(1000);
-            Console.WriteLine("...paper");
-            Thread.Sleep(1000);
-            Console.WriteLine("...SCISSORS");
-            Thread.Sleep(1000);
+            ColorService.ConsoleWriteLineDarkMagenta("...rock");
+            Thread.Sleep(900);
+            ColorService.ConsoleWriteLineCyan("...paper");
+            Thread.Sleep(900);
+            ColorService.ConsoleWriteLineYellow("...SCISSORS");
+            Thread.Sleep(900);
             Console.WriteLine(Environment.NewLine);
-
-            Console.WriteLine($"HUMAN: {gameRound.Human.Action.ToUpper()}");
-            Console.WriteLine($"COMPUTER: {gameRound.Computer.Action.ToUpper()}");
-
         }
 
 
+        public void ScoreMenu()
+        {
+            ColorService.ConsoleWriteYellow($"Round:");
+            ColorService.ConsoleWriteWhite($" {gameRound.Round} ");
+            ColorService.ConsoleWriteGreen("HUMAN:");
+            ColorService.ConsoleWriteWhite($"{gameRound.HumanWin} ");
+            ColorService.ConsoleWriteRed("COMPUTER:");
+            ColorService.ConsoleWriteWhite($"{gameRound.ComputerWin} {Environment.NewLine}");
+        }
+
+        public void DisplayRoundScore()
+        {
+            //Console.WriteLine($"HUMAN: {gameRound.Human.Action.ToUpper()}");
+            ColorService.ConsoleWriteGreen($"HUMAN: ");
+            ColorService.ConsoleWriteWhite($"{gameRound.Human.Action.ToUpper()}{Environment.NewLine}");
+
+            ColorService.ConsoleWriteRed($"COMPUTER: ");
+            ColorService.ConsoleWriteWhite($"{gameRound.Computer.Action.ToUpper()}{Environment.NewLine}");
+
+        }
+
+        public double GameWinAverageInPercent(int humanWins, int computerWin)
+        {
 
 
+          return 100 * Math.Round(Convert.ToDouble(gameRound.HumanWin) / Convert.ToDouble(gameRound.Round), 2);
 
-
-
-
+        }
     }
 }

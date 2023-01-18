@@ -13,7 +13,7 @@ namespace ServiceLibrary.Data
         [Required]
         public int AmountOfRounds { get; set; }
         [Required]
-        public double AveragePlayerWins { get; set; }
+        public double AveragePlayerWinsPercentage { get; set; }
         [Required]
         public DateTime DateOfGameResult { get; set; }
         [Required]

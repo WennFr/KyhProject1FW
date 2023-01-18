@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using ServiceLibrary.Services;
 
 namespace ServiceLibrary.Messages
 {
@@ -12,18 +13,12 @@ namespace ServiceLibrary.Messages
 
         public static void NoActiveResultsToView()
         {
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Error: There are no active results to view");
-            Console.ForegroundColor = ConsoleColor.Gray;
-
+            ColorService.ConsoleWriteLineRed($"Error: There are no active results to view");
         }
 
         public static void ChooseBetweenAvailableMenuNumbers()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Choose between the available numbers in the menu");
-            Console.ForegroundColor = ConsoleColor.Gray;
+            ColorService.ConsoleWriteLineRed("Choose between the available numbers in the menu");
 
         }
 

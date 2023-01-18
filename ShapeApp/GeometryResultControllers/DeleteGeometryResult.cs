@@ -35,11 +35,11 @@ namespace ShapeApp.GeometryResultControllers
                
                 var resultToDelete = _controller.ChooseResultToReturn();
 
-                Console.WriteLine($"{Environment.NewLine}Are you sure you want to delete this result? y/n");
+                ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Are you sure you want to delete this result? y/n");
                 var isDeleteResult = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isDeleteResult)
                 {
-                    Console.WriteLine("Process cancelled.");
+                    ColorService.ConsoleWriteLineRed("Process cancelled.");
                     ServiceMessage.PressEnterToContinue();
                     break;
 

@@ -22,11 +22,11 @@ namespace ShapeApp.Menus
 
         public static void DisplayUpdateShapesSelection()
         {
-            Console.WriteLine($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
-            Console.WriteLine("1) Value 1");
-            Console.WriteLine("2) Value 2");
-            Console.WriteLine("3) Value 3 (if triangle)");
-            Console.WriteLine("4) Shape");
+            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
+            ColorService.ConsoleWriteLineGreen("1) Value 1");
+            ColorService.ConsoleWriteLineGreen("2) Value 2");
+            ColorService.ConsoleWriteLineGreen("3) Value 3 (if triangle)");
+            ColorService.ConsoleWriteLineGreen("4) Shape");
             Console.WriteLine("0) Save and exit");
 
         }

@@ -61,10 +61,14 @@ namespace ShapeApp.GeometryResultControllers
                 Console.Clear();
                 _controller.DisplayChosenResult(_geometryResultToCreate);
                 ServiceMessage.Sucess();
-                Console.WriteLine($"{Environment.NewLine}Create new result?(y/n)");
+                ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Create new result?(y/n)");
                 var isNewCalculation = UserInputService.ValidateTrueOrFalseUserChoice();
                 if (!isNewCalculation)
                     break;
+
+
+
+
 
             }
 

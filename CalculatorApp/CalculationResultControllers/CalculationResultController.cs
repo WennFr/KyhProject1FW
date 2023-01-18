@@ -38,8 +38,6 @@ namespace CalculatorApp.CalculationResultControllers
             _modulusStrategy = modulusStrategy;
         }
 
-
-
         public double SetNewCalculationResultStrategyPattern(double num1, double num2, char op)
         {
 
@@ -77,10 +75,10 @@ namespace CalculatorApp.CalculationResultControllers
         {
 
             int intSelection;
-            Console.WriteLine($"Choose the id of a result to select:");
+            ColorService.ConsoleWriteLineDarkCyan($"Choose id to select:");
             while (true)
             {
-                Console.WriteLine(">");
+                ColorService.ConsoleWriteDarkCyan(">");
                 if (int.TryParse(Console.ReadLine(), out intSelection) &&
                     _dbContext.CalculationResults.Any(c => c.Id == intSelection && c.IsActive == true))
                 {
@@ -95,7 +93,7 @@ namespace CalculatorApp.CalculationResultControllers
         }
 
 
-  
+
 
         public void DisplayChosenResult(CalculationResult calculationResult)
         {
@@ -105,13 +103,16 @@ namespace CalculatorApp.CalculationResultControllers
 
                 Console.WriteLine("{0,-10} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10}", $"{Environment.NewLine}ID", "x",
                     "op", "y", "=", $"result {Environment.NewLine}");
-                Console.WriteLine("{0,-8} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10}",
+
+                var stringToColor = String.Format("{0,-8} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10}",
                     $"{calculationResult.Id}",
                     $"{calculationResult.FirstNumber}",
                     $"{calculationResult.Operator}",
                     $"{calculationResult.SecondNumber}",
                     $"=",
                     $"{calculationResult.EquationResult}");
+
+                ColorService.ConsoleWriteLineYellow(stringToColor);
                 Console.WriteLine(
                     $"--------------------------------------------------------------------------------------");
             }
@@ -119,13 +120,16 @@ namespace CalculatorApp.CalculationResultControllers
             else
             {
                 Console.WriteLine("{0,-10} {1,-10} {2,-10} {3,-10} {4,-10} ", $"{Environment.NewLine}ID", "op",
-                    "x", "=",$"result {Environment.NewLine}");
-                Console.WriteLine("{0,-8} {1,-10} {2,-10} {3,-10} {4,-10} ",
+                    "x", "=", $"result {Environment.NewLine}");
+
+                var stringToColor = String.Format("{0,-8} {1,-10} {2,-10} {3,-10} {4,-10} ",
                     $"{calculationResult.Id}",
                     $"{calculationResult.Operator}",
                     $"{calculationResult.FirstNumber}",
                     $"=",
                     $"{calculationResult.EquationResult}");
+
+                ColorService.ConsoleWriteLineYellow(stringToColor);
                 Console.WriteLine(
                     $"--------------------------------------------------------------------------------------");
 

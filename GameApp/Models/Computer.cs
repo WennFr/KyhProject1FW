@@ -28,8 +28,6 @@ namespace GameApp.Models
         {
             Random random = new Random();
             action = $"{RockPaperScissors[random.Next(RockPaperScissors.Length)]}";
-
-
         }
 
 

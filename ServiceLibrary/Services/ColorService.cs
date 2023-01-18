@@ -15,12 +15,28 @@ namespace ServiceLibrary.Services
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
+
+        public static void ConsoleWriteRed(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
         public static void ConsoleWriteLineGreen(string stringToColor)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(stringToColor);
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+
+        public static void ConsoleWriteGreen(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
 
         public static void ConsoleWriteLineBlue(string stringToColor)
         {
@@ -42,12 +58,28 @@ namespace ServiceLibrary.Services
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
+        public static void ConsoleWriteWhite(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+
         public static void ConsoleWriteLineYellow(string stringToColor)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(stringToColor);
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+
+        public static void ConsoleWriteYellow(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
 
         public static void ConsoleWriteLineDarkGrey(string stringToColor)
         {
@@ -73,5 +105,14 @@ namespace ServiceLibrary.Services
             Console.WriteLine(stringToColor);
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+        public static void ConsoleWriteDarkCyan(string stringToColor)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write(stringToColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+
+
     }
 }

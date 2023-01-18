@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLibrary.Services;
 
 namespace CalculatorApp.Menus
 {
@@ -10,13 +11,13 @@ namespace CalculatorApp.Menus
     {
         public static void DisplayAvailableOperatorsSelection()
         {
-            Console.Write($"{Environment.NewLine}Operator: {Environment.NewLine}");
-            Console.WriteLine($"1.+");
-            Console.WriteLine($"2.-");
-            Console.WriteLine($"3.*");
-            Console.WriteLine($"4./");
-            Console.WriteLine($"5.√");
-            Console.WriteLine($"6.%:");
+            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Operator: {Environment.NewLine}");
+            ColorService.ConsoleWriteLineCyan($"1.+");
+            ColorService.ConsoleWriteLineCyan($"2.-");
+            ColorService.ConsoleWriteLineCyan($"3.*");
+            ColorService.ConsoleWriteLineCyan($"4./");
+            ColorService.ConsoleWriteLineCyan($"5.√");
+            ColorService.ConsoleWriteLineCyan($"6.%:");
 
         }
 

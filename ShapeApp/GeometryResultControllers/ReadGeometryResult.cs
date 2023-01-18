@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ServiceLibrary.Interfaces;
 using ServiceLibrary.Messages;
+using ServiceLibrary.Services;
 
 namespace ShapeApp.GeometryResultControllers
 {
@@ -22,12 +23,12 @@ namespace ShapeApp.GeometryResultControllers
                 return false;
             }
 
-            Console.WriteLine("{0,-10} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}", $"{Environment.NewLine}ID", "Shape", "Value1", "Value2", "Value3", 
+            Console.WriteLine("{0,-10} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}", $"{Environment.NewLine}ID", "Shape", "Value1", "Value2", "Value3",
                 "Perimeter", "Area", $"Date of result {Environment.NewLine}");
 
-            foreach (var geometryResult in _dbContext.GeometryResults.Where(c => c.IsActive == true).Include(s=> s.Shape))
+            foreach (var geometryResult in _dbContext.GeometryResults.Where(c => c.IsActive == true).Include(s => s.Shape))
             {
-                Console.WriteLine("{0,-8} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}",
+                var stringToColor = String.Format("{0,-8} {1,-13} {2,-10} {3,-10} {4,-10} {5,-15} {6,-10} {7,-10}",
                     $"{geometryResult.Id}",
                     $"{geometryResult.Shape.TypeOfShape}",
                     $"{geometryResult.Input1}",
@@ -37,8 +38,9 @@ namespace ShapeApp.GeometryResultControllers
                     $"{geometryResult.Area}",
                     $"{geometryResult.DateOfGeometryResult}");
 
-                    Console.WriteLine(
-                    $"----------------------------------------------------------------------------------------------------------------");
+                ColorService.ConsoleWriteLineYellow(stringToColor);
+                Console.WriteLine(
+                $"----------------------------------------------------------------------------------------------------------------");
             }
 
             return true;

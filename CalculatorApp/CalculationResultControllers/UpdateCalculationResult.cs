@@ -47,11 +47,11 @@ namespace CalculatorApp.CalculationResultControllers
                     Console.Clear();
                     _controller.DisplayChosenResult(resultToUpdate);
 
-                    Console.WriteLine($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
-                    Console.WriteLine("1) First number");
-                    Console.WriteLine("2) Operator");
-                    Console.WriteLine("3) Second number");
-                    Console.WriteLine("0) Save and exit");
+                    ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}What do you want to edit? {Environment.NewLine}");
+                    ColorService.ConsoleWriteLineCyan("1) First number");
+                    ColorService.ConsoleWriteLineCyan("2) Operator");
+                    ColorService.ConsoleWriteLineCyan("3) Second number");
+                    ColorService.ConsoleWriteLineGreen("0) Save and exit");
 
                     var userSelection = UserInputService.ValidateMenuSelection(3);
                     var newNumber = 0.00;
@@ -59,7 +59,7 @@ namespace CalculatorApp.CalculationResultControllers
                     switch (userSelection)
                     {
                         case 1:
-                            Console.Write($"{Environment.NewLine}First number:");
+                            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}First number:");
                             newNumber = UserInputService.ValidateDoubleInput();
                             if (MathErrorExceptionService.IsInfinity(newNumber) || MathErrorExceptionService.IsDividedByZero(newNumber, resultToUpdate.SecondNumber, resultToUpdate.Operator)
                                                                   || MathErrorExceptionService.IsSquareRootOfNegativeNumber(newNumber, resultToUpdate.Operator))
@@ -89,7 +89,7 @@ namespace CalculatorApp.CalculationResultControllers
                             if (resultToUpdate.Operator == '√')
                                 continue;
 
-                            Console.Write($"{Environment.NewLine}Second number:");
+                            ColorService.ConsoleWriteLineDarkCyan($"{Environment.NewLine}Second number:");
                             newNumber = UserInputService.ValidateDoubleInput();
                             if (MathErrorExceptionService.IsInfinity(newNumber) || MathErrorExceptionService.IsDividedByZero(resultToUpdate.FirstNumber, newNumber, resultToUpdate.Operator))
                                 continue;
