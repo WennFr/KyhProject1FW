@@ -17,7 +17,7 @@ namespace GameApp.Menus
         public void ShowMenu()
         {
             Console.Clear();
-            ColorService.ConsoleWriteLineWhite($"Rock,Paper,Scissors {Environment.NewLine}");
+            GameMenuHeader.GameHeader();
             ColorService.ConsoleWriteLineGreen("1) Play Game");
             ColorService.ConsoleWriteLineYellow("2) View Results");
             Console.WriteLine("0) Go back to main menu");
