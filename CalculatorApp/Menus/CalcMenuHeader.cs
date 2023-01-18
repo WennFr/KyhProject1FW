@@ -13,7 +13,7 @@ namespace CalculatorApp.Menus
         public static void Calculator()
         {
             ColorService.ConsoleWriteLineBlue("Calculator");
-            Console.WriteLine("=========");
+            Console.WriteLine("=============");
 
         }
 
