@@ -86,9 +86,31 @@ namespace ServiceLibrary.Data
                     DateOfGeometryResult = DateTime.Now,
                     IsActive = true
                 });
+                dbContext.GeometryResults.Add(new GeometryResult()
+                {
 
+                    Shape = dbContext.Shapes.FirstOrDefault(s => s.TypeOfShape == Convert.ToString(Shape.shape.Triangle)),
+                    Input1 = 15,
+                    Input2 = 24,
+                    Input3 = 30,
+                    Perimeter = 15 + 24 + 30,
+                    Area = 178.29,
+                    DateOfGeometryResult = DateTime.Now,
+                    IsActive = true
+                });
 
+                dbContext.GeometryResults.Add(new GeometryResult()
+                {
 
+                    Shape = dbContext.Shapes.FirstOrDefault(s => s.TypeOfShape == Convert.ToString(Shape.shape.Rhombus)),
+                    Input1 = 9,
+                    Input2 = 32,
+                    Input3 = 0,
+                    Perimeter = 4 * 9,
+                    Area = 9 * 32,
+                    DateOfGeometryResult = DateTime.Now,
+                    IsActive = true
+                });
 
 
             }
