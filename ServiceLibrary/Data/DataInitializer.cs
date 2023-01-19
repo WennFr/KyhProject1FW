@@ -25,6 +25,9 @@ namespace ServiceLibrary.Data
         {
             SeedShapes();
             dbContext.SaveChanges();
+            SeedGeometryResults();
+            dbContext.SaveChanges();
+
         }
 
         public void SeedShapes()
@@ -54,5 +57,49 @@ namespace ServiceLibrary.Data
             }
 
         }
+
+        public void SeedGeometryResults()
+        {
+            if (!dbContext.GeometryResults.Any())
+            {
+                dbContext.GeometryResults.Add(new GeometryResult()
+                {
+
+                    Shape = dbContext.Shapes.FirstOrDefault(s => s.TypeOfShape == Convert.ToString(Shape.shape.Rectangle)),
+                    Input1 = 30,
+                    Input2 = 40,
+                    Input3 = 0,
+                    Perimeter = (2 * 30) + (2 * 40),
+                    Area = 30 * 40,
+                    DateOfGeometryResult = DateTime.Now,
+                    IsActive = true
+                });
+                dbContext.GeometryResults.Add(new GeometryResult()
+                {
+
+                    Shape = dbContext.Shapes.FirstOrDefault(s => s.TypeOfShape == Convert.ToString(Shape.shape.Parallelogram)),
+                    Input1 = 15,
+                    Input2 = 24,
+                    Input3 = 0,
+                    Perimeter = (2 * 15) + (2 * 24),
+                    Area = 15 * 24,
+                    DateOfGeometryResult = DateTime.Now,
+                    IsActive = true
+                });
+
+
+
+
+
+            }
+
+
+
+
+        }
+
+
+
+
     }
 }
